@@ -1,0 +1,59 @@
+sonata_media:
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
+    default_context: default # you need to set a context
+    force_disable_category: true # true, if you really want to disable the relation with category
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+        events:
+          providers:
+            - sonata.media.provider.image
+
+          formats:
+            small: { width: 450, quality: 70}
+
+        news:
+          providers:
+            - sonata.media.provider.image
+
+          formats:
+            list: { width: 585 }
+
+        slider:
+          providers:
+            - sonata.media.provider.image
+
+        static_pages:
+          providers:
+            - sonata.media.provider.image
+            - sonata.media.provider.file
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  "%kernel.root_dir%/../public_html/uploads/media" #flex
+            #directory:  "%kernel.root_dir%/../public_html/uploads/media" #non-flex
+            create:     true
+    class:
+        media: App\Application\Sonata\MediaBundle\Entity\Media
+        gallery: App\Application\Sonata\MediaBundle\Entity\Gallery
+        gallery_has_media: App\Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+        category: App\Application\Sonata\ClassificationBundle\Entity\Category

@@ -1,0 +1,85 @@
+Article: Статья
+Настройки robots: Robots.txt
+Redirect Rule List: Список правил редиректа
+Id: Id
+Rule List: Список правил
+Content: Контент(содержимое)
+Name: Название
+Config Site Create: Создание конифгурации
+sonata.media.provider.dailymotion: Дайлимоушен
+sonata.media.provider.youtube: Ютуб
+sonata.media.provider.image: Изображение
+sonata.media.provider.file: Файл
+sonata.media.provider.vimeo: Вимео
+default: Стандартный
+Article List: Спиcок статей
+Title: Название
+Preview: Обзор
+Article Create: Создание статьи
+message_close: Закрыть сообщение
+Action: Действия
+Property: Приоритет
+Rule Create: Создание правила
+Address: Адрес
+Phone: Контактный телефон
+Hall List: Список площадок
+Hall: Площадка
+Handbook: Справочник
+Created At: Дата создания
+Updated At: Дата обновления
+Hall Create: Добавить площадку
+City List: Список городов
+City Create: Добавить город
+Short Name: Короткое название
+Description: Описание
+Is Default: По-умолчанию
+events: Мероприятия
+news: Новости
+static_pages: Статичные страницы
+Subscribe List: Список подписок
+Subscribe Create: Добавить подписку
+City: Город
+Artist List: Список артистов
+Artist Create: Добавить артиста
+Biography: Биография
+Menu List: Список пунктов меню
+Menu Create: Добавить пункт меню
+Link: Ссылка
+Is Active: Активен?
+News List: Список новостей
+News Create: Добавить новость
+Is Published: Опубликован?
+Picture: Картинка
+Preview Description: Текст анонса
+Is Canceled: Отменен?
+Artist: Артист
+Tags: Теги
+Color: Цвет
+Big Picture: Большая картинка
+Is Preview Big: Большая картинка?
+Started At: Дата начала
+Tickets: Билеты
+Time: Время
+Event List: Список мероприятий
+Event Create: Добавить мероприятие
+Tag List: Список тегов
+Tag Create: Добавить тег
+Event: Мероприятие
+Event Slider List: Список слайдов
+Event Slider Create: Добавить слайд
+Slug: URL-Алиас
+Subscribe Text: Текст для подписки
+Tag Text: Текст для тегов
+Age: Возрастные ограничения
+Social Links: Ссылки на социальные сети
+Additional Text: Дополнительное описание
+Sort: Сортировка
+Text: Текст
+Template: Шаблон
+Small Text: Маленький текст
+Is Main: Основной?
+Meta Title: Заголовок страницы
+Meta Description: Описание страницы
+Meta Keywords: Ключи страницы
+Event City: Город мероприятия
+Event Started At: Дата начала мероприятия
