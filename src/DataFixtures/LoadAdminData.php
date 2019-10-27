@@ -1,20 +1,20 @@
 <?php
 
-namespace App\DataFixtures\ORM;
+namespace App\DataFixtures;
 
 use App\Application\Sonata\UserBundle\Entity\User;
-use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class LoadAdminDataFixture
- * @package App\DataFixtures\ORM
+ * Class LoadAdminData
+ * @package App\DataFixtures
  */
-class LoadAdminDataFixture extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadAdminData extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
      * @var ContainerInterface
