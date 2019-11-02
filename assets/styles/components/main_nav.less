@@ -32,7 +32,7 @@
       z-index: -1; // under .main-nav__link
     }
 
-    &:not(:first-child)::after {
+    &:not(:first-child):not(:last-child)::after {
       top: 50%;
       right: -35px;
       transform: translateY(-50%);

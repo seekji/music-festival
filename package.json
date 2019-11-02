@@ -1,8 +1,10 @@
 {
     "devDependencies": {
         "@symfony/webpack-encore": "^0.28.0",
+        "autoprefixer": "^9.7.1",
         "core-js": "^3.0.0",
         "less-loader": "^4.1.0",
+        "postcss-loader": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
         "webpack-notifier": "^1.6.0"
     },
@@ -17,5 +19,10 @@
     "dependencies": {
         "less": "^3.10.3",
         "normalize.css.less": "^3.0.3"
-    }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
 }
