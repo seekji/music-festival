@@ -33,11 +33,16 @@ Encore
 // uncomment if you use TypeScript
 //.enableTypeScriptLoader()
 
-// uncomment if you use Sass/SCSS files
-.enableSassLoader()
+    .enableLessLoader()
 
 // uncomment if you're having problems with a jQuery plugin
 //.autoProvidejQuery()
+    .cleanupOutputBeforeBuild()
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[hash:8].[ext]'
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
+
