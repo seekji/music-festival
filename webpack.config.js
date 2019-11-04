@@ -49,11 +49,17 @@ Encore
 
     .addLoader({
         test: /\.svg$/,
-        loader: 'svg-sprite-loader'
+        exclude: /images/,
+        loader: 'svg-sprite-loader',
+        options: {
+            spriteFilename: 'media/sprite.[hash:8].svg',
+            esModule: false
+        }
     })
 
     .addPlugin(
-        new SpriteLoaderPlugin()
+        new SpriteLoaderPlugin({
+        })
     )
 ;
 

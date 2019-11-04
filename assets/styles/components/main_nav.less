@@ -17,7 +17,7 @@
       margin-left: 30px;
     }
 
-    &::after {
+    &:not(:last-child)::after {
       content: '';
       position: absolute; // base on .main-nav__item
     }
@@ -38,7 +38,7 @@
       transform: translateY(-50%);
       height: 28px;
       width: 34px;
-      background: url('../../images/main_nav_slash.svg') no-repeat;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNjUuMiAxMzYuOSIgdmlld0JveD0iMCAwIDE2NS4yIDEzNi45IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yOC4zIDEzNi45IDEzNi45LTEzNi45aC0yOC4zbC0xMzYuOSAxMzYuOXoiIGZpbGw9IiNmZjAwMWUiLz48L3N2Zz4=);
       background-size: contain;
     }
   }

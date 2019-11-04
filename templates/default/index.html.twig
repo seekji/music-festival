@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('index') }}
+{% endblock %}
+
 {% block body %}
   <div
     class="promo">
@@ -10,39 +15,50 @@
       <div
         class="promo__slider background-slider">
 
-        <div
-          class="background-slider__slide">
 
-          <img
-            src="{{ asset('build/assets/images/main_slider.jpg') }}"
-            alt="Billie Eilish"
-            class="background-slider__img">
+        <div
+          class="background-slider__nav">
+
+          <button
+            type="button"
+            class="background-slider__nav-btn background-slider__prev-btn">
+
+            <svg
+              class="background-slider__icon">
+              <use xlink:href="#slider-arrow-prev"></use>
+            </svg>
+          </button>
+
+          {# Set in js #}
+          <div class="background-slider__name"></div>
+
+          <button
+            type="button"
+            class="background-slider__nav-btn background-slider__next-btn">
+
+            <svg
+              class="background-slider__icon">
+              <use xlink:href="#slider-arrow-next"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="background-slider__track">
 
           <div
-            class="background-slider__content">
+            data-artist-name="Billie Eilish"
+            class="background-slider__slide">
 
-            <button
-              class="background-slider__nav-btn background-slider__next-btn">
+            <img
+              src="{{ asset('build/assets/images/main_slider.jpg') }}"
+              alt="Billie Eilish"
+              class="background-slider__img">
+          </div>
 
-              <svg
-                class="background-slider__icon">
-                <use xlink:href="#slider-arrow-prev"></use>
-              </svg>
-            </button>
-
-            <div
-              class="background-slider__text">
-              Billie Eilish
-            </div>
-
-            <button
-              class="background-slider__nav-button background-slider__prev-btn">
-
-              <svg
-                class="background-slider__icon">
-                <use xlink:href="#slider-arrow-next"></use>
-              </svg>
-            </button>
+          <div
+            data-artist-name="EA EA"
+            class="background-slider__slide">
           </div>
         </div>
       </div>
