@@ -22,7 +22,7 @@ interface LocaleInterface
      * List of available locales.
      */
     public const LOCALE_LIST = [
-        self::LAN_RU => 'Ру',
+        self::LAN_RU => 'Руc',
         self::LAN_EN => 'En'
     ];
 
@@ -35,5 +35,5 @@ interface LocaleInterface
     /**
      * @return string
      */
-    public function getLocale(): string;
+    public function getLocale(): ?string;
 }

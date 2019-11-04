@@ -28,7 +28,7 @@ trait LocaleTrait
     /**
      * @return string
      */
-    public function getLocale(): string
+    public function getLocale(): ?string
     {
         return $this->locale;
     }

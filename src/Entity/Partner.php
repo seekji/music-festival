@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Application\Sonata\MediaBundle\Entity\Media;
+use App\Entity\Locale\LocaleInterface;
+use App\Entity\Locale\LocaleTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -10,9 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
  */
-class Partner
+class Partner implements LocaleInterface
 {
-    use Timestampable;
+    use Timestampable, LocaleTrait;
 
     /**
      * @ORM\Id()

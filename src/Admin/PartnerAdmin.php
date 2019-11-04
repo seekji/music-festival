@@ -2,12 +2,14 @@
 
 namespace App\Admin;
 
+use App\Entity\Locale\LocaleInterface;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
@@ -24,6 +26,9 @@ class PartnerAdmin extends AbstractAdmin
         $filter
             ->add('id')
             ->add('name')
+            ->add('locale', null, [], ChoiceType::class, [
+                'choices' => array_flip(LocaleInterface::LOCALE_LIST)
+            ])
             ->add('isBig');
     }
 
@@ -38,6 +43,7 @@ class PartnerAdmin extends AbstractAdmin
             ->add('id')
             ->add('name')
             ->add('sort')
+            ->add('locale', 'choice', ['choices' => LocaleInterface::LOCALE_LIST])
             ->add('createdAt')
             ->add('updatedAt')
             ->add('_action', null, [
@@ -55,6 +61,9 @@ class PartnerAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $form)
     {
         $form->with('Свойства партнера', ['class' => 'col-md-9'])
+                ->add('locale', ChoiceType::class, [
+                    'choices' => array_flip(LocaleInterface::LOCALE_LIST)
+                ])
                 ->add('name')
                 ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'partners']])
             ->end()
