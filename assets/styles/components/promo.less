@@ -1,6 +1,30 @@
+@promo-slider-width-default: calc(100% + @container-padding-default);
+
 .promo {
+  min-height: 734px;
+  height: 100vh;
 
   &__inner {
+    position: relative; // for pseudo elements and .promo__slider
+    height: 100%;
     .container-fluid();
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute; // base on .promo__inner
+    }
+
+    &::before {
+
+    }
+  }
+
+  &__slider {
+    position: absolute; // base on .promo
+    top: 0;
+    left: -@container-padding-default;
+    height: 100%;
+    width: @promo-slider-width-default;
   }
 }

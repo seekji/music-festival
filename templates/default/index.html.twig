@@ -7,7 +7,50 @@
     <div
       class="promo__inner">
 
-      .
+      <div
+        class="promo__slider background-slider">
+
+        <div
+          class="background-slider__slide">
+
+          <img
+            src="{{ asset('build/assets/images/main_slider.jpg') }}"
+            alt="Billie Eilish"
+            class="background-slider__img">
+
+          <div
+            class="background-slider__content">
+
+            <button
+              class="background-slider__nav-btn background-slider__next-btn">
+
+              <svg
+                class="background-slider__icon">
+                <use xlink:href="#slider-arrow-prev"></use>
+              </svg>
+            </button>
+
+            <div
+              class="background-slider__text">
+              Billie Eilish
+            </div>
+
+            <button
+              class="background-slider__nav-button background-slider__prev-btn">
+
+              <svg
+                class="background-slider__icon">
+                <use xlink:href="#slider-arrow-next"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+{% endblock %}
+
+{% block javascript %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('index') }}
 {% endblock %}

@@ -3,9 +3,12 @@
         "@symfony/webpack-encore": "^0.28.0",
         "autoprefixer": "^9.7.1",
         "core-js": "^3.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "jquery": "^3.4.1",
         "less-loader": "^4.1.0",
         "postcss-loader": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
+        "svg-sprite-loader": "^4.1.6",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -18,7 +21,8 @@
     },
     "dependencies": {
         "less": "^3.10.3",
-        "normalize.css.less": "^3.0.3"
+        "normalize.css.less": "^3.0.3",
+        "slick-carousel": "^1.8.1"
     },
     "browserslist": [
         "> 1%",

@@ -1,12 +1,15 @@
-@import(reference) '../components/main_nav.less';
-
 .page-header {
+  position: absolute; // base on first page block
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 
   &__inner {
     position: relative; // for .page-header__logo
     display: flex;
     justify-content: space-between;
-    .fluid-container();
+    .container-fluid();
   }
 
   &__lang {

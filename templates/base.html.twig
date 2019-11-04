@@ -18,7 +18,10 @@
 </head>
 <body>
     {% include 'blocks/header.html.twig' %}
-    {% block body %}{% endblock %}
+    {% block body %}
+        <svg>
+        <use xlink:href="#slider-arrow-next"></use>
+    </svg>{% endblock %}
 
     {% block javascript %}
         {{ encore_entry_script_tags('app') }}
