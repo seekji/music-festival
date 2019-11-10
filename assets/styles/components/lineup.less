@@ -1,0 +1,118 @@
+.lineup {
+  background: @cod-gray;
+  color: @white;
+
+  &__inner {
+    .container();
+    display: flex;
+  }
+
+  &__column-left {
+    padding-top: 115px;
+    width: 41.65%;
+  }
+
+  &__column-right {
+    padding-top: 105px;
+    padding-left: 30px;
+    width: 58.35%;
+  }
+
+  &__title {
+    position: relative; // for title text
+    margin: 0 0 200px;
+    font-size: 90px;
+  }
+
+  &__title-text {
+    position: absolute;
+    left: 0.3em;
+    top: 0.8em;
+    font-weight: 800;
+    z-index: 1; // over year
+    .textTruncate();
+  }
+
+  &__year {
+    color: @color-main;
+    font-size: 180px;
+    line-height: 0.8;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+  &__year-decade {
+    padding-left: 0.5em;
+  }
+
+  &__text-block {
+    width: 95%;
+
+    + .lineup__text-block {
+      margin-top: 200px;
+    }
+
+    &--has-link {
+
+      .lineup__subtitle-icon {
+        display: block;
+      }
+    }
+  }
+
+  &__subtitle {
+    position: relative; // for subtitle-text
+    display: block;
+    margin: 0 0 30px;
+    color: @white;
+    text-decoration: none;
+  }
+
+  &__subtitle-text {
+    font-size: 60px;
+    font-weight: 800;
+    .textTruncate();
+  }
+
+  &__subtitle-wrap {
+    position: relative; // for subtitle-icon
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__subtitle-number {
+    font-size: 180px;
+    color: @color-main;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.8;
+  }
+
+  &__subtitle-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: -120px;
+    width: 170px;
+    height: 26px;
+  }
+
+  &__subtitle-text {
+    position: absolute;
+    left: 20px;
+    bottom: -25px;
+    .textTruncate();
+  }
+
+  &__description {
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  &__date {
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+}

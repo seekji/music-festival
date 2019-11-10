@@ -3,3 +3,4 @@ import 'slick-carousel/slick/slick.css';
 
 import backgroundSlider from '../components/background_slider.js';
 import menuToggler from '../components/menu_toggler.js';
+import buyTicketrs from '../components/buy_tickets.js';
