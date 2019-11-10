@@ -1,26 +1,16 @@
-<header
-  class="page-header">
+<header class="page-header">
+  <div class="page-header__inner">
 
-  <div
-    class="page-header__inner">
-
-    <a
-      href="#"
-      class="page-header__lang">
-      En
-    </a>
+    <a href="#" class="page-header__lang">En</a>
 
     {# or a on inner pages #}
-    <div
-      class="page-header__logo">
-
+    <div class="page-header__logo">
       <img
         src="{{ asset('build/assets/images/logo.svg') }}"
         alt="Рок над волгой: логотип">
     </div>
 
-    <div
-      class="page-header__main-nav">
+    <div class="page-header__main-nav">
       {{ include('blocks/main_nav.html.twig') }}
     </div>
   </div>

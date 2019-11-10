@@ -7,25 +7,17 @@
 
 {% block body %}
   <div class="promo">
-
     <div class="promo__inner">
 
       <div class="promo__slider background-slider">
-
         <div class="background-slider__nav">
-
           <button type="button" class="background-slider__nav-btn background-slider__prev-btn">
-
             <svg class="background-slider__icon">
               <use xlink:href="#slider-arrow-prev"></use>
             </svg>
           </button>
-
-          {# Set in js #}
-          <div class="background-slider__name"></div>
-
+          <div class="background-slider__name">{# Set in js #}</div>
           <button type="button" class="background-slider__nav-btn background-slider__next-btn">
-
             <svg class="background-slider__icon">
               <use xlink:href="#slider-arrow-next"></use>
             </svg>
@@ -33,11 +25,8 @@
         </div>
 
         <div class="background-slider__track">
-
           <div data-artist-name="Billie Eilish" class="background-slider__slide">
-
             <div class="background-slider__container">
-
               <img
                 src="{{ asset('build/assets/images/main_slider.jpg') }}"
                 alt="Billie Eilish"
@@ -46,9 +35,7 @@
           </div>
 
           <div data-artist-name="EA EA" class="background-slider__slide">
-
             <div class="background-slider__container">
-
               <img
                 src="{{ asset('build/assets/images/main_slider.jpg') }}"
                 alt="Billie Eilish"
@@ -56,6 +43,24 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="promo__socials socials">
+        <a href="#" class="socials__link" title="Vkontakte">
+          <svg class="socials__icon" width="33" height="21">
+            <use xlink:href="#icon-vk"></use>
+          </svg>
+        </a>
+        <a href="#" class="socials__link" title="Facebook">
+          <svg class="socials__icon" width="15" height="32">
+            <use xlink:href="#icon-fb"></use>
+          </svg>
+        </a>
+        <a href="#" class="socials__link" title="Youtube">
+          <svg class="socials__icon" width="33" height="27">
+            <use xlink:href="#icon-youtube"></use>
+          </svg>
+        </a>
       </div>
 
       <div class="promo__start-timer start-timer">
