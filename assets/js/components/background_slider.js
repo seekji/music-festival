@@ -23,7 +23,9 @@ $(document).ready(function () {
         centerMode: true,
         centerPadding: '0',
         nextArrow: $('.background-slider__next-btn'),
-        prevArrow: $('.background-slider__prev-btn')
+        prevArrow: $('.background-slider__prev-btn'),
+        fade: true,
+        speed: 500,
     });
 
     backgroundSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
