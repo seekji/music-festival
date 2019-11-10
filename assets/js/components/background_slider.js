@@ -26,7 +26,6 @@ $(document).ready(function () {
         prevArrow: $('.background-slider__prev-btn')
     });
 
-
     backgroundSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         setArtistName(nextSlide);
     });
