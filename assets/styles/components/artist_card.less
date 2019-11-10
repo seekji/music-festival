@@ -1,0 +1,45 @@
+.artist-card {
+  display: flex;
+  width: 90%;
+
+  + .artist-card {
+    margin-top: 60px;
+  }
+
+  &__time {
+    flex-shrink: 0;
+    padding-top: 55px;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  &__img-wrap {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+    width: 170px;
+  }
+
+  &__img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__info {
+    padding-top: 55px;
+  }
+
+  &__title {
+    width: 80%;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
