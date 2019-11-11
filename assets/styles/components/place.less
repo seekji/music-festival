@@ -1,6 +1,86 @@
 .place {
+  position: relative; // for ::after
   height: 100vh;
   min-height: 730px;
   background: url('../../images/place_bg.jpg') center no-repeat;
   background-size: cover;
+  color: @white;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA3MzMgOTAxLjEiIHZpZXdCb3g9IjAgMCA3MzMgOTAxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTAgMCA5OC42IDk4LjZoLTg0LjFsMzczLjIgMzczLjJoLTg0LjFsNDI5LjQgNDI5LjN2LTkwMS4xeiIgZmlsbD0iI2ZmMDAxZSIvPjxnIGZpbGw9IiMwMDAwMWUiPjxwYXRoIGQ9Im0zNDUuNyA1MTMuOCA0Mi00MmgtODQuMXoiLz48cGF0aCBkPSJtNTYuNiAxNDAuNyA0Mi00Mi4xaC04NC4xeiIvPjwvZz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 732px;
+    height: 906px;
+  }
+
+  &__inner {
+    .container();
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__content {
+    position: relative; // for z-index
+    padding-top: 100px;
+    padding-right: 27px;
+    width: 48%;
+    z-index: 1;
+  }
+
+  &__description {
+    margin-left: 200px;
+    width: 45%;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  &__title {
+    width: 80%;
+    margin-bottom: 70px;
+    font-weight: 800;
+    font-size: 90px;
+    line-height: 1;
+    text-indent: -1.7em;
+    padding-left: 1.7em; // compensation
+    margin-left: 45px;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: @white;
+    text-decoration: none;
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 90px;
+    font-weight: 800;
+    line-height: 0.8;
+  }
+
+  &__link-text {
+    width: 40%;
+    padding-right: 5px;
+    text-align: right;
+    direction: rtl;
+    font-size: 24px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    text-indent: 0.5em;
+  }
+
+  &__icon {
+    width: 94px;
+    height: 27px;
+  }
 }

@@ -76,7 +76,9 @@
       <div class="lineup__column-left">
         <h2 class="lineup__title">
           <div class="lineup__title-text">Лайнап</div>
-          <div class="lineup__year">20 <div class="lineup__year-decade">20</div></div>
+          <div class="lineup__year">20
+            <div class="lineup__year-decade">20</div>
+          </div>
         </h2>
 
         <div class="lineup__text-block lineup__text-block--has-link">
@@ -124,34 +126,36 @@
 
     <div class="buy-tickets">
       <a href="#" class="buy-tickets__link">
-          <div class="buy-tickets__text">Купить билеты</div>
-          <svg class="buy-tickets__icon">
-            <use xlink:href="#arrow-right"></use>
-          </svg>
+        <div class="buy-tickets__text">Купить билеты</div>
+        <svg class="buy-tickets__icon">
+          <use xlink:href="#arrow-right"></use>
+        </svg>
       </a>
     </div>
   </section>
 
   <section class="place">
     <div class="place__inner">
-      <div class="place__description">
-        В 2020 году фестиваль будет проходить на лучшей и самой современной площадке
-        Самары — новейшем стадионе
-      </div>
-      <div class="place__title">
-        Самара арена
-      </div>
-      <a href="#" class="place__link">
-        <div class="place__number">
-          <span>+ 2</span>
-          <svg class="buy-tickets__icon">
-            <use xlink:href="#arrow-right"></use>
-          </svg>
+      <div class="place__content">
+        <div class="place__description">
+          В 2020 году фестиваль будет проходить на лучшей и самой современной площадке
+          Самары — новейшем стадионе
         </div>
-        <span class="place__link-text">
-          Бесплатные фан-зоны
-        </span>
-      </a>
+        <div class="place__title">
+          Самара арена
+        </div>
+        <a href="#" class="place__link">
+          <div class="place__number">
+            <span>+2</span>
+            <svg class="place__icon">
+              <use xlink:href="#arrow-right"></use>
+            </svg>
+          </div>
+          <div class="place__link-text">
+            Бесплатные фан&#8209;зоны
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 {% endblock %}
