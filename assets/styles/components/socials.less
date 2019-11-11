@@ -1,4 +1,31 @@
 .socials {
+  overflow: hidden; // because of text-indent
+
+  &--has-text {
+    display: flex;
+  }
+
+  &--horizontal {
+
+    .socials__link + .socials__link {
+      margin-top: 0;
+      margin-left: 24px;
+    }
+  }
+
+  &__text {
+    width: 27%;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    text-indent: -4.5em;
+    padding-left: 4.5em;
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+  }
 
   &__link {
     display: flex;
