@@ -1,0 +1,33 @@
+.footer-nav {
+  display: flex;
+  color: @white;
+
+  &__block {
+    width: 47%;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  &__block-title {
+    margin: 0 0 28px;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  .footer-nav__item + .footer-nav__item {
+    margin-top: 20px;
+  }
+
+  &__link {
+    padding: 5px 0;
+    font-size: 15px;
+    color: @white;
+    text-decoration: none;
+  }
+}

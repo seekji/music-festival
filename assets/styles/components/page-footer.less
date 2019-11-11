@@ -1,0 +1,71 @@
+@logo-img-size-default: 500px;
+
+.page-footer {
+  background: @cod-gray url('../../images/partners_bg_top.svg') left top no-repeat;
+  background-size: 30%;
+  color: @white;
+  overflow: hidden;
+
+  &__container {
+    .container-fluid();
+    position: relative; // for logo
+  }
+
+  &__top {
+    padding-bottom: 135px;
+  }
+
+  &__logo {
+    position: absolute;
+    top: -121px;
+    left: 0;
+  }
+
+  &__logo-img {
+    width: @logo-img-size-default;
+    height: @logo-img-size-default;
+  }
+
+  &__content {
+    padding-left: @logo-img-size-default + 55px;
+  }
+
+  &__content-top {
+    display: flex;
+    padding-top: 36px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid @white;
+  }
+
+  &__nav {
+    flex-shrink: 0;
+    width: 69%;
+  }
+
+  &__contacts {
+    width: 18%;
+  }
+
+  &__socials {
+    margin-bottom: 26px;
+  }
+
+  &__content-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+
+  &__copyright {
+    font-size: 15px;
+  }
+
+  &__dev-text {
+    font-size: 15px;
+  }
+
+  &__dev-logo {
+    width: 55px;
+    height: auto;
+  }
+}
