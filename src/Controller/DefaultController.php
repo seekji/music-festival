@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\ArtistService;
 use App\Service\PartnerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,19 +14,25 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class DefaultController extends AbstractController
 {
-
     /**
      * @var PartnerService
      */
     private $partnerService;
 
     /**
+     * @var ArtistService
+     */
+    private $artistService;
+
+    /**
      * DefaultController constructor.
      * @param PartnerService $partnerService
+     * @param ArtistService $artistService
      */
-    public function __construct(PartnerService $partnerService)
+    public function __construct(PartnerService $partnerService, ArtistService $artistService)
     {
         $this->partnerService = $partnerService;
+        $this->artistService = $artistService;
     }
 
     /**
@@ -36,8 +43,9 @@ class DefaultController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        dd($this->partnerService->getSortedPartners());
-
-        return $this->render('default/index.html.twig', []);
+        return $this->render('default/index.html.twig', [
+            'partners' => $this->partnerService->getSortedPartners(),
+            'artists' => $this->artistService->artistRepository->findAll(),
+        ]);
     }
 }
