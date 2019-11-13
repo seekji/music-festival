@@ -31,6 +31,10 @@ sonata_media:
           providers:
             - sonata.media.provider.image
 
+        artists:
+          providers:
+            - sonata.media.provider.image
+
         slider:
           providers:
             - sonata.media.provider.image
