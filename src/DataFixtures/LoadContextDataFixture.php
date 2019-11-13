@@ -21,6 +21,7 @@ class LoadContextDataFixture extends AbstractFixture implements FixtureInterface
         'news',
         'static_pages',
         'slider',
+        'artists',
     ];
 
     /**
