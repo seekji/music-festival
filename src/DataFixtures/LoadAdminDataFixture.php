@@ -11,10 +11,10 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class LoadAdminData
+ * Class LoadAdminDataFixture
  * @package App\DataFixtures
  */
-class LoadAdminData extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadAdminDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
      * @var ContainerInterface

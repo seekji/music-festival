@@ -3,6 +3,9 @@
 parameters:
     locale: 'ru'
 
+imports:
+    - { resource: admin/content.yaml }
+
 services:
     # default configuration for services in *this* file
     _defaults:

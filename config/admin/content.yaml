@@ -1,0 +1,6 @@
+services:
+  app.admin.event:
+    class: App\Admin\PartnerAdmin
+    arguments: [~, App\Entity\Partner, SonataAdminBundle:CRUD]
+    tags:
+      - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Список партнеров }
