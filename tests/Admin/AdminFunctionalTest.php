@@ -110,6 +110,7 @@ class AdminFunctionalTest extends WebTestCase
             ['/admin/adw/seo/rule/create'],
             ['/robots/edit'],
             ['/admin/app/partner/create'],
+            ['/admin/app/artist/create'],
         ];
     }
 
@@ -127,6 +128,7 @@ class AdminFunctionalTest extends WebTestCase
             ['/admin/adw/seo/redirectrule/list'],
             ['/admin/adw/seo/rule/list'],
             ['/admin/app/partner/list'],
+            ['/admin/app/artist/list'],
         ];
     }
 }
