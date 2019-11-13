@@ -39,16 +39,9 @@ Encore
 
     .enableLessLoader()
     .enablePostCssLoader()
-
-
-// uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
     .cleanupOutputBeforeBuild()
     .disableImagesLoader()
-    // .copyFiles({
-    //     from: './assets/images/',
-    //     to: 'assets/images/[path][name].[hash:8].[ext]'
-    // })
 
     .addLoader({
         test: /\.(png|jpg|jpeg|gif|ico|svg|webp)$/,

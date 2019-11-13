@@ -5,7 +5,11 @@
 @background-slider-nav-gap-left-default: 50px;
 @background-slider-nav-position-left-default: @background-slider-nav-gap-left-default + @container-padding-default;
 
-@background-slider-text-width-default: calc(100% - @background-slider-nav-btn-width-default * 2);
+@background-slider-nav-btn-width-lg: 70px;
+
+.slider-text-width(@nav-btn-width) {
+  width: calc(100% - @nav-btn-width * 2)
+}
 
 .background-slider {
   position: relative; // for .background-slider__nav
@@ -35,12 +39,19 @@
   }
 
   &__name {
-    .textTruncate(@background-slider-text-width-default);
+    .textTruncate();
+    .slider-text-width(@background-slider-nav-btn-width-default);
     padding: 0 25px;
     font-size: 90px;
     font-weight: 800;
     color: @white;
     text-align: center;
+
+    @media (max-width: @screen-lg-max) {
+      .slider-text-width(@background-slider-nav-btn-width-lg);
+      padding: 15px;
+      font-size: 52px;
+    }
   }
 
   &__nav {
@@ -51,6 +62,10 @@
     align-items: center;
     z-index: 10;
     max-width: @background-slider-nav-max-width-default;
+
+    @media (max-width: @screen-lg-max) {
+      bottom: 40px;
+    }
   }
 
   &__nav-btn {
@@ -58,11 +73,16 @@
     height: 26px;
     .button-reset();
     color: @white;
+
+    @media (max-width: @screen-lg-max) {
+      width: @background-slider-nav-btn-width-lg;
+      height: 19px;
+    }
   }
 
   &__icon {
-    width: 93px;
-    height: 26px;
+    width: 100%;
+    height: 100%;
   }
 
   // Re-styling slick slider

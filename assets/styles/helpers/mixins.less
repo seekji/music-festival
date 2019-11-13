@@ -1,5 +1,5 @@
 @container-padding-default: 44px;
-@container-padding-lg: 30px;
+@container-padding-lg: 25px;
 @container-padding-sm: 15px;
 
 .container() {
@@ -15,12 +15,12 @@
   padding-right: @container-padding-default;
   width: auto;
 
-  @media (max-width: @screen-lg) {
+  @media (max-width: @screen-lg-max) {
     padding-left: @container-padding-lg;
     padding-right: @container-padding-lg;
   }
 
-  @media (max-width: @screen-sm) {
+  @media (max-width: @screen-sm-max) {
     padding-left: @container-padding-sm;
     padding-right: @container-padding-sm;
   }

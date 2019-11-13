@@ -1,8 +1,11 @@
-
 .promo {
   position: relative; // for pseudo elements and .promo__slider
-  min-height: 734px;
+  min-height: 730px;
   height: 100vh;
+
+  @media (max-width: @screen-lg-max) {
+    min-height: 600px;
+  }
 
   &__inner {
     height: 100%;
@@ -13,23 +16,32 @@
       position: absolute; // base on .promo__inner
       z-index: 1; // over block content
       background-repeat: no-repeat;
-      background-size: contain;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
 
     &::before {
       top: 0;
       left: 0;
-      width: 38%;
-      height: 89%;
       background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1NDMgNjc2LjYiIHZpZXdCb3g9IjAgMCA1NDMgNjc2LjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZD0ibTAgMGg1NDN2Njc2LjZoLTU0M3oiLz48L2NsaXBQYXRoPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNhKSIgZD0ibTk1IDQ5Ny41IDQ0OC00NDhoLTg0bDE4OS44LTE4OS44aC05MjkuN3Y5MDEuMWgxOTYuN2wyNjMuMy0yNjMuM3oiIGZpbGw9IiNmZjAwMWUiLz48ZyBmaWxsPSIjMDAwMDFlIj48cGF0aCBjbGlwLXBhdGg9InVybCgjYSkiIGQ9Im0xMzcgNTM5LjYtNDItNDIuMWg4NC4xeiIvPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNhKSIgZD0ibTUwMSA5MS41LTQyLTQyaDg0eiIvPjwvZz48L3N2Zz4=);
+      background-size: 512px auto;
+
+      @media (max-width: @screen-lg-max) {
+        background-size: 368px auto;
+      }
     }
 
     &::after {
       bottom: -75px;
       right: 0;
-      width: 432px;
-      height: 520px;
       background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0MzcuMyA1MjEuMyIgdmlld0JveD0iMCAwIDQzNy4zIDUyMS4zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0xMTUuMyA0MDYtNDItNDJoODQuMXoiIGZpbGw9IiMwMDAwMWUiLz48cGF0aCBkPSJtNzMuMyAzNjRoODQuMWwtMTU3LjQgMTU3LjNoNDM3LjN2LTUyMS4zeiIgZmlsbD0iI2ZmMDAxZSIvPjwvc3ZnPg==);
+      background-size: 433px auto;
+      background-position: right bottom;
+
+      @media (max-width: @screen-lg-max) {
+        background-size: 340px auto;
+      }
     }
   }
 
@@ -44,6 +56,11 @@
     bottom: 60px;
     z-index: 10;
     width: 250px;
+
+    @media (max-width: @screen-lg-max) {
+      bottom: 36px;
+      width: 230px;
+    }
   }
 
   &__socials {
@@ -51,5 +68,10 @@
     top: 290px;
     left: @container-padding-default;
     z-index: 10;
+
+    @media (max-width: @screen-lg-max) {
+      top: 220px;
+      left: @container-padding-lg;
+    }
   }
 }
