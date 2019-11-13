@@ -30,7 +30,7 @@ class Artist implements LocaleInterface
     /**
      * @ORM\Column(type="integer")
      */
-    private $sort;
+    private $sort = 100;
 
     /**
      * @ORM\Column(type="boolean")

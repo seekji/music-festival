@@ -4,3 +4,9 @@ services:
     arguments: [~, App\Entity\Partner, SonataAdminBundle:CRUD]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Список партнеров }
+
+  app.admin.artist:
+    class: App\Admin\ArtistAdmin
+    arguments: [~, App\Entity\Artist, SonataAdminBundle:CRUD]
+    tags:
+      - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Список артистов }
