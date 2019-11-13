@@ -30,11 +30,7 @@ before_install:
   - yes | pecl install imagick
 
 install:
-  - composer install
-  - cp phpunit.xml.dist phpunit.xml
-  - ./bin/console doctrine:database:create -e test --if-not-exists
-  - ./bin/console doctrine:migrations:migrate -e test --no-interaction
-  - ./bin/console doctrine:fixtures:load -e test -n
+  - ./bin/setup-test.sh
 
 script:
   - ./bin/console lint:yaml config
