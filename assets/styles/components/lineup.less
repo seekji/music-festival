@@ -3,25 +3,70 @@
   color: @white;
 
   &__inner {
-    .container();
+    .container-fluid();
     display: flex;
+
+    @media (max-width: @screen-lg-max) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    order: -1;
+    width: 100%;
+    padding-top: 100px;
+
+    @media (min-width: @screen-lg) {
+      display: none;
+    }
   }
 
   &__column-left {
     padding-top: 115px;
     width: 41.65%;
+
+    @media (max-width: @screen-md-max) {
+      order: 2;
+      width: 100%;
+    }
   }
 
   &__column-right {
     padding-top: 105px;
     padding-left: 30px;
     width: 58.35%;
+
+    @media (max-width: @screen-md-max) {
+      padding-top: 36px;
+      width: 100%;
+    }
   }
 
   &__title {
     position: relative; // for title text
     margin: 0 0 200px;
     font-size: 90px;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 76px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      margin-bottom: 0;
+      flex-shrink: 0;
+      width: 50%;
+      line-height: 1;
+    }
+
+    &--hidden-md {
+      display: none;
+
+      @media (min-width: @screen-lg) {
+        display: block;
+      }
+    }
   }
 
   &__title-text {
@@ -31,6 +76,12 @@
     font-weight: 800;
     z-index: 1; // over year
     .textTruncate();
+
+    @media (max-width: @screen-md-max) {
+      position: relative;
+      top: auto;
+      line-height: 1;
+    }
   }
 
   &__year {
@@ -39,10 +90,26 @@
     line-height: 0.8;
     font-weight: 900;
     font-style: italic;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 160px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      position: absolute;
+      top: -0.4em;
+      font-size: 126px;
+    }
   }
 
   &__year-decade {
+    display: block;
     padding-left: 0.5em;
+
+    @media (max-width: @screen-md-max) {
+      display: inline;
+      padding-left: 0;
+    }
   }
 
   &__text-block {
@@ -69,9 +136,17 @@
   }
 
   &__subtitle-text {
+    position: absolute;
+    left: 20px;
+    bottom: -25px;
     font-size: 60px;
     font-weight: 800;
     .textTruncate();
+
+    @media (max-width: @screen-lg-max) {
+      bottom: -10px;
+      font-size: 46px;
+    }
   }
 
   &__subtitle-wrap {
@@ -97,13 +172,6 @@
     height: 26px;
   }
 
-  &__subtitle-text {
-    position: absolute;
-    left: 20px;
-    bottom: -25px;
-    .textTruncate();
-  }
-
   &__description {
     line-height: 1.6;
     font-size: 15px;
@@ -115,5 +183,27 @@
     font-weight: 900;
     font-style: italic;
     text-transform: uppercase;
+
+    @media (max-width: @screen-lg-max) {
+      margin-bottom: 70px;
+      font-size: 46px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      margin-bottom: 0;
+      width: 50%;
+      flex-shrink: 0;
+      padding-left: 25px;
+      font-size: 60px;
+      color: @base-blue;
+      line-height: 1;
+    }
+
+    &--hidden-md {
+
+      @media (max-width: @screen-md-max) {
+        display: none;
+      }
+    }
   }
 }
