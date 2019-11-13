@@ -5,11 +5,14 @@
 
     <a href="#" class="page-header__lang">En</a>
 
-    {# or a on inner pages #}
+    {# or a tag on inner pages #}
     <div class="page-header__logo">
-      <img
-        src="{{ asset('build/assets/images/logo.svg') }}"
-        alt="Рок над волгой: логотип">
+      <picture>
+        <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo-small.svg') }}">
+        <img
+          src="{{ asset('build/assets/images/logo.svg') }}"
+          alt="Рок над волгой: логотип">
+      </picture>
     </div>
 
     <div class="page-header__main-nav">

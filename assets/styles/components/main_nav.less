@@ -15,6 +15,19 @@
     padding-bottom: 10px;
   }
 
+  @media (max-width: @screen-md-max) {
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    max-width: 100%;
+    padding: 74px 20px 30px;
+    background: @cod-gray;
+
+    &--visible {
+      display: block;
+    }
+  }
+
   &__item {
     position: relative; // for ::after
     font-size: @main-nav-link-font-size;
@@ -25,11 +38,20 @@
 
     + .main-nav__item {
       margin-left: 30px;
+
+      @media (max-width: @screen-md-max) {
+        margin-left: 0;
+        margin-top: 15px;
+      }
     }
 
     &:not(:last-child)::after {
       content: '';
       position: absolute; // base on .main-nav__item
+
+      @media (max-width: @screen-md-max) {
+        display: none;
+      }
     }
 
     &:first-child::after { // for tickets link
