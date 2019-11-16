@@ -2,8 +2,22 @@
   display: flex;
   width: 90%;
 
+  @media (max-width: @screen-md-max) {
+    width: 100%;
+  }
+
   + .artist-card {
     margin-top: 60px;
+  }
+
+  &__wrap {
+    display: flex;
+
+    @media (max-width: @screen-sm-max) {
+      display: block;
+      width: 82px;
+      flex-shrink: 0;
+    }
   }
 
   &__time {
@@ -14,6 +28,14 @@
 
     @media (max-width: @screen-lg-max) {
       font-size: 24px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      padding-top: 0;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      margin-bottom: 18px;
     }
   }
 
@@ -27,6 +49,10 @@
     @media (max-width: @screen-lg-max) {
       width: 140px;
     }
+
+    @media (max-width: @screen-sm-max) {
+      width: 60px;
+    }
   }
 
   &__img {
@@ -37,6 +63,10 @@
 
   &__info {
     padding-top: 55px;
+
+    @media (max-width: @screen-md-max) {
+      padding-top: 0;
+    }
   }
 
   &__title {
@@ -47,6 +77,11 @@
 
     @media (max-width: @screen-lg-max) {
       font-size: 24px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      width: 100%;
+      font-size: 18px;
     }
   }
 

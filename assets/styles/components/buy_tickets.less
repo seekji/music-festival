@@ -1,10 +1,20 @@
 .buy-tickets {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 415px;
   height: 310px;
   background: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2MDUgNDg0LjQiIHZpZXdCb3g9IjAgMCA2MDUgNDg0LjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTE1MC44IDE1MC44IDYwLjMgNjAuM3YtMTIwLjZ6IiBmaWxsPSIjMTQxNDE0Ii8+PHBhdGggZD0ibTAgMHY0ODQuNGg2MDVsLTM5My45LTM5My45djEyMC42eiIgZmlsbD0iI2ZmMDAxZSIvPjwvc3ZnPg==) no-repeat;
   background-size: contain;
   overflow: hidden;
+
+  @media (max-width: @screen-sm-max) {
+    width: 100%;
+    height: auto;
+    padding: 8px 10px 10px;
+    background: none;
+    background-color: @color-main;
+  }
 
   &__link {
     position: absolute;
@@ -19,6 +29,15 @@
     font-style: italic;
     text-indent: -1.3em;
     padding-left: 1.3em;
+
+    @media (max-width: @screen-sm-max) {
+      position: static;
+      display: flex;
+      align-items: center;
+      text-indent: 0;
+      padding-left: 0;
+      font-size: 26px;
+    }
   }
 
   &__icon {
@@ -27,5 +46,12 @@
     right: 0;
     width: 92px;
     height: 26px;
+
+    @media (max-width: @screen-sm-max) {
+      position: static;
+      width: 54px;
+      height: 18px;
+      margin-left: 10px;
+    }
   }
 }
