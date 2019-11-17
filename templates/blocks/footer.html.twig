@@ -2,7 +2,7 @@
   <div class="page-footer__top partners">
     <div class="partners__inner">
       <h2 class="partners__title">
-        <span class="partners__title-part">Спасибо</span>
+        <div class="partners__title-part">Спасибо</div>
         всем
       </h2>
       <div class="partners__items">
@@ -52,13 +52,6 @@
 
   <div class="page-footer__bottom">
     <div class="page-footer__container">
-      {# or a on inner pages #}
-      <div class="page-footer__logo">
-        <img
-          src="{{ asset('build/assets/images/logo.svg') }}"
-          alt="Рок над волгой: логотип"
-          class="page-footer__logo-img">
-      </div>
       <div class="page-footer__content">
         <div class="page-footer__content-top">
           <div class="page-footer__nav footer-nav">
@@ -103,29 +96,38 @@
             </div>
           </div>
           <div class="page-footer__contacts">
-            <div class="page-footer__socials socials socials--horizontal">
-              <a href="#" class="socials__link" title="Vkontakte">
-                <svg class="socials__icon" width="33" height="21">
-                  <use xlink:href="#icon-vk"></use>
-                </svg>
-              </a>
-              <a href="#" class="socials__link" title="Facebook">
-                <svg class="socials__icon" width="15" height="27">
-                  <use xlink:href="#icon-fb"></use>
-                </svg>
-              </a>
-              <a href="#" class="socials__link" title="Youtube">
-                <svg class="socials__icon" width="33" height="27">
-                  <use xlink:href="#icon-youtube"></use>
-                </svg>
-              </a>
-            </div>
-            <div class="organizer">
-              <div class="organizer__text">Организатор</div>
+            {# or a on inner pages #}
+            <div class="page-footer__logo">
               <img
-                src="{{ asset('build/assets/images/organizer_logo.svg') }}"
-                alt="Logo"
-                class="organizer__logo">
+                src="{{ asset('build/assets/images/logo.svg') }}"
+                alt="Рок над волгой: логотип"
+                class="page-footer__logo-img">
+            </div>
+            <div class="page-footer__contacts-inner">
+              <div class="page-footer__socials socials socials--horizontal">
+                <a href="#" class="socials__link" title="Vkontakte">
+                  <svg class="socials__icon" width="33" height="21">
+                    <use xlink:href="#icon-vk"></use>
+                  </svg>
+                </a>
+                <a href="#" class="socials__link" title="Facebook">
+                  <svg class="socials__icon" width="15" height="27">
+                    <use xlink:href="#icon-fb"></use>
+                  </svg>
+                </a>
+                <a href="#" class="socials__link" title="Youtube">
+                  <svg class="socials__icon" width="33" height="27">
+                    <use xlink:href="#icon-youtube"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="organizer">
+                <div class="organizer__text">Организатор</div>
+                <img
+                  src="{{ asset('build/assets/images/organizer_logo.svg') }}"
+                  alt="Logo"
+                  class="organizer__logo">
+              </div>
             </div>
           </div>
         </div>

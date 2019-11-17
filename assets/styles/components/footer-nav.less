@@ -2,8 +2,23 @@
   display: flex;
   color: @white;
 
+  @media (max-width: @screen-sm-max) {
+    flex-direction: column;
+  }
+
   &__block {
     width: 47%;
+
+    @media (max-width: @screen-sm-max) {
+      width: 70%;
+    }
+
+    + .footer-nav__block {
+
+      @media (max-width: @screen-sm-max) {
+        margin-top: 30px;
+      }
+    }
   }
 
   &__list {
@@ -18,10 +33,23 @@
     font-weight: 800;
     font-style: italic;
     text-transform: uppercase;
+
+    @media (max-width: @screen-md-max) {
+      font-size: 18px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
   }
 
   .footer-nav__item + .footer-nav__item {
     margin-top: 20px;
+
+    @media (max-width: @screen-sm-max) {
+      margin-top: 5px;
+    }
   }
 
   &__link {
@@ -29,5 +57,9 @@
     font-size: 15px;
     color: @white;
     text-decoration: none;
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 14px;
+    }
   }
 }
