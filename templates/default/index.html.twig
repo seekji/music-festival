@@ -37,7 +37,7 @@
           <div data-artist-name="EA EA" class="background-slider__slide">
             <div class="background-slider__container">
               <img
-                src="{{ asset('build/assets/images/main_slider.jpg') }}"
+                src="{{ asset('build/assets/images/short_history.jpg') }}"
                 alt="Billie Eilish"
                 class="background-slider__img">
             </div>
@@ -186,7 +186,7 @@
             <use xlink:href="#icon-lightning"></use>
           </svg>
         </h2>
-        <div class="news__socials socials socials--horizontal socials--has-text">
+        <div class="news__socials news__socials--hidden-md socials socials--horizontal socials--has-text">
           <div class="socials__text">
             Хочется больше
             и&nbsp;чаще? &mdash;
@@ -232,10 +232,39 @@
             <time datetime="2020-07-23" class="news__date">21 августа 2020</time>
           </div>
         </div>
+
+        <div class="news__socials news__socials--hidden-lg socials socials--horizontal socials--has-text">
+          <div class="socials__text">
+            Хочется больше
+            и&nbsp;чаще? &mdash;
+          </div>
+          <div
+            class="socials__container">
+            <a href="#" class="socials__link" title="Vkontakte">
+              <svg class="socials__icon" width="33" height="21">
+                <use xlink:href="#icon-vk"></use>
+              </svg>
+            </a>
+            <a href="#" class="socials__link" title="Facebook">
+              <svg class="socials__icon" width="15" height="27">
+                <use xlink:href="#icon-fb"></use>
+              </svg>
+            </a>
+            <a href="#" class="socials__link" title="Youtube">
+              <svg class="socials__icon" width="33" height="27">
+                <use xlink:href="#icon-youtube"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <div class="short-history">
+    <img
+      class="short-history__img"
+      src="{{ asset('build/assets/images/short_history.jpg') }}"
+      alt="Рок над Волгой: история">
     <div class="short-history__inner">
       <div class="short-history__top-block">
         <div class="short-history__description">
