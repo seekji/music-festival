@@ -94,7 +94,7 @@
 
     @media (max-width: @screen-md-max) {
       position: relative;
-      top: auto;
+      top: 0.2em;
       line-height: 1;
     }
 
@@ -152,6 +152,16 @@
         display: block;
       }
     }
+
+    &:first-child {
+
+      @media (max-width: @screen-sm-max) {
+
+        .lineup__subtitle-number {
+          color: @base-blue;
+        }
+      }
+    }
   }
 
   &__subtitle {
@@ -176,6 +186,7 @@
     }
 
     @media (max-width: @screen-sm-max) {
+      bottom: -16px;
       font-size: 30px;
     }
   }
@@ -209,6 +220,8 @@
     @media (max-width: @screen-sm) {
       width: 112px;
       height: 17px;
+      top: 4px;
+      right: -126px;
     }
   }
 
@@ -241,6 +254,7 @@
     }
 
     @media (max-width: @screen-sm-max) {
+      margin-bottom: -0.2em;
       font-size: 30px;
       padding-left: 0;
     }

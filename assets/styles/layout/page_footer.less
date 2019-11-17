@@ -148,12 +148,17 @@
   &__contacts-inner {
 
     @media (max-width: @screen-sm-max) {
+      padding-top: 28px;
       width: calc(100% - 185px);
     }
   }
 
   &__socials {
-    margin-bottom: 26px;
+    margin-bottom: 30px;
+
+    @media (max-width: @screen-sm-max) {
+      margin-bottom: 36px;
+    }
   }
 
   &__content-bottom {
@@ -162,7 +167,6 @@
     padding: 24px 0;
 
     @media (max-width: @screen-sm-max) {
-      padding: 20px 0;
       flex-direction: column;
     }
   }
