@@ -27,12 +27,13 @@ sonata_media:
           formats:
             small: { width: 450, quality: 70}
 
-        news:
+        partners:
           providers:
             - sonata.media.provider.image
 
-          formats:
-            list: { width: 585 }
+        artists:
+          providers:
+            - sonata.media.provider.image
 
         slider:
           providers:
