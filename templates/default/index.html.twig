@@ -8,7 +8,6 @@
 {% block body %}
   <div class="promo">
     <div class="promo__inner">
-
       <div class="promo__slider background-slider">
         <div class="background-slider__nav">
           <button type="button" class="background-slider__nav-btn background-slider__prev-btn">
@@ -122,20 +121,22 @@
       </div>
       <div class="lineup__column-right">
         <div class="lineup__date lineup__date--hidden-md">20 июня</div>
-        <div class="artist-card">
-          <div class="artist-card__wrap">
-            <div class="artist-card__time">18:00</div>
-            <div class="artist-card__img-wrap">
-              <img src="{{ asset('build/assets/images/artist_01.png') }}" class="artist-card__img" alt="Artist name">
+        {% if artists is defined and artists|length > 0 %}
+          {% for artist in artists %}
+            <div class="artist-card {{ artist.isHeadliner ? 'artist-card--is-headliner' : '' }}">
+              <div class="artist-card__wrap">
+                <div class="artist-card__time">{{ artist.startAt|date('H:i') }}</div>
+                <div class="artist-card__img-wrap">
+                  <img class="artist-card__img" src="{% path artist.picture, 'reference' %}" alt="{{ artist.name }}">
+                </div>
+              </div>
+              <div class="artist-card__info">
+                <div class="artist-card__title">{{ artist.name }}</div>
+                <div class="artist-card__text">{{ artist.description }}</div>
+              </div>
             </div>
-          </div>
-          <div class="artist-card__info">
-            <div class="artist-card__title">Церемония открытия</div>
-            <div class="artist-card__text">
-              Ведущий обновленного фестиваля, Иван Ургант торжественно объявит о новой эре великого Самарского чуда.
-            </div>
-          </div>
-        </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
 
