@@ -15,6 +15,10 @@
       @media (max-width: @screen-lg-max) {
         font-size: 28px;
       }
+
+      @media (max-width: @screen-sm-max) {
+        font-size: 18px;
+      }
     }
 
     .artist-card__time {
@@ -23,10 +27,18 @@
       @media (max-width: @screen-lg-max) {
         font-size: 28px;
       }
+
+      @media (max-width: @screen-sm-max) {
+        font-size: 18px;
+      }
     }
 
     .artist-card__img-wrap {
       position: relative; // for img
+
+      @media (max-width: @screen-sm-max) {
+        height: 70px;
+      }
     }
 
     .artist-card__img {
@@ -41,7 +53,13 @@
         width: 150px;
       }
 
+      @media (max-width: @screen-md-max) {
+        top: 0;
+      }
+
       @media (max-width: @screen-sm-max) {
+        left: -@container-padding-sm;
+        transform: none;
         width: 80px;
       }
     }
@@ -133,5 +151,9 @@
   &__text {
     font-size: 15px;
     line-height: 1.6;
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 14px;
+    }
   }
 }

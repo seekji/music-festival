@@ -31,18 +31,15 @@
     height: 540px;
     background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA3MTYuNyA4MzcuMyIgdmlld0JveD0iMCAwIDcxNi43IDgzNy4zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0wIDB2ODM3LjNsMjYyLjgtMjYyLjdoLTEyMC43bDU3NC42LTU3NC42eiIgZmlsbD0iI2ZmMDAxZSIvPjxwYXRoIGQ9Im0yMDIuNSA2MzQuOSA2MC4zLTYwLjNoLTEyMC42eiIgZmlsbD0iIzAwMDAxZSIvPjwvc3ZnPg==);
 
-    @media (max-width: @screen-md-max) {
+    @media (max-width: @screen-lg-max) {
       width: 410px;
       height: 485px;
     }
 
-    @media (max-width: @screen-md-max) {
-      width: 165px;
-      height: 195px;
-    }
-
     @media (max-width: @screen-sm-max) {
       top: -13px;
+      width: 165px;
+      height: 195px;
     }
   }
 
@@ -55,12 +52,12 @@
     background-position: bottom right;
     z-index: 1;
 
-    @media (max-width: @screen-md-max) {
+    @media (max-width: @screen-lg-max) {
       width: 295px;
       height: 360px;
     }
 
-    @media (max-width: @screen-md-max) {
+    @media (max-width: @screen-sm-max) {
       width: 116px;
       height: 144px;
     }
@@ -139,6 +136,10 @@
 
     @media (max-width: @screen-lg-max) {
       width: 45%;
+    }
+
+    @media (max-width: @screen-md-max) {
+      width: 65%;
     }
 
     @media (max-width: @screen-sm-max) {
@@ -259,21 +260,17 @@
     height: 235px;
     transform: rotate(-10deg);
 
-    @media (max-width: @screen-md-max) {
+    @media (max-width: @screen-lg-max) {
       right: 30px;
       width: 175px;
       height: 175px;
     }
 
-    @media (max-width: @screen-md-max) {
-      right: 30px;
-      width: 100px;
-      height: 100px;
-    }
-
     @media (max-width: @screen-sm-max) {
       bottom: 57px;
       right: -40px;
+      width: 100px;
+      height: 100px;
     }
   }
 
