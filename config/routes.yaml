@@ -33,6 +33,9 @@ sonata_user_admin_resetting:
 controllers:
     resource: ../src/Controller/
     type: annotation
+    prefix:
+        ru: ''
+        en: '/en'
 
 #index:
 #    path: /
