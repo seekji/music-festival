@@ -6,14 +6,16 @@
   &__inner {
     .container-fluid();
     display: flex;
-    height: 100vh;
-    min-height: 730px;
+    //height: 100vh;
+    //min-height: 730px;
     overflow-x: auto;
+    padding-bottom: 450px; // TODO: remove after animation will be ready
 
     @media (max-width: @screen-md-max) {
       flex-wrap: wrap;
       height: auto;
       min-height: 0;
+      padding-bottom: 150px; // TODO: remove after animation will be ready
     }
   }
 
