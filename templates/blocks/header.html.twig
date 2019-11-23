@@ -1,0 +1,22 @@
+<header class="page-header">
+  <div class="page-header__inner">
+
+    <button class="page-header__menu-toggler menu-toggler"><span></span></button>
+
+    <a href="#" class="page-header__lang">En</a>
+
+    {# or a tag on inner pages #}
+    <div class="page-header__logo">
+      <picture>
+        <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo-small.svg') }}">
+        <img
+          src="{{ asset('build/assets/images/logo.svg') }}"
+          alt="Рок над волгой: логотип">
+      </picture>
+    </div>
+
+    <div class="page-header__main-nav">
+      {{ include('blocks/main_nav.html.twig') }}
+    </div>
+  </div>
+</header>

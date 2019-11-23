@@ -1,0 +1,52 @@
+.socials {
+  overflow: hidden; // because of text-indent
+
+  &--has-text {
+    display: flex;
+  }
+
+  &--horizontal {
+    display: flex;
+
+    .socials__link + .socials__link {
+      margin-top: 0;
+      margin-left: 24px;
+    }
+  }
+
+  &__text {
+    width: 206px;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    text-indent: -4.5em;
+    padding-left: 4.5em;
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 16px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: @white;
+
+    + .socials__link {
+      margin-top: 35px;
+    }
+  }
+
+  &__icon {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

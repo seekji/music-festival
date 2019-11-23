@@ -1,0 +1,121 @@
+@background-slider-nav-max-width-default: 75%;
+
+@background-slider-nav-btn-width-default: 93px;
+
+@background-slider-nav-gap-left-default: 50px;
+@background-slider-nav-position-left-default: @background-slider-nav-gap-left-default + @container-padding-default;
+
+@background-slider-nav-btn-width-lg: 64px;
+
+.slider-text-width(@nav-btn-width) {
+  width: calc(100% - @nav-btn-width * 2)
+}
+
+.background-slider {
+  position: relative; // for .background-slider__nav
+
+  &__track {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__slide {
+    position: relative; // for .background-slider__img
+    width: 100%;
+    height: 100%;
+  }
+
+  .background-slider__container { // required for correct nav position which is set in js
+    .container-fluid();
+  }
+
+  &__img {
+    position: absolute; // base on .background-slider__slide
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    .textTruncate();
+    .slider-text-width(@background-slider-nav-btn-width-default);
+    padding: 0 25px;
+    font-size: 90px;
+    font-weight: 800;
+    color: @white;
+    text-align: center;
+
+    @media (max-width: @screen-lg-max) {
+      .slider-text-width(@background-slider-nav-btn-width-lg);
+      padding: 15px;
+      font-size: 52px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 40px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    left: @background-slider-nav-position-left-default;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    max-width: @background-slider-nav-max-width-default;
+
+    @media (max-width: @screen-lg-max) {
+      bottom: 40px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      left: @container-padding-lg;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      left: @container-padding-sm;
+      bottom: 14px;
+    }
+  }
+
+  &__nav-btn {
+    width: @background-slider-nav-btn-width-default;
+    height: 26px;
+    .button-reset();
+    color: @white;
+
+    @media (max-width: @screen-lg-max) {
+      width: @background-slider-nav-btn-width-lg;
+      height: 18px;
+    }
+  }
+
+  &__next-btn {
+
+    @media (max-width: @screen-xs-max) {
+      margin-left: 55px;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  // Re-styling slick slider
+  .slick-list,
+  .slick-track,
+  .slick-slide,
+  .slick-slide > div {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,43 @@
+@container-padding-default: 44px;
+@container-padding-lg: 24px;
+@container-padding-sm: 10px;
+
+.container() {
+  margin-left: auto;
+  margin-right: auto;
+  width: @container-xl;
+}
+
+.container-fluid() {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: @container-padding-default;
+  padding-right: @container-padding-default;
+  width: auto;
+
+  @media (max-width: @screen-lg-max) {
+    padding-left: @container-padding-lg;
+    padding-right: @container-padding-lg;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    padding-left: @container-padding-sm;
+    padding-right: @container-padding-sm;
+  }
+}
+
+.button-reset() {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.textTruncate(@width: 100%) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: @width;
+}

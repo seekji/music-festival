@@ -1,0 +1,120 @@
+.promo {
+  position: relative; // for pseudo elements and .promo__slider
+  min-height: 730px;
+  height: 100vh;
+
+  @media (max-width: @screen-lg-max) {
+    min-height: 600px;
+  }
+
+  @media (max-width: @screen-md-max) {
+    min-height: 0;
+    height: 600px;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    height: 460px;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    height: 300px;
+  }
+
+  &__inner {
+    height: 100%;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute; // base on .promo__inner
+      z-index: 1; // over block content
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1NDMgNjc2LjYiIHZpZXdCb3g9IjAgMCA1NDMgNjc2LjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZD0ibTAgMGg1NDN2Njc2LjZoLTU0M3oiLz48L2NsaXBQYXRoPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNhKSIgZD0ibTk1IDQ5Ny41IDQ0OC00NDhoLTg0bDE4OS44LTE4OS44aC05MjkuN3Y5MDEuMWgxOTYuN2wyNjMuMy0yNjMuM3oiIGZpbGw9IiNmZjAwMWUiLz48ZyBmaWxsPSIjMDAwMDFlIj48cGF0aCBjbGlwLXBhdGg9InVybCgjYSkiIGQ9Im0xMzcgNTM5LjYtNDItNDIuMWg4NC4xeiIvPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNhKSIgZD0ibTUwMSA5MS41LTQyLTQyaDg0eiIvPjwvZz48L3N2Zz4=);
+      background-size: 512px auto;
+
+      @media (max-width: @screen-lg-max) {
+        background-size: 368px auto;
+      }
+
+      @media (max-width: @screen-md-max) {
+        background-size: 300px auto;
+      }
+
+      @media (max-width: @screen-sm-max) {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9ItCh0LvQvtC5XzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzU4LjggNDQzLjQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDM1OC44IDQ0My40IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz48ZGVmcz48cmVjdCBpZD0iU1ZHSURfMV8iIHdpZHRoPSIzNTguOCIgaGVpZ2h0PSI0NDMuNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9IlNWR0lEXzJfIj48dXNlIHhsaW5rOmhyZWY9IiNTVkdJRF8xXyIgIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cG9seWdvbiBjbGlwLXBhdGg9InVybCgjU1ZHSURfMl8pIiBmaWxsPSIjRkYwMDFFIiBwb2ludHM9Ii0xOTUsNjM3LjkgMjUzLDE4OS44IDE2OSwxODkuOCAzNTguOCwwIC01NzAuOSwwIC01NzAuOSw5MDEuMSAtMzc0LjIsOTAxLjEgLTExMC45LDYzNy45ICIvPjxwb2x5Z29uIGNsaXAtcGF0aD0idXJsKCNTVkdJRF8yXykiIGZpbGw9IiMwMDAwMUUiIHBvaW50cz0iLTE1Myw2NzkuOSAtMTk1LDYzNy45IC0xMTAuOSw2MzcuOSAiLz48cG9seWdvbiBjbGlwLXBhdGg9InVybCgjU1ZHSURfMl8pIiBmaWxsPSIjMDAwMDFFIiBwb2ludHM9IjIxMSwyMzEuOSAxNjksMTg5LjggMjUzLDE4OS44ICIvPjwvZz48L3N2Zz4=);
+        background-size: 100px auto;
+      }
+    }
+
+    &::after {
+      bottom: -75px;
+      right: 0;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0MzcuMyA1MjEuMyIgdmlld0JveD0iMCAwIDQzNy4zIDUyMS4zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0xMTUuMyA0MDYtNDItNDJoODQuMXoiIGZpbGw9IiMwMDAwMWUiLz48cGF0aCBkPSJtNzMuMyAzNjRoODQuMWwtMTU3LjQgMTU3LjNoNDM3LjN2LTUyMS4zeiIgZmlsbD0iI2ZmMDAxZSIvPjwvc3ZnPg==);
+      background-size: 433px auto;
+      background-position: right bottom;
+
+      @media (max-width: @screen-lg-max) {
+        background-size: 340px auto;
+      }
+
+      @media (max-width: @screen-sm-max) {
+        bottom: -17px;
+        background-size: 124px auto;
+      }
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__start-timer {
+    position: absolute;
+    right: @container-padding-default;
+    bottom: 60px;
+    z-index: 2;
+    width: 250px;
+
+    @media (max-width: @screen-lg-max) {
+      right: @container-padding-lg;
+      bottom: 36px;
+      width: 230px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      right: @container-padding-sm;
+      bottom: 16px;
+      width: 114px;
+    }
+  }
+
+  &__socials {
+    position: absolute;
+    top: 290px;
+    left: @container-padding-default;
+    z-index: 1;
+
+    @media (max-width: @screen-lg-max) {
+      top: 220px;
+      left: @container-padding-lg;
+    }
+
+    @media (max-width: @screen-md-max) {
+      top: 160px;
+      left: @container-padding-lg;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      display: none;
+    }
+  }
+}

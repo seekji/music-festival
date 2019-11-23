@@ -1,1 +1,19 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('index') }}
+{% endblock %}
+
+{% block body %}
+  {% include 'default/blocks/promo.html.twig' %}
+  {% include 'default/blocks/lineup.html.twig' %}
+  {% include 'default/blocks/place.html.twig' %}
+  {% include 'default/blocks/news.html.twig' %}
+  {% include 'default/blocks/short-history.html.twig' %}
+{% endblock %}
+
+{% block javascript %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('index') }}
+{% endblock %}

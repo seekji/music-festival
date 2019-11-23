@@ -1,0 +1,55 @@
+.start-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: @white;
+
+  &__text {
+    direction: rtl; // dirty hack
+    text-align: right;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-style: italic;
+    text-indent: 1.3em;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 18px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 10px;
+    }
+  }
+
+  &__date {
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 1;
+    font-style: italic;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 104px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 40px;
+    }
+  }
+
+  &__postfix {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 18px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 10px;
+    }
+  }
+}
