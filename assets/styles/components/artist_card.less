@@ -36,6 +36,33 @@
     .artist-card__img-wrap {
       position: relative; // for img
 
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: -80px;
+        width: 265px;
+        height: 330px;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNjMgMzI2IiB2aWV3Qm94PSIwIDAgMjYzIDMyNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJtNy4xIDE2MyAzMS0zMWgtN2wtMzEgMzEgMTYzLjIgMTYzLjIgOTkuNy05OS43di03bC05OS43IDk5Ljd6Ii8+PHBhdGggZD0ibTE2My4zLS4yLTY4LjIgNjguMmg3bDYxLjItNjEuMiA5OS43IDk5Ljd2LTd6Ii8+PC9nPjwvc3ZnPg==);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        @media (max-width: @screen-lg-max) {
+          top: -11px;
+          left: -76px;
+          width: 215px;
+          height: 269px;
+        }
+
+        @media (max-width: @screen-md-max) {
+          top: -60px;
+        }
+
+        @media (max-width: @screen-md-max) {
+          display: none;
+        }
+      }
+
       @media (max-width: @screen-sm-max) {
         height: 70px;
       }
