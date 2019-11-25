@@ -1,1 +1,3 @@
-echo HELOOOOOOOOOOOOOOOO
+/bin/bash
+
+bundle exec cap prod deploy

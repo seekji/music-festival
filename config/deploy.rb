@@ -7,7 +7,7 @@ set :repo_url, ''
 set :symfony_directory_structure, 4
 set :composer_install_flags, '--no-interaction --optimize-autoloader --prefer-dist --no-dev'
 set :format_options, log_file: "var/log/capistrano.log"
-set :web_path, "web"
+set :web_path, "public_html"
 set :assets_install_path, fetch(:web_path)
 
 set :keep_releases, 3
@@ -33,9 +33,6 @@ before 'deploy:starting', 'check:all'
 
 # Apply migrations
 after 'deploy:updated', 'deploy:migrate'
-
-# Build and upload frontend
-after 'deploy:updated', 'deploy:upload_frontend'
 
 namespace :check do
     task :all do
