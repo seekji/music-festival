@@ -47,4 +47,4 @@ deploy:
   provider: script
   script: bash config/deploy.sh
   on:
-    branch: test_deployment
+    branch: master
