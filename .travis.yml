@@ -30,6 +30,7 @@ before_install:
   - yes | pecl install imagick
   - yarn install
   - yarn build
+  - bundle install
 
 install:
   - ./bin/setup-test.sh
@@ -41,3 +42,9 @@ script:
   - ./bin/console security:check
   - ./bin/console doctrine:schema:validate -vvv --no-interaction
   - ./vendor/bin/simple-phpunit
+
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: test_deployment
