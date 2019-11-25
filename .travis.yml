@@ -45,6 +45,6 @@ script:
 
 deploy:
   provider: script
-  script: bash scripts/deploy.sh
+  script: bash config/deploy.sh
   on:
     branch: test_deployment
