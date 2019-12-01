@@ -1,4 +1,4 @@
-server '5.101.51.242', user: 'www-data', roles: %w{app db web}, port: 22
+server '5.101.51.242', user: 'root', roles: %w{app db web}, port: 22
 
 set :deploy_to, '/var/www/music-festival'
 set :branch, 'master'
