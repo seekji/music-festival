@@ -5,6 +5,36 @@
   width: 100%;
   z-index: 10;
 
+  &--inner-page {
+
+    .page-header__logo {
+      top: 0;
+      left: 0;
+      width: 375px;
+      height: 375px;
+
+      @media (max-width: @screen-lg-max) {
+        top: 0;
+        width: 300px;
+        height: 300px;
+      }
+
+      @media (max-width: @screen-md-max) {
+        top: 20px;
+        right: @container-padding-lg;
+        left: auto;
+        width: 35%;
+        height: auto;
+      }
+
+      @media (max-width: @screen-sm-max) {
+        top: 13px;
+        right: @container-padding-sm;
+        width: 154px;
+      }
+    }
+  }
+
   &__inner {
     position: relative; // for .page-header__logo
     display: flex;

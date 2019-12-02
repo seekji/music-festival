@@ -111,6 +111,7 @@ class AdminFunctionalTest extends WebTestCase
             ['/robots/edit'],
             ['/admin/app/partner/create'],
             ['/admin/app/artist/create'],
+            ['/admin/app/page/create'],
         ];
     }
 
@@ -129,6 +130,7 @@ class AdminFunctionalTest extends WebTestCase
             ['/admin/adw/seo/rule/list'],
             ['/admin/app/partner/list'],
             ['/admin/app/artist/list'],
+            ['/admin/app/page/list'],
         ];
     }
 }
