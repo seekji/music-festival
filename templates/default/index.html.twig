@@ -1,3 +1,23 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block stylesheets %}#}
+  {#{{ parent() }}#}
+  {#{{ encore_entry_link_tags('index') }}#}
+{#{% endblock %}#}
+
+{#{% block body %}#}
+  {#{% include 'default/blocks/promo.html.twig' %}#}
+  {#{% include 'default/blocks/lineup.html.twig' %}#}
+  {#{% include 'default/blocks/place.html.twig' %}#}
+  {#{% include 'default/blocks/news.html.twig' %}#}
+  {#{% include 'default/blocks/short-history.html.twig' %}#}
+{#{% endblock %}#}
+
+{#{% block javascript %}#}
+  {#{{ parent() }}#}
+  {#{{ encore_entry_script_tags('index') }}#}
+{#{% endblock %}#}
+
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
@@ -6,11 +26,86 @@
 {% endblock %}
 
 {% block body %}
-  {% include 'default/blocks/promo.html.twig' %}
-  {% include 'default/blocks/lineup.html.twig' %}
-  {% include 'default/blocks/place.html.twig' %}
-  {% include 'default/blocks/news.html.twig' %}
-  {% include 'default/blocks/short-history.html.twig' %}
+  <div class="start-screen">
+    <img
+      class="start-screen__img"
+      src="{{ asset('build/assets/images/short_history.jpg') }}"
+      alt="История">
+    <h1 class="start-screen__title" data-splitting="words">История фестиваля</h1>
+  </div>
+  <section class="history">
+    <div class="history__inner">
+      <div class="history__item">
+        <div class="history__column-left">
+          <img
+            class="history__img"
+            src="{{ asset('build/assets/images/history_01.png') }}"
+            alt="History">
+          <div class="history__info">
+            <div class="history__year">2013</div>
+            <ul class="history__lineup">
+              <li class="history__lineup-item">Rammstein</li>
+              <li class="history__lineup-item">Mordor</li>
+              <li class="history__lineup-item">Би-2</li>
+              <li class="history__lineup-item">Смысловые галлюцинации</li>
+              <li class="history__lineup-item">Чиж и СО</li>
+              <li class="history__lineup-item">Пикник</li>
+              <li class="history__lineup-item">Аквариум</li>
+              <li class="history__lineup-item">Кипелов</li>
+              <li class="history__lineup-item">Алиса</li>
+            </ul>
+          </div>
+        </div>
+        <div class="history__column-right">
+          <h2 class="history__title">
+            <span class="history__title-number">692 000</span>
+            <span class="history__title-text">зрителей</span>
+          </h2>
+          <div class="history__description">
+            В 2013 году фестиваль прошёл 8 июня на площадке недалеко от посёлка Петра-Дубрава. В роли ведущих выступили
+            рок-музыкант Сергей Галанин и вокалист группы «АукцЫон» и шоумен Олег Гаркуша. В фестивале приняли участие
+            «Mordor», «Смысловые галлюцинации», «Би-2», «Чиж & Co», «Пикник», «Аквариум», «Кипелов», «Алиса» и
+            хедлайнеры — Rammstein; с небольшими номерами выступили Государственный Волжский русский народный хор им.
+            Петра Милославова и дуэт «Баян Микс»
+          </div>
+        </div>
+      </div>
+      <div class="history__item">
+        <div class="history__column-left">
+          <img
+            class="history__img"
+            src="{{ asset('build/assets/images/history_02.png') }}"
+            alt="History">
+          <div class="history__info">
+            <div class="history__year">2012</div>
+            <ul class="history__lineup">
+              <li class="history__lineup-item">Limp Bizkit</li>
+              <li class="history__lineup-item">Garbage</li>
+              <li class="history__lineup-item">Mordor</li>
+              <li class="history__lineup-item">Би-2</li>
+              <li class="history__lineup-item">Ю-Питер</li>
+              <li class="history__lineup-item">Аквариум</li>
+              <li class="history__lineup-item">Ленинград</li>
+              <li class="history__lineup-item">Король и шут</li>
+            </ul>
+          </div>
+        </div>
+        <div class="history__column-right">
+          <h2 class="history__title">
+            <span class="history__title-number">307 000</span>
+            <span class="history__title-text">зрителей</span>
+          </h2>
+          <div class="history__description">
+            В 2013 году фестиваль прошёл 8 июня на площадке недалеко от посёлка Петра-Дубрава. В роли ведущих выступили
+            рок-музыкант Сергей Галанин и вокалист группы «АукцЫон» и шоумен Олег Гаркуша. В фестивале приняли участие
+            «Mordor», «Смысловые галлюцинации», «Би-2», «Чиж & Co», «Пикник», «Аквариум», «Кипелов», «Алиса» и
+            хедлайнеры — Rammstein; с небольшими номерами выступили Государственный Волжский русский народный хор им.
+            Петра Милославова и дуэт «Баян Микс»
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block javascript %}
