@@ -17,6 +17,20 @@ class Page
 {
     use Timestampable, LocaleTrait, Sluggable;
 
+    public const TEMPLATE_CONTENT = 1;
+    public const TEMPLATE_HISTORY = 2;
+    public const TEMPLATE_INFO = 3;
+    public const TEMPLATE_PLACE = 4;
+    public const TEMPLATE_FAN = 5;
+
+    const TEMPLATES = [
+        self::TEMPLATE_CONTENT => 'static',
+        self::TEMPLATE_HISTORY => 'history',
+        self::TEMPLATE_INFO => 'info',
+        self::TEMPLATE_PLACE => 'place',
+        self::TEMPLATE_FAN => 'fan-zones',
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -28,6 +42,11 @@ class Page
      * @ORM\Column(type="string", length=255)
      */
     private $title;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $template = self::TEMPLATE_CONTENT;
 
     public function getId(): ?int
     {
@@ -42,6 +61,25 @@ class Page
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTemplate(): ?int
+    {
+        return $this->template;
+    }
+
+    /**
+     * @param int $template
+     * @return Page
+     */
+    public function setTemplate(int $template): self
+    {
+        $this->template = $template;
 
         return $this;
     }

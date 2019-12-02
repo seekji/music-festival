@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class LoadPageDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
-    private const DATA_COUNT = 5;
+    private const DATA_COUNT = 15;
 
     /**
      * @var ContainerInterface
@@ -59,6 +59,7 @@ class LoadPageDataFixture extends Fixture implements FixtureInterface, Container
             $page->setTitle($this->faker->text(10));
             $page->setSlug($page->getTitle());
             $page->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
+            $page->setTemplate($this->faker->randomKey(Page::TEMPLATES));
 
             $manager->persist($page);
         }

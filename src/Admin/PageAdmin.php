@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -43,6 +44,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
             ->add('title')
             ->add('slug')
             ->add('locale', 'choice', ['choices' => LocaleInterface::LOCALE_LIST])
+            ->add('template', 'choice', ['choices' => Page::TEMPLATES])
             ->add('createdAt')
             ->add('updatedAt')
             ->add('_action', null, [
@@ -61,11 +63,22 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
     {
         $form
             ->with('Свойства страницы', ['class' => 'col-md-9'])
-            ->add('locale', ChoiceType::class, [
-                'choices' => array_flip(LocaleInterface::LOCALE_LIST)
-            ])
-            ->add('title')
-            ->add('slug')
+                ->add('locale', ChoiceType::class, [
+                    'choices' => array_flip(LocaleInterface::LOCALE_LIST)
+                ])
+                ->add('template', ChoiceFieldMaskType::class, [
+                    'choices' => array_flip(Page::TEMPLATES),
+                    'map' => [
+                        Page::TEMPLATE_CONTENT => [],
+                        Page::TEMPLATE_HISTORY => [],
+                        Page::TEMPLATE_INFO => [],
+                        Page::TEMPLATE_PLACE => [],
+                        Page::TEMPLATE_FAN => [],
+                    ],
+                    'required' => true
+                ])
+                ->add('title')
+                ->add('slug')
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
             ->end();
