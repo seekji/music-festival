@@ -1,4 +1,4 @@
-.default-page {
+.default-text {
 
   p {
     margin-top: 0;
@@ -14,29 +14,30 @@
       margin-bottom: 0;
     }
   }
-}
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 
-  li {
-    position: relative;
-    padding-left: 10px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-    + li {
-      margin-top: 5px;
-    }
+    li {
+      position: relative;
+      padding-left: 10px;
 
-    &::before {
-      position: absolute;
-      content: '';
-      top: 10px;
-      left: 0;
-      width: 4px;
-      height: 4px;
-      background: @color-main;
+      + li {
+        margin-top: 5px;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 10px;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        background: @color-main;
+      }
     }
   }
 }
