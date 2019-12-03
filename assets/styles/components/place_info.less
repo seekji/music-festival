@@ -1,7 +1,7 @@
 .place-info {
   position: relative;
-  padding-top: 90px;
-  padding-bottom: 120px;
+  padding-top: 95px;
+  padding-bottom: 200px;
   background: @cod-gray;
   color: @white;
 
@@ -18,8 +18,30 @@
     padding-right: 50px;
   }
 
+  &__column-right {
+    padding-left: 17px;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 36px;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
   &__description {
     margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.7;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    p + p {
+      margin-top: 25px;
+    }
   }
   
   &__card-link {
@@ -34,6 +56,7 @@
   &__tabs-header {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
     padding: 0 10px;
   }
 
@@ -42,7 +65,7 @@
     position: relative;
     font-size: 18px;
     color: @white;
-    padding: 5px 10px;
+    padding: 10px 25px;
     z-index: 5;
     font-weight: 600;
 
@@ -56,7 +79,7 @@
       top: 0;
       left: 50%;
       content: '';
-      width: 100%;
+      width: 94%;
       height: 100%;
       background: @color-main;
       z-index: -1;
@@ -68,6 +91,24 @@
       &::after {
         display: block;
       }
+    }
+  }
+
+  &__tabs-content {
+    font-size: 15px;
+    line-height: 1.66;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    p + p,
+    p + ul,
+    p + ol,
+    ul+ p,
+    ol + p {
+      margin-top: 25px;
     }
   }
 }

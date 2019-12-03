@@ -1,18 +1,42 @@
-p {
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-size: 15px;
-  line-height: 1.66;
+.default-page {
 
-  @media (max-width: @screen-xs-max) {
-    font-size: 14px;
-  }
+  p {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 1.66;
 
-  &:last-child {
-    margin-bottom: 0;
+    @media (max-width: @screen-xs-max) {
+      font-size: 14px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
 ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 10px;
+
+    + li {
+      margin-top: 5px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 10px;
+      left: 0;
+      width: 4px;
+      height: 4px;
+      background: @color-main;
+    }
+  }
 }
