@@ -5,34 +5,64 @@
   background: @cod-gray;
   color: @white;
 
+  @media (max-width: @screen-lg-max) {
+    padding-bottom: 95px;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    padding-top: 55px;
+  }
+
   &__inner {
     .container-fluid();
     display: flex;
+
+    @media (max-width: @screen-md-max) {
+      flex-direction: column;
+    }
   }
 
   &__column {
     width: 50%;
+
+    @media (max-width: @screen-md-max) {
+      width: 100%;
+    }
   }
 
   &__column-left {
     padding-right: 50px;
+
+    @media (max-width: @screen-lg-max) {
+      padding-right: 30px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      padding-right: 0;
+      margin-bottom: 50px;
+    }
   }
 
   &__column-right {
     padding-left: 17px;
-  }
 
-  &__title {
-    margin-top: 0;
-    margin-bottom: 36px;
-    font-size: 30px;
-    font-weight: 800;
+    @media (max-width: @screen-lg-max) {
+      padding-left: 0;
+    }
   }
 
   &__description {
     margin-bottom: 20px;
     font-size: 18px;
     line-height: 1.7;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 16px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 15px;
+    }
 
     p {
       margin-top: 0;
@@ -51,64 +81,17 @@
     font-weight: 800;
     color: @white;
     text-decoration: none;
-  }
 
-  &__tabs-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
-
-  &__tabs-btn {
-    .button-reset();
-    position: relative;
-    font-size: 18px;
-    color: @white;
-    padding: 10px 25px;
-    z-index: 5;
-    font-weight: 600;
-
-    + .place-info__tabs-btn {
-      margin-right: 20px;
+    @media (max-width: @screen-lg-max) {
+      font-size: 26px;
     }
 
-    &::after {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      content: '';
-      width: 94%;
-      height: 100%;
-      background: @color-main;
-      z-index: -1;
-      transform: translate(-50%) skew(-45deg);
+    @media (max-width: @screen-md-max) {
+      font-size: 22px;
     }
 
-    &--active {
-
-      &::after {
-        display: block;
-      }
-    }
-  }
-
-  &__tabs-content {
-    font-size: 15px;
-    line-height: 1.66;
-
-    p {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    p + p,
-    p + ul,
-    p + ol,
-    ul+ p,
-    ol + p {
-      margin-top: 25px;
+    @media (max-width: @screen-sm-max) {
+      font-size: 18px;
     }
   }
 }
