@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
             var activeTab = tabsParent.querySelector('[href="' + tabId + '"]') ? tabsParent.querySelector('[href="' + tabId + '"]') : tabsParent.querySelector('[data-target="' + tabId + '"]')
             activeTab.closest('.tabs__link-wrap').classList.add(activeTabClassName);
             // tab content
-            tabsParent.querySelector('.' + activeTabContentClassName).classList.remove(activeTabContentClassName);
+            var tabsItems = tabsParent.querySelector('.tabs__content-wrapper').children;
+            [].forEach.call( tabsItems, function(item) {
+                item.classList.remove(activeTabContentClassName);
+            });
             tabsParent.querySelector(tabId).classList.add(activeTabContentClassName);
         }
     }

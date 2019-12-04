@@ -11,9 +11,10 @@
     }
   }
 
-  &__links {
+  .tabs__links { // for specificity
     display: flex;
     align-items: center;
+    margin-top: 0;
     margin-bottom: 20px;
     padding: 0 10px;
     list-style: none;
@@ -32,10 +33,10 @@
     }
   }
 
-  &__link-wrap {
-    position: relative;
+  .tabs__link-wrap.tabs__link-wrap {  // ugly override for default ul styles
+    position: relative; // for before
 
-    &::after {
+    &::before {
       display: none;
       position: absolute;
       top: 0;
@@ -44,19 +45,20 @@
       width: 94%;
       height: 100%;
       background: @color-main;
-      z-index: -1;
+      z-index: 1;
       transform: translate(-50%) skew(-45deg);
     }
 
     &--active {
 
-      &::after {
+      &::before {
         display: block;
       }
     }
   }
 
   &__link {
+    position: relative; // for z-index
     display: block;
     font-size: 18px;
     color: @white;
