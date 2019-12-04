@@ -6,7 +6,74 @@
 {% endblock %}
 
 {% block body %}
-  place <h1>{{ page.title }}</h1>
+  <div class="start-screen">
+    <div class="start-screen__inner">
+      <img
+        class="start-screen__img"
+        src="{{ asset('build/assets/images/place_bg.jpg') }}"
+        alt="История">
+      <h1 class="start-screen__title"><span class="word">Самара</span> <span class="word">арена</span></h1>
+    </div>
+  </div>
+  <section class="place-info">
+    <div class="place-info__inner">
+      <div class="place-info__column place-info__column-left">
+        <div class="place-info__description">
+          <p>
+            В 2020 году фестиваль будет проходить на лучшей и самой современной площадке Самары — новейшем стадионе
+            «Самара Арена», построенном специально к чемпионату мира по футболу 2018 года. Это одна из самых современных
+            площадок России, позволяющая организовать фестиваль совершенно на новом уровне!
+          </p>
+          <p>
+            Вместимость стадиона 56 000 человек. Билеты в продаже без комиссии.
+          </p>
+        </div>
+        <a href="/" class="place-info__card-link">Стадион на карте</a>
+      </div>
+      <div class="place-info__column place-info__column-right route">
+        <h2 class="route__title">Как добраться</h2>
+        <div class="route__tabs">
+          <div class="route__tabs-header">
+            <button class="route__tabs-btn route__tabs-btn--active">
+              Общественный транспорт
+            </button>
+            <button class="route__tabs-btn">
+              Автомобиль
+            </button>
+          </div>
+          <div class="route__tabs-content default-text">
+            <p>
+              Добираться до стадиона «Самара Арена» удобнее всего на специальных шаттлах. Самый быстрый из них —
+              скоростной трамвай S5.
+            </p>
+            <ul>
+              <li>От Самарской площади – на автобусах S2 и S7, на трамвае S5.</li>
+              <li>От площади Революции – на автобусах S1.</li>
+              <li>От ТЦ «МЕГА» – на автобусах S2 и S2k.</li>
+            </ul>
+            <p>
+              Также можно доехать на обычном общественном транспорте, проходящем по Московскому шоссе и улице
+              Демократической. От остановки придется пройти пешком 10-15 минут. Спрашивайте у кондуктора, на какой
+              остановке удобнее выйти.
+            </p>
+            <p>
+              Автобусы: 1, 1к, 45, 50, 51, 67, 78, 79, 96, 110, 113, 205, 210, 221, 295, 389, 392, 392а, 406, 410а, 447,
+              492.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buy-tickets">
+      <a href="#" class="buy-tickets__link">
+        <div class="buy-tickets__text">Купить билеты</div>
+        <svg class="buy-tickets__icon">
+          <use xlink:href="#arrow-right"></use>
+        </svg>
+      </a>
+    </div>
+  </section>
+  <section id="place-map" class="place-map"></section>
 {% endblock %}
 
 {% block javascript %}

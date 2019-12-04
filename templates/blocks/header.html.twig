@@ -1,4 +1,4 @@
-<header class="page-header">
+<header class="page-header {{ app.request.requestUri == '/' ? '' : 'page-header--inner-page' }}">
   <div class="page-header__inner">
 
     <button class="page-header__menu-toggler menu-toggler"><span></span></button>
