@@ -6,7 +6,76 @@
 {% endblock %}
 
 {% block body %}
-  fan-zones <h1>{{ page.title }}</h1>
+  <div class="start-screen">
+    <div class="start-screen__inner">
+      <img
+        class="start-screen__img"
+        src="{{ asset('build/assets/images/fan_zones_bg.jpg') }}"
+        alt="История">
+      <h1 class="start-screen__title">
+        <span class="word">Фан-зоны</span>
+        <span class="word">фестиваля</span>
+      </h1>
+    </div>
+  </div>
+  <section class="fan-zones">
+    <div class="fan-zones__inner">
+      <div class="tabs">
+        <ul class="tabs__links tabs__links--large">
+          <li class="tabs__link-wrap tabs__link-wrap--active">
+            <a href="#tab00" class="tabs__link " data-toggle="tab">Самара</a>
+          </li>
+          <li class="tabs__link-wrap">
+            <a href="#tab01" class="tabs__link" data-toggle="tab">Тольятти</a>
+          </li>
+          <li class="tabs__link-wrap">
+            <a href="#tab02" class="tabs__link" data-toggle="tab">Саратов</a>
+          </li>
+          <li class="tabs__link-wrap">
+            <a href="#tab03" class="tabs__link" data-toggle="tab">Сызрань</a>
+          </li>
+        </ul>
+        <div class="tabs__content-wrapper">
+          <div class="tabs__column-left">
+            <div id="tab00" class="tabs__content-item tabs__content-item--active">
+              <p>
+                Фан зона Самары представляет собой специально отгороженное вокруг стадиона место для всех желающих
+                бесплатно послушать музыку и попить легких алкогольных напитков.
+              </p>
+              <p>
+                Расположится эта зона вокруг стадиона «Самара Арена». Мы повернем два огромных экрана в сторону
+                бесплатных зрителей, чтобы все могли насладиться.
+              </p>
+              <div class="tabs">
+                <ul class="tabs__links">
+                  <li class="tabs__link-wrap tabs__link-wrap--active">
+                    <a href="#tab04" class="tabs__link " data-toggle="tab">Самара</a>
+                  </li>
+                  <li class="tabs__link-wrap">
+                    <a href="#tab05" class="tabs__link" data-toggle="tab">Тольятти</a>
+                  </li>
+                </ul>
+                <div class="tabs__content-wrapper">
+                  <div id="tab04" class="tabs__content-item tabs__content-item--active">Tab04</div>
+                  <div id="tab05" class="tabs__content-item">Tab05</div>
+                </div>
+              </div>
+            </div>
+            <div id="tab01" class="tabs__content-item">
+              Lorem ipsum.
+            </div>
+            <div id="tab02" class="tabs__content-item">
+              Lorem ipsum. Lorem ipsum dolor sit amet.
+            </div>
+            <div id="tab03" class="tabs__content-item">
+              Lorem ipsum. Lorem ipsum dolor sit amet.
+            </div>
+          </div>
+          <div class="tabs__column-right"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block javascript %}
