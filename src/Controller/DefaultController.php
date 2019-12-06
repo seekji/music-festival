@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\ArtistService;
+use App\Service\NewsService;
 use App\Service\PartnerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,14 +26,21 @@ class DefaultController extends AbstractController
     private $artistService;
 
     /**
+     * @var NewsService
+     */
+    private $newsService;
+
+    /**
      * DefaultController constructor.
      * @param PartnerService $partnerService
      * @param ArtistService $artistService
+     * @param NewsService $newsService
      */
-    public function __construct(PartnerService $partnerService, ArtistService $artistService)
+    public function __construct(PartnerService $partnerService, ArtistService $artistService, NewsService $newsService)
     {
         $this->partnerService = $partnerService;
         $this->artistService = $artistService;
+        $this->newsService = $newsService;
     }
 
     /**
@@ -46,6 +54,7 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', [
             'partners' => $this->partnerService->getSortedPartners(),
             'artists' => $this->artistService->artistRepository->findAll(),
+            'news' => $this->newsService->getLastNewsByLocale($request->getLocale())
         ]);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Locale\LocaleInterface;
-use App\Entity\Menu;
+use App\Entity\News;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -14,12 +14,12 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class LoadMenuDataFixture
+ * Class LoadNewsDataFixture
  * @package App\DataFixtures
  */
-class LoadMenuDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadNewsDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
-    private const DATA_COUNT = 10;
+    private const DATA_COUNT = 7;
 
     /**
      * @var ContainerInterface
@@ -51,14 +51,14 @@ class LoadMenuDataFixture extends Fixture implements FixtureInterface, Container
         $this->faker = Factory::create();
 
         for($i = 0; $i <= self::DATA_COUNT; $i++) {
-            $menu = new Menu();
+            $news  = new News();
 
-            $menu->setTitle($this->faker->text(5));
-            $menu->setLink($this->faker->url);
-            $menu->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
-            $menu->setLocation($this->faker->randomKey(Menu::LOCATION_LIST));
+            $news->setTitle($this->faker->text(10));
+            $news->setDescription($this->faker->text(200));
+            $news->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
+            $news->setIsActive($this->faker->boolean(80));
 
-            $manager->persist($menu);
+            $manager->persist($news);
         }
 
         $manager->flush();
@@ -71,6 +71,6 @@ class LoadMenuDataFixture extends Fixture implements FixtureInterface, Container
      */
     public function getOrder()
     {
-        return 50;
+        return 60;
     }
 }
