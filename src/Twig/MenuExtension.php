@@ -19,20 +19,20 @@ class MenuExtension extends AbstractExtension
     /**
      * @return array|TwigFilter[]
      */
-    public function getFilters(): array
+    public function getFunctions(): array
     {
         return [
-            new TwigFilter('menuLinks', [$this, 'menuLinks']),
+            new TwigFunction('menuLinks', [$this, 'menuLinks']),
         ];
     }
 
     /**
      * @param int $location
-     * @param int $locale
+     * @param string $locale
      * @return array
      */
-    public function menuLinks(int $location, int $locale): array
+    public function menuLinks(int $location, string $locale): array
     {
-        $this->menuService->getLinksByLocationAndLocale($location, $locale);
+        return $this->menuService->getLinksByLocationAndLocale($location, $locale);
     }
 }

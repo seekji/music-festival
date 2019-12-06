@@ -13,7 +13,7 @@ class MenuService
         $this->menuRepository = $menuRepository;
     }
 
-    public function getLinksByLocationAndLocale(int $location, int $locale)
+    public function getLinksByLocationAndLocale(int $location, string $locale): array
     {
         return $this->menuRepository->findBy(['locale' => $locale, 'location' => $location], ['sort' => 'ASC']);
     }
