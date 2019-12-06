@@ -2,10 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Application\Sonata\MediaBundle\Entity\Media;
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Page;
-use App\Entity\Partner;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -14,7 +12,6 @@ use Faker\Factory;
 use Faker\Generator;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class LoadPageDataFixture

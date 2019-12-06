@@ -2,9 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Application\Sonata\MediaBundle\Entity\Media;
-use App\Entity\Artist;
 use App\Entity\Locale\LocaleInterface;
+use App\Entity\Menu;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -13,15 +12,14 @@ use Faker\Factory;
 use Faker\Generator;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Class LoadArtistDataFixture
+ * Class LoadMenuDataFixture
  * @package App\DataFixtures
  */
-class LoadArtistDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadMenuDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
-    private const DATA_COUNT = 12;
+    private const DATA_COUNT = 10;
 
     /**
      * @var ContainerInterface
@@ -50,26 +48,17 @@ class LoadArtistDataFixture extends Fixture implements FixtureInterface, Contain
      */
     public function load(ObjectManager $manager)
     {
-        $file = new UploadedFile(__DIR__ . '/static/artist.jpg', basename(__DIR__ . '/static/artist.jpg'), null, null, null, true);
-
-        $media = new Media();
-        $media->setBinaryContent($file);
-        $media->setContext('artists');
-        $media->setProviderName('sonata.media.provider.image');
-
         $this->faker = Factory::create();
 
         for($i = 0; $i <= self::DATA_COUNT; $i++) {
-            $artist = new Artist();
+            $page = new Menu();
 
-            $artist->setName($this->faker->name);
-            $artist->setPicture($media);
-            $artist->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
-            $artist->setIsHeadliner($this->faker->boolean(20));
-            $artist->setDescription($this->faker->text(100));
-            $artist->setStartAt($this->faker->dateTimeBetween('now', '+1 day'));
+            $page->setTitle($this->faker->text(5));
+            $page->setLink($this->faker->url);
+            $page->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
+            $page->setLocation($this->faker->randomKey(Menu::LOCATION_LIST));
 
-            $manager->persist($artist);
+            $manager->persist($page);
         }
 
         $manager->flush();
@@ -82,6 +71,6 @@ class LoadArtistDataFixture extends Fixture implements FixtureInterface, Contain
      */
     public function getOrder()
     {
-        return 20;
+        return 50;
     }
 }
