@@ -20,16 +20,7 @@ class SettingsForm extends AbstractType
         $builder
             ->add('address', TextType::class, ['label' => 'Адрес', 'required' => false])
             ->add('phone', TextType::class, ['label' => 'Телефон', 'required' => false])
-            ->add('email', EmailType::class, ['label' => 'Email', 'required' => false])
-            ->add('personal_rules_link', TextType::class, ['label' => 'Ссылка на страницу с правилами обработки персональных данных', 'required' => false])
-            ->add('vk', TextType::class, ['label' => 'VK', 'required' => false, 'help' => 'Ссылка на группу.'])
-            ->add('facebook', TextType::class, ['label' => 'Facebook', 'required' => false, 'help' => 'Ссылка на группу.'])
-            ->add('instagram', TextType::class, ['label' => 'Instagram', 'required' => false, 'help' => 'Ссылка на профиль.'])
-            ->add('city_count', IntegerType::class, ['label' => 'Кол-во городов', 'required' => false])
-            ->add('hall_count', IntegerType::class, ['label' => 'Кол-во площадок', 'required' => false])
-            ->add('event_count', IntegerType::class, ['label' => 'Кол-во мероприятий в год', 'required' => false])
-            ->add('email_send_from', EmailType::class, ['label' => 'Отправлять заявки с форм от:', 'required' => false])
-            ->add('email_send_to', EmailType::class, ['label' => 'Отправлять завяки с форм на:', 'required' => false]);
+            ->add('email', EmailType::class, ['label' => 'Email', 'required' => false]);
     }
 
     /**
