@@ -12,10 +12,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 /**
- * Class MenuAdmin
+ * Class NewsAdmin
  * @package App\Admin
  */
-class MenuAdmin extends AbstractAdmin
+class NewsAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $filter
@@ -40,8 +40,8 @@ class MenuAdmin extends AbstractAdmin
         $list
             ->add('id')
             ->add('title')
-            ->add('link')
             ->add('locale', 'choice', ['choices' => LocaleInterface::LOCALE_LIST])
+            ->add('isActive')
             ->add('createdAt')
             ->add('updatedAt')
             ->add('_action', null, [
@@ -58,18 +58,15 @@ class MenuAdmin extends AbstractAdmin
      */
     protected function configureFormFields(FormMapper $form)
     {
-        $form->with('Свойства ссылки', ['class' => 'col-md-9'])
+        $form->with('Свойства новости', ['class' => 'col-md-9'])
                 ->add('locale', ChoiceType::class, [
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
                 ->add('title')
-                ->add('link')
+                ->add('description')
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
-                ->add('sort')
-                ->add('location', ChoiceType::class, [
-                    'choices' => array_flip(Menu::LOCATION_LIST)
-                ])
+                ->add('isActive')
             ->end();
     }
 
@@ -81,8 +78,8 @@ class MenuAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('title')
-            ->add('link')
-            ->add('sort')
+            ->add('description')
+            ->add('isActive')
             ->add('createdAt')
             ->add('updatedAt');
     }
