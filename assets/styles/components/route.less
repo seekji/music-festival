@@ -6,6 +6,10 @@
     font-size: 30px;
     font-weight: 800;
 
+    @media (max-width: @screen-md-max) {
+      margin-bottom: 22px;
+    }
+
     @media (max-width: @screen-sm-max) {
       font-size: 26px;
     }
@@ -39,6 +43,10 @@
       background: @color-main;
       z-index: 1;
       transform: translate(-48%) skew(-45deg);
+
+      @media (max-width: @screen-sm-max) {
+        transform: translate(-46%) skew(-45deg);
+      }
     }
 
     &--active {

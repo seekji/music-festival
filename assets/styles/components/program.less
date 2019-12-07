@@ -8,10 +8,19 @@
     font-style: italic;
     font-size: 60px;
     text-transform: uppercase;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 54px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      font-size: 48px;
+    }
   }
 
   &__item {
     display: flex;
+    padding-top: 15px;
 
     + .program__item {
       margin-top: 50px;
@@ -21,13 +30,14 @@
   &__time {
     flex-shrink: 0;
     width: 86px;
-    padding-top: 15px;
     font-size: 30px;
     font-weight: 800;
     line-height: 1.2;
   }
 
   &__img {
+    position: relative;
+    top: -15px;
     flex-shrink: 0;
     width: 167px;
     height: auto;
@@ -35,7 +45,6 @@
 
   &__description {
     margin-left: 35px;
-    padding-top: 7px;
   }
 
   &__item-title {
