@@ -9,6 +9,7 @@ import menuToggler from '../components/menu_toggler.js';
 import buyTicketrs from '../components/buy_tickets.js';
 import placeMap from '../components/place_map.js';
 import tabs from '../components/tabs.js';
+import routeTabs from '../components/route_tabs.js';
 
 $(document).ready(function() {
     Splitting();
