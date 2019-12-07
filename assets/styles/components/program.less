@@ -1,0 +1,52 @@
+.program {
+  color: @white;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 60px;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    display: flex;
+
+    + .program__item {
+      margin-top: 50px;
+    }
+  }
+
+  &__time {
+    flex-shrink: 0;
+    width: 86px;
+    padding-top: 13px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 167px;
+    height: auto;
+  }
+
+  &__description {
+    margin-left: 35px;
+    padding-top: 7px;
+  }
+
+  &__item-title {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  &__item-text {
+    width: 80%;
+    font-size: 15px;
+    line-height: 1.66;
+  }
+}

@@ -1,5 +1,19 @@
 .tabs {
 
+  .route {
+    margin-top: 43px;
+  }
+
+  &__column-left {
+    width: 41.66%;
+    padding-top: 20px;
+  }
+
+  &__column-right {
+    width: 58.34%;
+    padding-left: 20px;
+  }
+
   &__title {
     margin-top: 0;
     margin-bottom: 36px;
@@ -26,14 +40,17 @@
     }
 
     &--large {
+      margin-bottom: 55px;
+      padding: 0 40px;
 
       .tabs__link {
+        padding: 27px 50px;
         font-size: 30px;
       }
     }
   }
 
-  .tabs__link-wrap.tabs__link-wrap {  // ugly override for default ul styles
+  .tabs__link-wrap.tabs__link-wrap { // ugly override for default ul styles
     position: relative; // for before
 
     &::before {
@@ -47,6 +64,10 @@
       background: @color-main;
       z-index: 1;
       transform: translate(-50%) skew(-45deg);
+    }
+
+    + .tabs__link-wrap {
+      margin-left: 36px;
     }
 
     &--active {
@@ -95,12 +116,13 @@
     }
 
     &--active {
-      display: block;
+      display: flex;
     }
 
     p {
       margin-top: 0;
       margin-bottom: 0;
+      font-size: 18px;
     }
 
     p + p,
@@ -108,7 +130,7 @@
     p + ol,
     ul + p,
     ol + p {
-      margin-top: 25px;
+      margin-top: 35px;
     }
   }
 }

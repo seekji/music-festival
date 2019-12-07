@@ -11,11 +11,12 @@
     }
   }
 
-  &__tabs-header {
+  .route__tabs-header.route__tabs-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     padding: 0 10px;
+    list-style: none;
 
     @media (max-width: @screen-xs-max) {
       padding: 0;
@@ -24,14 +25,39 @@
     }
   }
 
-  &__tabs-btn {
-    .button-reset();
+  .route__link-wrap.route__link-wrap { // override
+    position: relative; // for before
+
+    &::before {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      content: '';
+      width: 94%;
+      height: 100%;
+      background: @color-main;
+      z-index: 1;
+      transform: translate(-50%) skew(-45deg);
+    }
+
+    &--active {
+
+      &::before {
+        display: block;
+      }
+    }
+  }
+
+  &__tabs-link {
+    display: block;
     position: relative;
     font-size: 18px;
     color: @white;
-    padding: 10px 25px;
+    padding: 6px 25px;
     z-index: 5;
     font-weight: 600;
+    text-decoration: none;
 
     @media (max-width: @screen-lg-max) {
       font-size: 16px;
@@ -41,7 +67,7 @@
       max-width: 320px;
     }
 
-    + .route__tabs-btn {
+    + .route__tabs-link {
       margin-right: 20px;
 
       @media (max-width: @screen-xs-max) {
@@ -49,39 +75,19 @@
         margin-top: 20px;
       }
     }
-
-    &::after {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      content: '';
-      width: 94%;
-      height: 100%;
-      background: @color-main;
-      z-index: -1;
-      transform: translate(-50%) skew(-45deg);
-    }
-
-    &--active {
-
-      &::after {
-        display: block;
-      }
-    }
   }
 
-  &__tabs-content {
-    font-size: 15px;
-    line-height: 1.66;
-
-    @media (max-width: @screen-sm-max) {
-      font-size: 14px;
-    }
+  &__content-item {
 
     p {
       margin-top: 0;
       margin-bottom: 0;
+      font-size: 15px;
+      line-height: 1.66;
+
+      @media (max-width: @screen-sm-max) {
+        font-size: 14px;
+      }
     }
 
     p + p,
