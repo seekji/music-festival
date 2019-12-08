@@ -25,12 +25,22 @@
     @media (max-width: @screen-xs-max) {
       padding: 0;
       flex-direction: column;
-      align-items: flex-start;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      padding: 0;
+      flex-direction: column;
     }
   }
 
   .route__link-wrap.route__link-wrap { // override
     position: relative; // for before
+    padding-left: 0;
+
+    @media (max-width: @screen-sm-max) {
+      width: 100%;
+      max-width: 320px;
+    }
 
     &::before {
       display: none;
@@ -45,7 +55,8 @@
       transform: translate(-48%) skew(-45deg);
 
       @media (max-width: @screen-sm-max) {
-        transform: translate(-46%) skew(-45deg);
+        width: 100%;
+        transform: translate(-50%);
       }
     }
 
@@ -71,8 +82,8 @@
       font-size: 16px;
     }
 
-    @media (max-width: @screen-xs-max) {
-      max-width: 320px;
+    @media (max-width: @screen-sm-max) {
+      text-align: center;
     }
 
     + .route__tabs-link {

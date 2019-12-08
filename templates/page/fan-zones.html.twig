@@ -117,7 +117,9 @@
               </h2>
               <div class="program__items-wrap">
                 <div class="program__item">
-                  <div class="program__time">18:00</div>
+                  <div class="program__item-column">
+                    <div class="program__time">18:00</div>
+                  </div>
                   <div class="program__description">
                     <div class="program__item-title">Церемония открытия</div>
                     <div class="program__item-text">
@@ -127,11 +129,15 @@
                   </div>
                 </div>
                 <div class="program__item program__item--has-image">
-                  <div class="program__time">20:50</div>
-                  <img
-                    class="program__img"
-                    src="{{ asset('build/assets/images/program_01.png') }}"
-                    alt="История">
+                  <div class="program__item-column">
+                    <div class="program__time">20:50</div>
+                    <div class="program__img-wrap">
+                      <img
+                        class="program__img"
+                        src="{{ asset('build/assets/images/program_01.png') }}"
+                        alt="История">
+                    </div>
+                  </div>
                   <div class="program__description">
                     <div class="program__item-title"> Сплин</div>
                     <div class="program__item-text">
@@ -141,7 +147,9 @@
                   </div>
                 </div>
                 <div class="program__item ">
-                  <div class="program__time">20:50 &mdash; 22:50</div>
+                  <div class="program__item-column">
+                    <div class="program__time">20:50 &mdash; 22:50</div>
+                  </div>
                   <div class="program__description">
                     <div class="program__item-title"> Сплин</div>
                     <div class="program__item-text">
