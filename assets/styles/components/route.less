@@ -6,42 +6,87 @@
     font-size: 30px;
     font-weight: 800;
 
+    @media (max-width: @screen-md-max) {
+      margin-bottom: 22px;
+    }
+
     @media (max-width: @screen-sm-max) {
       font-size: 26px;
     }
   }
 
-  &__tabs-header {
+  .route__tabs-header.route__tabs-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     padding: 0 10px;
+    list-style: none;
 
     @media (max-width: @screen-xs-max) {
       padding: 0;
       flex-direction: column;
-      align-items: flex-start;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      padding: 0;
+      flex-direction: column;
     }
   }
 
-  &__tabs-btn {
-    .button-reset();
+  .route__link-wrap.route__link-wrap { // override
+    position: relative; // for before
+    padding-left: 0;
+
+    @media (max-width: @screen-sm-max) {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    &::before {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      content: '';
+      width: 95%;
+      height: 100%;
+      background: @color-main;
+      z-index: 1;
+      transform: translate(-48%) skew(-45deg);
+
+      @media (max-width: @screen-sm-max) {
+        width: 100%;
+        transform: translate(-50%);
+      }
+    }
+
+    &--active {
+
+      &::before {
+        display: block;
+      }
+    }
+  }
+
+  &__tabs-link {
+    display: block;
     position: relative;
     font-size: 18px;
     color: @white;
-    padding: 10px 25px;
+    padding: 6px 25px;
     z-index: 5;
     font-weight: 600;
+    text-decoration: none;
 
     @media (max-width: @screen-lg-max) {
       font-size: 16px;
     }
 
-    @media (max-width: @screen-xs-max) {
-      max-width: 320px;
+    @media (max-width: @screen-sm-max) {
+      text-align: center;
     }
 
-    + .route__tabs-btn {
+    + .route__tabs-link {
       margin-right: 20px;
 
       @media (max-width: @screen-xs-max) {
@@ -49,39 +94,24 @@
         margin-top: 20px;
       }
     }
-
-    &::after {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      content: '';
-      width: 94%;
-      height: 100%;
-      background: @color-main;
-      z-index: -1;
-      transform: translate(-50%) skew(-45deg);
-    }
-
-    &--active {
-
-      &::after {
-        display: block;
-      }
-    }
   }
 
-  &__tabs-content {
-    font-size: 15px;
-    line-height: 1.66;
+  &__content-item {
+    display: none;
 
-    @media (max-width: @screen-sm-max) {
-      font-size: 14px;
+    &--active {
+      display: block;
     }
 
     p {
       margin-top: 0;
       margin-bottom: 0;
+      font-size: 15px;
+      line-height: 1.66;
+
+      @media (max-width: @screen-sm-max) {
+        font-size: 14px;
+      }
     }
 
     p + p,
