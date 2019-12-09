@@ -23,4 +23,9 @@ class ArtistService
     {
         $this->artistRepository = $artistRepository;
     }
+
+    public function getArtistsByLocale(string $locale): array
+    {
+        return $this->artistRepository->findBy(['locale' => $locale], ['isHeadliner' => 'ASC', 'sort' => 'ASC']);
+    }
 }
