@@ -51,6 +51,11 @@ class Partner implements LocaleInterface
     private $picture;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -139,5 +144,17 @@ class Partner implements LocaleInterface
     public function __toString()
     {
         return (string) $this->getName();
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
     }
 }

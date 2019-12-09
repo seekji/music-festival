@@ -5,49 +5,32 @@
         <div class="partners__title-part">{{ 'text.thanks'|trans({}, 'site') }}</div>
         {{ 'text.thanks.all'|trans({}, 'site') }}
       </h2>
-      <div class="partners__items">
-        <div class="partners__row">
-          <a href="javascript:void(0);" class="partners__logo partners__logo--large">
-            <img
-              src="{{ asset('build/assets/images/logo_01.svg') }}"
-              alt="logo"
-              class="partners__logo-img">
-          </a>
-          <a href="javascript:void(0);" class="partners__logo partners__logo--large">
-            <img
-              src="{{ asset('build/assets/images/logo_02.svg') }}"
-              alt="logo"
-              class="partners__logo-img">
-          </a>
-        </div>
-        <div class="partners__row">
-          <a href="javascript:void(0);" class="partners__logo">
-            <img
-              src="{{ asset('build/assets/images/logo_03.svg') }}"
-              alt="logo"
-              class="partners__logo-img">
-          </a>
-          <a href="javascript:void(0);" class="partners__logo">
-            <img
-              src="{{ asset('build/assets/images/logo_04.svg') }}"
-              alt="logo"
-              class="partners__logo-img">
-          </a>
-          <a href="javascript:void(0);" class="partners__logo">
-            <img
-              src="{{ asset('build/assets/images/logo_05.svg') }}"
-              alt="logo"
-              class="partners__logo-img">
-          </a>
-          <a href="javascript:void(0);" class="partners__logo">
-            <img
-              src="{{ asset('build/assets/images/logo_06.svg') }}"
-              alt="logo"
-              class="partners__logo-img">
-          </a>
+
+      {% if partners|length > 0 %}
+        <div class="partners__items">
+          <div class="partners__row">
+            {% for partner in partners|slice(0, 2) %}
+              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo {{ partner.isBig ? 'partners__logo--large' : '' }}">
+                <img
+                  src="{% path partner.picture, 'reference' %}"
+                  alt="{{ partner.name }}"
+                  class="partners__logo-img">
+              </a>
+            {% endfor %}
+          </div>
+          <div class="partners__row">
+            {% for partner in partners|slice(2) %}
+              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo">
+                <img
+                  src="{% path partner.picture, 'reference' %}"
+                  alt="{{ partner.name }}"
+                  class="partners__logo-img">
+              </a>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 
   <div class="page-footer__bottom">

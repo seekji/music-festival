@@ -66,6 +66,7 @@ class LoadPartnerDataFixture extends Fixture implements FixtureInterface, Contai
             $partner->setPicture($media);
             $partner->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
             $partner->setIsBig($this->faker->boolean(20));
+            $partner->setLink($this->faker->url);
 
             $manager->persist($partner);
         }

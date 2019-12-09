@@ -65,6 +65,7 @@ class PartnerAdmin extends AbstractAdmin
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
                 ->add('name')
+                ->add('link')
                 ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'partners']])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
@@ -81,6 +82,7 @@ class PartnerAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('name')
+            ->add('link')
             ->add('sort')
             ->add('isBig')
             ->add('picture')
