@@ -50,6 +50,11 @@ class Menu implements LocaleInterface
      */
     private $link;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $columnName;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,5 +111,17 @@ class Menu implements LocaleInterface
     public function __toString(): string
     {
         return $this->title;
+    }
+
+    public function getColumnName(): ?string
+    {
+        return $this->columnName;
+    }
+
+    public function setColumnName(?string $columnName): self
+    {
+        $this->columnName = $columnName;
+
+        return $this;
     }
 }

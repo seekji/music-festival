@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -64,11 +65,17 @@ class MenuAdmin extends AbstractAdmin
                 ])
                 ->add('title')
                 ->add('link')
+                ->add('columnName')
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
                 ->add('sort')
-                ->add('location', ChoiceType::class, [
-                    'choices' => array_flip(Menu::LOCATION_LIST)
+                ->add('location', ChoiceFieldMaskType::class, [
+                    'choices' => array_flip(Menu::LOCATION_LIST),
+                    'map' => [
+                        Menu::LOCATION_MAIN => [],
+                        Menu::LOCATION_FOOTER => ['columnName'],
+                    ],
+                    'required' => true
                 ])
             ->end();
     }
