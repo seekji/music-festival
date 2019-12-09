@@ -1,40 +1,36 @@
 <div class="promo">
   <div class="promo__inner">
-    <div class="promo__slider background-slider">
-      <div class="background-slider__nav">
-        <button type="button" class="background-slider__nav-btn background-slider__prev-btn">
-          <svg class="background-slider__icon">
-            <use xlink:href="#arrow-left"></use>
-          </svg>
-        </button>
-        <div class="background-slider__name">{# Set in js #}</div>
-        <button type="button" class="background-slider__nav-btn background-slider__next-btn">
-          <svg class="background-slider__icon">
-            <use xlink:href="#arrow-right"></use>
-          </svg>
-        </button>
-      </div>
 
-      <div class="background-slider__track">
-        <div data-artist-name="Billie Eilish" class="background-slider__slide">
-          <div class="background-slider__container">
-            <img
-              src="{{ asset('build/assets/images/main_slider.jpg') }}"
-              alt="Billie Eilish"
-              class="background-slider__img">
-          </div>
+    {% if slides|length > 0 %}
+      <div class="promo__slider background-slider">
+        <div class="background-slider__nav">
+          <button type="button" class="background-slider__nav-btn background-slider__prev-btn">
+            <svg class="background-slider__icon">
+              <use xlink:href="#arrow-left"></use>
+            </svg>
+          </button>
+          <div class="background-slider__name">{# Set in js #}</div>
+          <button type="button" class="background-slider__nav-btn background-slider__next-btn">
+            <svg class="background-slider__icon">
+              <use xlink:href="#arrow-right"></use>
+            </svg>
+          </button>
         </div>
 
-        <div data-artist-name="EA EA" class="background-slider__slide">
-          <div class="background-slider__container">
-            <img
-              src="{{ asset('build/assets/images/short_history.jpg') }}"
-              alt="Billie Eilish"
-              class="background-slider__img">
-          </div>
+        <div class="background-slider__track">
+          {% for slide in slides %}
+            <div data-artist-name="{{ slide.title }}" class="background-slider__slide">
+              <div class="background-slider__container">
+                <img
+                  src="{% path slide.picture, 'reference' %}"
+                  alt="{{ slide.title }}"
+                  class="background-slider__img">
+              </div>
+            </div>
+          {% endfor %}
         </div>
       </div>
-    </div>
+    {% endif %}
 
     <div class="promo__socials socials">
       <a href="#" class="socials__link" title="Vkontakte">
