@@ -2,15 +2,14 @@
   <div class="news__inner">
     <div class="news__column-left">
       <h2 class="news__title">
-        Молния
+        {{ 'text.lightning'|trans({}, 'site') }}
         <svg class="news__title-icon">
           <use xlink:href="#icon-lightning"></use>
         </svg>
       </h2>
       <div class="news__socials news__socials--hidden-md socials socials--horizontal socials--has-text">
         <div class="socials__text">
-          Хочется больше
-          и&nbsp;чаще? &mdash;
+          {{ 'text.want_more'|trans({}, 'site')|raw }}
         </div>
         <div
           class="socials__container">
@@ -56,8 +55,7 @@
 
       <div class="news__socials news__socials--hidden-lg socials socials--horizontal socials--has-text">
         <div class="socials__text">
-          Хочется больше
-          и&nbsp;чаще? &mdash;
+          {{ 'text.want_more'|trans({}, 'site')|raw }}
         </div>
         <div
           class="socials__container">

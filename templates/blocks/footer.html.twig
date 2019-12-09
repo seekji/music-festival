@@ -2,8 +2,8 @@
   <div class="page-footer__top partners">
     <div class="partners__inner">
       <h2 class="partners__title">
-        <div class="partners__title-part">Спасибо</div>
-        всем
+        <div class="partners__title-part">{{ 'text.thanks'|trans({}, 'site') }}</div>
+        {{ 'text.thanks.all'|trans({}, 'site') }}
       </h2>
       <div class="partners__items">
         <div class="partners__row">
@@ -122,7 +122,7 @@
                 </a>
               </div>
               <div class="organizer">
-                <div class="organizer__text">Организатор</div>
+                <div class="organizer__text">{{ 'text.organiser'|trans({}, 'site') }}</div>
                 <img
                   src="{{ asset('build/assets/images/organizer_logo.svg') }}"
                   alt="Logo"
@@ -133,10 +133,10 @@
         </div>
         <div class="page-footer__content-bottom">
           <div class="page-footer__copyright">
-            &copy; 2009 &mdash; 2020 Рок над Волгой
+            &copy; 2009 &mdash; 2020 {{ 'text.festival.name'|trans({}, 'site') }}
           </div>
           <div class="page-footer__dev">
-            <span class="page-footer__dev-text">Маде ин</span>
+            <span class="page-footer__dev-text">{{ 'text.made.in'|trans({}, 'site') }}</span>
             <img
               src="{{ asset('build/assets/images/logo_03.svg') }}"
               alt="Logo"
