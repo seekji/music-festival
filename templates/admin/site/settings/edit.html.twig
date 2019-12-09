@@ -2,9 +2,71 @@
 
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
+{% block navbar_title %}
+    Настройки сайта
+{% endblock %}
+
 {% block form %}
-    {{ form_start(form) }}
-    {{ form_rest(form) }}
-    <button class="btn btn-success" type="submit">Сохранить</button>
-    {{ form_end(form) }}
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#settings">Общие настройки</a></li>
+                <li><a data-toggle="tab" href="#ru-keys">Ru-ключи</a></li>
+                <li><a data-toggle="tab" href="#en-keys">En-ключи</a></li>
+            </ul>
+            {{ form_start(form) }}
+            <div class="tab-content">
+
+                <div id="settings" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-primary">
+                                <div class="box-body">
+                                    <div class="sonata-ba-collapsed-fields">
+                                        {{ form_row(form.vk) }}
+                                        {{ form_row(form.instagram) }}
+                                        {{ form_row(form.facebook) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ru-keys" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-primary">
+                                <div class="box-body">
+                                    <div class="sonata-ba-collapsed-fields">
+                                        {{ form_row(form.ru_address) }}
+                                        {{ form_row(form.ru_email) }}
+                                        {{ form_row(form.ru_phone) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="en-keys" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-primary">
+                                <div class="box-body">
+                                    <div class="sonata-ba-collapsed-fields">
+                                        {{ form_row(form.en_address) }}
+                                        {{ form_row(form.en_email) }}
+                                        {{ form_row(form.en_phone) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

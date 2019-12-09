@@ -2,8 +2,8 @@
 
 namespace App\Form\Type;
 
+use Sonata\Form\Type\DatePickerType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,9 +18,21 @@ class SettingsForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('address', TextType::class, ['label' => 'Адрес', 'required' => false])
-            ->add('phone', TextType::class, ['label' => 'Телефон', 'required' => false])
-            ->add('email', EmailType::class, ['label' => 'Email', 'required' => false]);
+            ->add('ru_address', TextType::class, ['label' => 'Адрес', 'required' => false])
+            ->add('ru_phone', TextType::class, ['label' => 'Телефон', 'required' => false])
+            ->add('ru_email', EmailType::class, ['label' => 'Email', 'required' => false])
+            ->add('ru_email', EmailType::class, ['label' => 'Email', 'required' => false]);
+
+        $builder
+            ->add('en_address', TextType::class, ['label' => 'Адрес', 'required' => false])
+            ->add('en_phone', TextType::class, ['label' => 'Телефон', 'required' => false])
+            ->add('en_email', EmailType::class, ['label' => 'Email', 'required' => false])
+            ->add('en_email', EmailType::class, ['label' => 'Email', 'required' => false]);
+
+        $builder
+            ->add('vk', TextType::class, ['label' => 'VK', 'required' => false, 'help' => 'Ссылка на группу.'])
+            ->add('facebook', TextType::class, ['label' => 'Facebook', 'required' => false, 'help' => 'Ссылка на группу.'])
+            ->add('instagram', TextType::class, ['label' => 'Instagram', 'required' => false, 'help' => 'Ссылка на профиль.']);
     }
 
     /**
