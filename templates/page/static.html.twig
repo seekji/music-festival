@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('index') }}
+{% endblock %}
+
+{% block body %}
+  <div class="default-page">
+    <div class="default-page__inner">
+      <div class="default-page__content">
+        <div class="default-page__subtitle">Информация</div>
+        <h1 class="default-page__title">Правила поведения</h1>
+        <div class="default-text">
+          <h2>Lorem ipsum dolor.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci corporis harum inventore iusto labore nesciunt officiis placeat, possimus quae, quam quibusdam quod repellat saepe velit.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus iste mollitia, pariatur quas quisquam rem repudiandae veniam voluptatum! Dicta dolor dolorem eveniet, explicabo fugit harum illo, laudantium nobis odio, odit praesentium quaerat rerum sequi ullam ut. Assumenda autem dicta fugit nulla placeat qui. Architecto odio praesentium quidem temporibus vitae voluptatem.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aspernatur culpa dolorum ducimus eius enim facere in laborum molestias mollitia quae repellendus sapiente, sunt totam voluptatem voluptatibus. Neque, ut.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur perferendis quibusdam tempora ullam unde vel! Architecto aspernatur dignissimos eaque et expedita facere nesciunt nihil ratione sed voluptatum! Aspernatur esse repudiandae ut voluptates! Accusantium cum dolore explicabo, natus quod rem.</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Amet assumenda eveniet inventore ipsa iusto!</li>
+            <li>Ab accusamus dolorem eos similique voluptatibus!</li>
+            <li>Dolores odio possimus recusandae similique ullam.</li>
+            <li>Aut consectetur error excepturi neque perspiciatis.</li>
+          </ul>
+          <h2>Lorem ipsum dolor.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, eum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, eum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, eum.</p>
+          <h2 class="default-title default-title--danger">Строжайше запрещается</h2>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Amet assumenda eveniet inventore ipsa iusto!</li>
+            <li>Ab accusamus dolorem eos similique voluptatibus!</li>
+            <li>Dolores odio possimus recusandae similique ullam.</li>
+            <li>Aut consectetur error excepturi neque perspiciatis.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('index') }}
+{% endblock %}
