@@ -6,7 +6,174 @@
 {% endblock %}
 
 {% block body %}
-  fan-zones <h1>{{ page.title }}</h1>
+  <div class="start-screen">
+    <div class="start-screen__inner">
+      <img
+        class="start-screen__img"
+        src="{{ asset('build/assets/images/fan_zones_bg.jpg') }}"
+        alt="История">
+      <h1 class="start-screen__title">
+        <span class="start-screen__title-main">Фан-зоны</span>
+        <span class="start-screen__title-secondary">фестиваля</span>
+      </h1>
+      <div class="start-screen__text  start-screen__text--hidden-md">
+        <p>
+          В 2020 году впервые фестиваль можно будет посмотреть в специальных фан-зонах в нескольких городах
+          одновременно. Невероятная музыкальная эстафета будет проходить между Самарой, Тольятти, Вологдой и Кижами.
+        </p>
+        <p>
+          На специально построенных площадках можно будет увидеть прямую трансляцию на огромных мониторах, с
+          качественным концертным звуком, вы увидите все, что видят зрители в первых рядах Самара Арены.
+        </p>
+        <p>
+          Кроме этого в каждой фан-зонах будут организованы специальные зоны для детей, выступления специально
+          приглашенных гостей, ведущий и подарки всем желающим!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="start-screen__text start-screen__text--hidden-lg">
+    <p>
+      В 2020 году впервые фестиваль можно будет посмотреть в специальных фан-зонах в нескольких городах
+      одновременно. Невероятная музыкальная эстафета будет проходить между Самарой, Тольятти, Вологдой и Кижами.
+    </p>
+    <p>
+      На специально построенных площадках можно будет увидеть прямую трансляцию на огромных мониторах, с
+      качественным концертным звуком, вы увидите все, что видят зрители в первых рядах Самара Арены.
+    </p>
+    <p>
+      Кроме этого в каждой фан-зонах будут организованы специальные зоны для детей, выступления специально
+      приглашенных гостей, ведущий и подарки всем желающим!
+    </p>
+  </div>
+  <section class="fan-zones">
+    <div class="fan-zones__inner">
+      <div class="tabs tabs--have-columns">
+        <ul class="tabs__links tabs__links--large">
+          <li class="tabs__link-wrap tabs__link-wrap--active">
+            <a href="#tab00" class="tabs__link " data-toggle="tab">Самара</a>
+          </li>
+          <li class="tabs__link-wrap">
+            <a href="#tab01" class="tabs__link" data-toggle="tab">Тольятти</a>
+          </li>
+          <li class="tabs__link-wrap">
+            <a href="#tab02" class="tabs__link" data-toggle="tab">Саратов</a>
+          </li>
+          <li class="tabs__link-wrap">
+            <a href="#tab03" class="tabs__link" data-toggle="tab">Сызрань</a>
+          </li>
+        </ul>
+        <div class="tabs__content-wrapper">
+          <div id="tab00" class="tabs__content-item tabs__content-item--active default-text">
+            <div class="tabs__column-left">
+              <p>
+                Фан зона Самары представляет собой специально отгороженное вокруг стадиона место для всех желающих
+                бесплатно послушать музыку и попить легких алкогольных напитков.
+              </p>
+              <p>
+                Расположится эта зона вокруг стадиона «Самара Арена». Мы повернем два огромных экрана в сторону
+                бесплатных зрителей, чтобы все могли насладиться.
+              </p>
+              <div class="route">
+                <h2 class="route__title">Как добраться</h2>
+                <ul class="route__tabs-header">
+                  <li class="route__link-wrap route__link-wrap--active">
+                    <a href="#tab04" class="route__tabs-link" data-toggle="tab">Общественный транспорт</a>
+                  </li>
+                  <li class="route__link-wrap">
+                    <a href="#tab05" class="route__tabs-link" data-toggle="tab">Автомобиль</a>
+                  </li>
+                </ul>
+                <div class="route__tabs-content">
+                  <div id="tab04" class="route__content-item route__content-item--active default-text">
+                    <p>
+                      Добираться до стадиона «Самара Арена» удобнее всего на специальных шаттлах. Самый быстрый из них
+                      — скоростной трамвай S5.
+                    </p>
+                    <ul>
+                      <li>От Самарской площади – на автобусах S2 и S7, на трамвае S5.</li>
+                      <li>От площади Революции – на автобусах S1.</li>
+                      <li>От ТЦ «МЕГА» – на автобусах S2 и S2k.</li>
+                    </ul>
+                    <p>
+                      Также можно доехать на обычном общественном транспорте, проходящем по Московскому шоссе и улице
+                      Демократической. От остановки придется пройти пешком 10-15 минут. Спрашивайте у кондуктора, на
+                      какой
+                      остановке удобнее выйти.
+                    </p>
+                    <p>
+                      Автобусы: 1, 1к, 45, 50, 51, 67, 78, 79, 96, 110, 113, 205, 210, 221, 295, 389, 392, 392а, 406,
+                      410а, 447,
+                      492.
+                    </p>
+                  </div>
+                  <div id="tab05" class="route__content-item default-text">Tab05</div>
+                </div>
+              </div>
+            </div>
+            <div class="tabs__column-right program">
+              <h2 class="program__title">
+                20 июня
+              </h2>
+              <div class="program__items-wrap">
+                <div class="program__item">
+                  <div class="program__item-column">
+                    <div class="program__time">18:00</div>
+                  </div>
+                  <div class="program__description">
+                    <div class="program__item-title">Церемония открытия</div>
+                    <div class="program__item-text">
+                      Фан-зона фестиваля в Самаре откроется в 18:00 в 2020 году около стадиона. Откроет её специальный
+                      ведущий.
+                    </div>
+                  </div>
+                </div>
+                <div class="program__item program__item--has-image">
+                  <div class="program__item-column">
+                    <div class="program__time">20:50</div>
+                    <div class="program__img-wrap">
+                      <img
+                        class="program__img"
+                        src="{{ asset('build/assets/images/program_01.png') }}"
+                        alt="История">
+                    </div>
+                  </div>
+                  <div class="program__description">
+                    <div class="program__item-title"> Сплин</div>
+                    <div class="program__item-text">
+                      Специально для фан-зоны Самары в 2019 году в ней выступит солист группы Сплин Александр Васильев с
+                      новым хитом «Фан-зонное настроение».
+                    </div>
+                  </div>
+                </div>
+                <div class="program__item ">
+                  <div class="program__item-column">
+                    <div class="program__time">20:50 &mdash; 22:50</div>
+                  </div>
+                  <div class="program__description">
+                    <div class="program__item-title"> Сплин</div>
+                    <div class="program__item-text">
+                      Специально для фан-зоны Самары в 2019 году в ней выступит солист группы Сплин Александр Васильев с
+                      новым хитом «Фан-зонное настроение».
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tab01" class="tabs__content-item default-text">
+            Lorem ipsum.
+          </div>
+          <div id="tab02" class="tabs__content-item default-text">
+            Lorem ipsum. Lorem ipsum dolor sit amet. Wow wow
+          </div>
+          <div id="tab03" class="tabs__content-item default-text">
+            Lorem ipsum. Lorem ipsum dolor sit amet.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block javascript %}

@@ -8,6 +8,9 @@ import backgroundSlider from '../components/background_slider.js';
 import menuToggler from '../components/menu_toggler.js';
 import buyTicketrs from '../components/buy_tickets.js';
 import placeMap from '../components/place_map.js';
+import tabs from '../components/tabs.js';
+import routeTabs from '../components/route_tabs.js';
+import infoPage from '../components/info_page.js';
 
 $(document).ready(function() {
     Splitting();

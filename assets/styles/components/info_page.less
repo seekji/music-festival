@@ -1,0 +1,212 @@
+@arrow-left: url("data:image/svg+xml,%3Csvg viewBox='0 0 217.4 62.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='m9.4 26.2h208v10h-208z'/%3E%3Cpath d='m31.2 62.4-31.2-31.2 31.2-31.2 7.1 7.1-24.2 24.1 24.2 24.2z'/%3E%3C/g%3E%3C/svg%3E");
+@arrow-right: url("data:image/svg+xml,%3Csvg viewBox='0 0 217.4 62.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='m0 26.2h208v10h-208z'/%3E%3Cpath d='m186.2 62.4-7.1-7 24.1-24.2-24.1-24.1 7.1-7.1 31.2 31.2z'/%3E%3C/g%3E%3C/svg%3E");
+@info-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 1166.4 838.7' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m696 226.5-41.9 41.9v-83.8z' fill='%2300001e'/%3E%3Cpath d='m922.4 0-268.3 268.3v-83.7l-654.1 654.1h1166.4v-838.7z' fill='%23ff001e'/%3E%3C/svg%3E");
+
+.info-page {
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 225px;
+  background: @cod-gray;
+  color: @white;
+  overflow: hidden;
+
+  @media (max-width: @screen-xs-max) {
+    padding-top: 150px;
+    padding-bottom: 155px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -153px;
+    width: 1025px;
+    height: 1000px;
+    background: @info-bg top right no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 20;
+
+    @media (max-width: @screen-lg-max) {
+      top: -20px;
+      right: -111px;
+      width: 800px;
+    }
+
+    @media (max-width: @screen-md-max) {
+     z-index: auto;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      width: 700px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      right: -145px;
+      width: 550px;
+    }
+  }
+
+  &__back-button {
+    .button-reset();
+    position: absolute;
+    top: 30px;
+    right: @container-padding-default;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    z-index: 25;
+    cursor: pointer;
+
+    @media (max-width: @screen-lg-max) {
+      top: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      display: none;
+    }
+  }
+
+  &__close-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__inner {
+    .container-fluid();
+    position: relative;
+    z-index: 25;
+
+    @media (max-width: @screen-md-max) {
+      z-index: 5;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    padding-right: 100px;
+    margin-bottom: 32px;
+    font-size: 24px;
+    font-weight: 800;
+    font-style: italic;
+    text-align: right;
+    text-transform: uppercase;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 22px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      font-size: 18px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      padding-right: 50px;
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    width: 75%;
+    margin: 0 0 0 auto;
+    padding: 0 0 0 20px;
+    list-style: none;
+
+    @media (max-width: @screen-lg-max) {
+      padding-left: 0;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__list-item {
+
+
+    + .info-page__list-item {
+      margin-top: 24px;
+    }
+
+    &:nth-child(2n) {
+
+      .info-page__link {
+        justify-content: flex-end;
+        margin-right: 100px;
+
+        @media (max-width: @screen-sm-max) {
+          margin-right: 50px;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        &::before {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__link {
+    position: relative; // for before
+    display: flex;
+    align-items: center;
+    color: @white;
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 40px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      font-size: 32px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 24px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      font-size: 16px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      width: 93px;
+      height: 28px;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @media (max-width: @screen-md-max) {
+        width: 66px;
+        height: 20px;
+      }
+
+      @media (max-width: @screen-sm-max) {
+        width: 50px;
+        height: 15px;
+      }
+    }
+
+    &::before {
+      display: none;
+      margin-right: 10px;
+      background-image: @arrow-left;
+    }
+
+    &::after {
+      margin-left: 10px;
+      background-image: @arrow-right;
+    }
+  }
+}
