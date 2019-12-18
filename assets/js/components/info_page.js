@@ -1,15 +1,17 @@
+import 'jquery.cookie';
+
 $(document).ready(function () {
-    var indexUrl = window.location.origin;
+    $.cookie('previousUrl', window.location.href, {path:'/'});
+    var previuosUrl = $.cookie('previousUrl');
 
     if ($('.info-page__back-button').length) {
 
         $('.info-page__back-button').on('click', function () {
-            var referrer =  document.referrer;
 
-            if (referrer.indexOf(indexUrl) >= 0) {
-                history.back();
+            if (previuosUrl) {
+                window.location.href = previuosUrl;
             } else {
-                window.location.href = "/";
+                window.location.href = '/';
             }
         });
     }

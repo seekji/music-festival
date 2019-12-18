@@ -12,7 +12,10 @@
         class="start-screen__img"
         src="{{ asset('build/assets/images/place_bg.jpg') }}"
         alt="История">
-      <h1 class="start-screen__title"><span class="word">Самара</span> <span class="word">арена</span></h1>
+      <h1 class="start-screen__title">
+        <span class="start-screen__title-main">Самара</span>
+        <span class="start-screen__title-secondary">арена</span>
+      </h1>
     </div>
   </div>
   <section class="place-info">
@@ -32,19 +35,19 @@
       </div>
       <div class="place-info__column place-info__column-right route">
         <h2 class="route__title">Как добраться</h2>
-        <div class="route__tabs">
-          <div class="route__tabs-header">
-            <button class="route__tabs-btn route__tabs-btn--active">
-              Общественный транспорт
-            </button>
-            <button class="route__tabs-btn">
-              Автомобиль
-            </button>
-          </div>
-          <div class="route__tabs-content default-text">
+        <ul class="route__tabs-header">
+          <li class="route__link-wrap route__link-wrap--active">
+            <a href="#tab04" class="route__tabs-link" data-toggle="tab">Общественный транспорт</a>
+          </li>
+          <li class="route__link-wrap">
+            <a href="#tab05" class="route__tabs-link" data-toggle="tab">Автомобиль</a>
+          </li>
+        </ul>
+        <div class="route__tabs-content">
+          <div id="tab04" class="route__content-item route__content-item--active default-text">
             <p>
-              Добираться до стадиона «Самара Арена» удобнее всего на специальных шаттлах. Самый быстрый из них —
-              скоростной трамвай S5.
+              Добираться до стадиона «Самара Арена» удобнее всего на специальных шаттлах. Самый быстрый из них
+              — скоростной трамвай S5.
             </p>
             <ul>
               <li>От Самарской площади – на автобусах S2 и S7, на трамвае S5.</li>
@@ -53,14 +56,17 @@
             </ul>
             <p>
               Также можно доехать на обычном общественном транспорте, проходящем по Московскому шоссе и улице
-              Демократической. От остановки придется пройти пешком 10-15 минут. Спрашивайте у кондуктора, на какой
+              Демократической. От остановки придется пройти пешком 10-15 минут. Спрашивайте у кондуктора, на
+              какой
               остановке удобнее выйти.
             </p>
             <p>
-              Автобусы: 1, 1к, 45, 50, 51, 67, 78, 79, 96, 110, 113, 205, 210, 221, 295, 389, 392, 392а, 406, 410а, 447,
+              Автобусы: 1, 1к, 45, 50, 51, 67, 78, 79, 96, 110, 113, 205, 210, 221, 295, 389, 392, 392а, 406,
+              410а, 447,
               492.
             </p>
           </div>
+          <div id="tab05" class="route__content-item default-text">Tab05</div>
         </div>
       </div>
     </div>
