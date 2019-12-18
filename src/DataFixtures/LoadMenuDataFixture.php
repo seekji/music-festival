@@ -58,6 +58,10 @@ class LoadMenuDataFixture extends Fixture implements FixtureInterface, Container
             $menu->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
             $menu->setLocation($this->faker->randomKey(Menu::LOCATION_LIST));
 
+            if($menu->getLocation() === Menu::LOCATION_FOOTER) {
+                $menu->setColumnName($this->faker->randomElement(['Viewers', 'Partners']));
+            }
+
             $manager->persist($menu);
         }
 

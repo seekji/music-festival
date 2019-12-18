@@ -2,29 +2,28 @@
   <div class="news__inner">
     <div class="news__column-left">
       <h2 class="news__title">
-        Молния
+        {{ 'text.lightning'|trans({}, 'site') }}
         <svg class="news__title-icon">
           <use xlink:href="#icon-lightning"></use>
         </svg>
       </h2>
       <div class="news__socials news__socials--hidden-md socials socials--horizontal socials--has-text">
         <div class="socials__text">
-          Хочется больше
-          и&nbsp;чаще? &mdash;
+          {{ 'text.want_more'|trans({}, 'site')|raw }}
         </div>
         <div
           class="socials__container">
-          <a href="#" class="socials__link" title="Vkontakte">
+          <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
             <svg class="socials__icon" width="33" height="21">
               <use xlink:href="#icon-vk"></use>
             </svg>
           </a>
-          <a href="#" class="socials__link" title="Facebook">
+          <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
             <svg class="socials__icon" width="15" height="27">
               <use xlink:href="#icon-fb"></use>
             </svg>
           </a>
-          <a href="#" class="socials__link" title="Youtube">
+          <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
             <svg class="socials__icon" width="33" height="27">
               <use xlink:href="#icon-youtube"></use>
             </svg>
@@ -32,52 +31,43 @@
         </div>
       </div>
     </div>
-    <div class="news__column-right">
-      <div class="news__items">
-        <div class="news__item">
-          <div class="news__item-title">Рок над Волгой признан самым ожидаемым фестивалем этого лета.</div>
-          <div class="news__item-text">
-            Самарский областной эксперт посчитал количество своих официальных подписчиков. Их оказалось ровно 38.
-            Среди них четверо ждут фестиваль Рок над Волгой. А это около 10%. И если посчитать 10% от жителей планеты,
-            то получится рекордные 700 миллионов человек.
-          </div>
-          <time datetime="2020-07-23" class="news__date">23 июня 2020</time>
+
+    {% if news|length > 0 %}
+      <div class="news__column-right">
+        <div class="news__items">
+          {% for item in news %}
+            <div class="news__item">
+              <div class="news__item-title">{{ item.title }}</div>
+              <div class="news__item-text">{{ item.description }}</div>
+              <time datetime="{{ item.createdAt|date('Y-m-d') }}" class="news__date">{{ item.createdAt|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM y') }}</time>
+            </div>
+          {% endfor %}
         </div>
 
-        <div class="news__item">
-          <div class="news__item-title">Йэн Гиллан расроен тем, что фестиваль пройдет без него.</div>
-          <div class="news__item-text">
-            Знаменитый музыкант лично высказал свое фи в социальных сетях фестиваля. Его речь изобиловала словами на
-            F. Мы были рады получить весточку от любимого нами музыканта, хоть и такую.
+        <div class="news__socials news__socials--hidden-lg socials socials--horizontal socials--has-text">
+          <div class="socials__text">
+            {{ 'text.want_more'|trans({}, 'site')|raw }}
           </div>
-          <time datetime="2020-07-23" class="news__date">21 августа 2020</time>
+          <div
+            class="socials__container">
+            <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
+              <svg class="socials__icon" width="33" height="21">
+                <use xlink:href="#icon-vk"></use>
+              </svg>
+            </a>
+            <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
+              <svg class="socials__icon" width="15" height="27">
+                <use xlink:href="#icon-fb"></use>
+              </svg>
+            </a>
+            <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
+              <svg class="socials__icon" width="33" height="27">
+                <use xlink:href="#icon-youtube"></use>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-
-      <div class="news__socials news__socials--hidden-lg socials socials--horizontal socials--has-text">
-        <div class="socials__text">
-          Хочется больше
-          и&nbsp;чаще? &mdash;
-        </div>
-        <div
-          class="socials__container">
-          <a href="#" class="socials__link" title="Vkontakte">
-            <svg class="socials__icon" width="33" height="21">
-              <use xlink:href="#icon-vk"></use>
-            </svg>
-          </a>
-          <a href="#" class="socials__link" title="Facebook">
-            <svg class="socials__icon" width="15" height="27">
-              <use xlink:href="#icon-fb"></use>
-            </svg>
-          </a>
-          <a href="#" class="socials__link" title="Youtube">
-            <svg class="socials__icon" width="33" height="27">
-              <use xlink:href="#icon-youtube"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
+    {% endif %}
   </div>
 </section>

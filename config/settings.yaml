@@ -1,7 +1,3 @@
-phone: null
-email: null
-address: df
-personal_rules_link: null
 vk: null
 facebook: null
 instagram: null
@@ -10,3 +6,36 @@ hall_count: null
 event_count: null
 email_send_from: null
 email_send_to: null
+ru_address: null
+ru_phone: null
+ru_email: null
+en_address: null
+en_phone: null
+en_email: null
+date_start: 1576108800
+event_start_date: '2019-12-19'
+ru_lineup_description: 'Любой желающий может прийти и насладиться праздником абсолютно бесплатно. Рядом с чашей стадиона будут открыты 2 фан-зоны, где на девятиметровых экранах будет вестись прямая онлайн-трансляция фестиваля.'
+ru_lineup_hours_description: 'Рока будет много. Дадим Самаре прикурить, чтобы все бабушки из ближайших домов еще три месяца после фестиваля напевали наши замечательные песни любимых нами же артистов.'
+ru_history_description: null
+ru_history_views_count: null
+en_lineup_description: 'EN: Любой желающий может прийти и насладиться праздником абсолютно бесплатно. Рядом с чашей стадиона будут открыты 2 фан-зоны, где на девятиметровых экранах будет вестись прямая онлайн-трансляция фестиваля.'
+en_lineup_hours_description: 'EN:'
+en_history_description: null
+en_history_views_count: null
+tickets_link: /test/
+ru_lineup_link: null
+ru_history_link: null
+ru_history_punk_link: null
+ru_place_title: null
+ru_place_description: null
+ru_place_count: null
+ru_place_link: null
+en_lineup_link: null
+en_history_link: null
+en_history_punk_link: null
+en_place_title: null
+en_place_description: null
+en_place_count: null
+en_place_link: null
+event_hours: 8
+youtube: null

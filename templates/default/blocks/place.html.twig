@@ -2,15 +2,14 @@
   <div class="place__inner">
     <div class="place__content">
       <div class="place__description">
-        В 2020 году фестиваль будет проходить на лучшей и самой современной площадке
-        Самары — новейшем стадионе
+        {{ getLocalSiteSettingByKey(app.request.locale, 'place_description')|raw }}
       </div>
       <div class="place__title">
-        Самара арена
+        {{ getLocalSiteSettingByKey(app.request.locale, 'place_title') }}
       </div>
-      <a href="#" class="place__link">
+      <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'place_link') ? : '#' }}" class="place__link">
         <div class="place__number">
-          <span>+2</span>
+          <span>{{ getLocalSiteSettingByKey(app.request.locale, 'place_count') }}</span>
           <svg class="place__icon place__icon--md">
             <use xlink:href="#arrow-right"></use>
           </svg>
@@ -20,7 +19,7 @@
           </svg>
         </div>
         <div class="place__link-text">
-          Бесплатные фан&#8209;зоны
+          {{ 'text.fan.zones.free'|trans({}, 'site')|raw }}
         </div>
       </a>
     </div>
@@ -30,8 +29,7 @@
 <div class="about-place">
   <div class="about-place__inner">
     <div class="about-place__description">
-      В 2020 году фестиваль будет проходить на лучшей и самой современной площадке
-      Самары — новейшем стадионе
+      {{ getLocalSiteSettingByKey(app.request.locale, 'place_description') }}
     </div>
   </div>
 </div>
