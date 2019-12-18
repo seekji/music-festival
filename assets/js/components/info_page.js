@@ -1,18 +1,16 @@
-import 'jquery.cookie';
-
 $(document).ready(function () {
-    $.cookie('previousUrl', window.location.href, {path:'/'});
-    var previuosUrl = $.cookie('previousUrl');
+    var indexUrl = window.location.origin;
 
     if ($('.info-page__back-button').length) {
 
         $('.info-page__back-button').on('click', function () {
+            var referrer =  document.referrer;
 
-            if (previuosUrl) {
-                window.location.href = previuosUrl;
+            if (referrer.indexOf(indexUrl) >= 0) {
+                history.back();
             } else {
-                window.location.href = '/';
+                window.location.href = "/";
             }
         });
     }
-});
+}); 
