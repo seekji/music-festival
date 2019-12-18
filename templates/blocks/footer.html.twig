@@ -38,67 +38,43 @@
       <div class="page-footer__content">
         <div class="page-footer__content-top">
           <div class="page-footer__nav footer-nav">
-            <div class="footer-nav__block">
-              <h3 class="footer-nav__block-title">Партнерам</h3>
-              <ul class="footer-nav__list">
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">
-                    История фестиваля
-                  </a>
-                </li>
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">
-                    Пресс-кит
-                  </a>
-                </li>
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">
-                    Аккредитация
-                  </a>
-                </li>
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">
-                    Стать партнером
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-nav__block">
-              <h3 class="footer-nav__block-title">Зрителям</h3>
-              <ul class="footer-nav__list">
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">Правила посещения</a>
-                </li>
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">Частые вопросы</a>
-                </li>
-                <li class="footer-nav__item">
-                  <a href="#" class="footer-nav__link">Правила использования персональных даных</a>
-                </li>
-              </ul>
-            </div>
+            {% set items = columnMenuLinks(constant('App\\Entity\\Menu::LOCATION_FOOTER'), app.request.locale) %}
+            {% for column, links in items %}
+              <div class="footer-nav__block">
+                <h3 class="footer-nav__block-title">{{ column|trans({}, 'site') }}</h3>
+                <ul class="footer-nav__list">
+                  {% for item in links %}
+                    <li class="footer-nav__item">
+                      <a href="{{ item.link }}" class="footer-nav__link">
+                        {{ item.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
           </div>
           <div class="page-footer__contacts">
             {# or a on inner pages #}
             <div class="page-footer__logo">
               <img
                 src="{{ asset('build/assets/images/logo.svg') }}"
-                alt="Рок над волгой: логотип"
+                alt="logo"
                 class="page-footer__logo-img">
             </div>
             <div class="page-footer__contacts-inner">
               <div class="page-footer__socials socials socials--horizontal">
-                <a href="#" class="socials__link" title="Vkontakte">
+                <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
                   <svg class="socials__icon" width="33" height="21">
                     <use xlink:href="#icon-vk"></use>
                   </svg>
                 </a>
-                <a href="#" class="socials__link" title="Facebook">
+                <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
                   <svg class="socials__icon" width="15" height="27">
                     <use xlink:href="#icon-fb"></use>
                   </svg>
                 </a>
-                <a href="#" class="socials__link" title="Youtube">
+                <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
                   <svg class="socials__icon" width="33" height="27">
                     <use xlink:href="#icon-youtube"></use>
                   </svg>

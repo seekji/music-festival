@@ -2,14 +2,22 @@
 btn.tickets.buy: Купить билеты
 
 # static texts
+Partners: Партнерам
+Viewers: Зрителям
+
 text.lineup: Лайнап
 text.lineup.hours: часов
 text.lightning: Молния
 text.want_more: "Хочется больше и&nbsp;чаще? &mdash;"
-text.days.left: До начала осталось
+
+text.days.left: "До начала остался | До начала осталось"
 text.days: дней
+text.days.plural: "день | дня | дней"
+
 text.history: история
 text.history.its_alredy: Это уже
+text.history.picture.alt: "Рок над Волгой: история"
+
 text.viewers: зрителей
 
 text.fan.zones: Фан-зоны

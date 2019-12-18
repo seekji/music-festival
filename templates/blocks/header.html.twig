@@ -3,7 +3,11 @@
 
     <button class="page-header__menu-toggler menu-toggler"><span></span></button>
 
-    <a href="#" class="page-header__lang">En</a>
+    {% if app.request.locale == 'en' %}
+      <a href="/" class="page-header__lang">Ru</a>
+    {% else %}
+      <a href="/en/" class="page-header__lang">En</a>
+    {% endif %}
 
     {# or a tag on inner pages #}
     <div class="page-header__logo">
@@ -11,7 +15,7 @@
         <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo-small.svg') }}">
         <img
           src="{{ asset('build/assets/images/logo.svg') }}"
-          alt="Рок над волгой: логотип">
+          alt="logo">
       </picture>
     </div>
 

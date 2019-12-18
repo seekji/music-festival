@@ -13,17 +13,17 @@
         </div>
         <div
           class="socials__container">
-          <a href="#" class="socials__link" title="Vkontakte">
+          <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
             <svg class="socials__icon" width="33" height="21">
               <use xlink:href="#icon-vk"></use>
             </svg>
           </a>
-          <a href="#" class="socials__link" title="Facebook">
+          <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
             <svg class="socials__icon" width="15" height="27">
               <use xlink:href="#icon-fb"></use>
             </svg>
           </a>
-          <a href="#" class="socials__link" title="Youtube">
+          <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
             <svg class="socials__icon" width="33" height="27">
               <use xlink:href="#icon-youtube"></use>
             </svg>
@@ -39,7 +39,7 @@
             <div class="news__item">
               <div class="news__item-title">{{ item.title }}</div>
               <div class="news__item-text">{{ item.description }}</div>
-              <time datetime="2020-07-23" class="news__date">{{ item.createdAt|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM y') }}</time>
+              <time datetime="{{ item.createdAt|date('Y-m-d') }}" class="news__date">{{ item.createdAt|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM y') }}</time>
             </div>
           {% endfor %}
         </div>
@@ -50,17 +50,17 @@
           </div>
           <div
             class="socials__container">
-            <a href="#" class="socials__link" title="Vkontakte">
+            <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
               <svg class="socials__icon" width="33" height="21">
                 <use xlink:href="#icon-vk"></use>
               </svg>
             </a>
-            <a href="#" class="socials__link" title="Facebook">
+            <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
               <svg class="socials__icon" width="15" height="27">
                 <use xlink:href="#icon-fb"></use>
               </svg>
             </a>
-            <a href="#" class="socials__link" title="Youtube">
+            <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
               <svg class="socials__icon" width="33" height="27">
                 <use xlink:href="#icon-youtube"></use>
               </svg>
