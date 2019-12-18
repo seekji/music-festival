@@ -1,0 +1,139 @@
+.default-page {
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 90px;
+  background-color: @cod-gray;
+  color: @white;
+
+  @media (max-width: @screen-xs-max) {
+    padding-top: 150px;
+    padding-bottom: 60px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg enable-background='new 0 0 716.7 837.3' viewBox='0 0 716.7 837.3' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m0 0v837.3l262.8-262.7h-120.7l574.6-574.6z' fill='%23ff001e'/%3E%3Cpath d='m202.5 634.9 60.3-60.3h-120.6z' fill='%2300001e'/%3E%3C/svg%3E");
+    background-size: 368px;
+
+    @media (max-width: @screen-md-max) {
+      background-size: 310px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      background-size: 130px;
+    }
+  }
+
+  &__inner {
+    .container-fluid();
+  }
+
+  &__content {
+    width: 75%;
+    margin: 0 0 0 auto;
+
+    @media (max-width: @screen-lg-max) {
+      padding-left: 0;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 0;
+    padding-right: 100px;
+    margin-bottom: 32px;
+    font-size: 24px;
+    font-weight: 800;
+    font-style: italic;
+    text-align: right;
+    text-transform: uppercase;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 22px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      font-size: 18px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      padding-right: 0;
+      font-size: 16px;
+    }
+  }
+
+  &__title {
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+
+    @media (max-width: @screen-lg-max) {
+      font-size: 40px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      font-size: 32px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 24px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      font-size: 22px;
+    }
+  }
+
+  h2,
+  .default-title {
+    margin-bottom: 22px;
+    font-size: 30px;
+    font-weight: 800;
+
+    &--danger {
+      color: @color-main;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 22px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      font-size: 20px;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  ul,
+  ol {
+    font-size: 15px;
+    line-height: 1.66;
+
+    @media (max-width: @screen-xs-max) {
+      font-size: 14px;
+    }
+  }
+
+  ul + h2,
+  ol + h2,
+  p + h2 {
+    margin-top: 52px;
+  }
+}
