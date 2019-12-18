@@ -3,20 +3,19 @@
 namespace App\Admin;
 
 use App\Entity\Locale\LocaleInterface;
-use App\Entity\Menu;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 /**
- * Class MenuAdmin
+ * Class SliderAdmin
  * @package App\Admin
  */
-class MenuAdmin extends AbstractAdmin
+class SliderAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $filter
@@ -28,7 +27,8 @@ class MenuAdmin extends AbstractAdmin
             ->add('title')
             ->add('locale', null, [], ChoiceType::class, [
                 'choices' => array_flip(LocaleInterface::LOCALE_LIST)
-            ]);
+            ])
+            ->add('isActive');
     }
 
     /**
@@ -41,7 +41,7 @@ class MenuAdmin extends AbstractAdmin
         $list
             ->add('id')
             ->add('title')
-            ->add('link')
+            ->add('sort')
             ->add('locale', 'choice', ['choices' => LocaleInterface::LOCALE_LIST])
             ->add('createdAt')
             ->add('updatedAt')
@@ -59,24 +59,16 @@ class MenuAdmin extends AbstractAdmin
      */
     protected function configureFormFields(FormMapper $form)
     {
-        $form->with('Свойства ссылки', ['class' => 'col-md-9'])
+        $form->with('Свойства слайда', ['class' => 'col-md-9'])
                 ->add('locale', ChoiceType::class, [
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
                 ->add('title')
-                ->add('link')
-                ->add('columnName')
+                ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'slider']])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
+                ->add('isActive')
                 ->add('sort')
-                ->add('location', ChoiceFieldMaskType::class, [
-                    'choices' => array_flip(Menu::LOCATION_LIST),
-                    'map' => [
-                        Menu::LOCATION_MAIN => [],
-                        Menu::LOCATION_FOOTER => ['columnName'],
-                    ],
-                    'required' => true
-                ])
             ->end();
     }
 
@@ -88,8 +80,9 @@ class MenuAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('title')
-            ->add('link')
             ->add('sort')
+            ->add('isActive')
+            ->add('picture')
             ->add('createdAt')
             ->add('updatedAt');
     }

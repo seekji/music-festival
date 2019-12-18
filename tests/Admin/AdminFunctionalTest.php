@@ -114,6 +114,7 @@ class AdminFunctionalTest extends WebTestCase
             ['/admin/app/page/create'],
             ['/admin/app/menu/create'],
             ['/admin/app/news/create'],
+            ['/admin/app/slider/create'],
         ];
     }
 
@@ -135,6 +136,7 @@ class AdminFunctionalTest extends WebTestCase
             ['/admin/app/page/list'],
             ['/admin/app/menu/list'],
             ['/admin/app/news/list'],
+            ['/admin/app/slider/list'],
         ];
     }
 }

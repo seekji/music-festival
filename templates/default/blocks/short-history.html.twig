@@ -2,27 +2,27 @@
   <img
     class="short-history__img"
     src="{{ asset('build/assets/images/short_history.jpg') }}"
-    alt="Рок над Волгой: история">
+    alt="{{ 'text.history.picture.alt'|trans({}, 'site') }}">
   <div class="short-history__inner">
     <div class="short-history__top-block">
       <div class="short-history__description">
-        В 2013 году, последний перед пятилетним перерывом фестиваль посетило
+        {{ getLocalSiteSettingByKey(app.request.locale, 'history_description') }}
       </div>
       <div class="short-history__viewers">
-        <div class="short-history__number">692 000</div>
-        зрителей
+        <div class="short-history__number">{{ getLocalSiteSettingByKey(app.request.locale, 'history_views_count')|number_format(0, '', ' ') }}</div>
+        {{ 'text.viewers'|trans({}, 'site') }}
       </div>
     </div>
 
     <div class="short-history__bottom-block">
-      <a href="" class="short-history__icon-wrap">
+      <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'history_punk_link') ? : '#' }}" class="short-history__icon-wrap">
         <svg class="short-history__icon">
           <use xlink:href="#icon-punk"></use>
         </svg>
       </a>
-      <a href="#" class="short-history__link">
-        <div class="short-history__link-text">Это уже</div>
-        <div class="short-history__link-text short-history__link-text--large">история</div>
+      <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'history_link') ? : '#' }}" class="short-history__link">
+        <div class="short-history__link-text">{{ 'text.history.its_alredy'|trans({}, 'site') }}</div>
+        <div class="short-history__link-text short-history__link-text--large">{{ 'text.history'|trans({}, 'site') }}</div>
       </a>
     </div>
   </div>

@@ -2,26 +2,18 @@
 
 namespace App\Entity;
 
+use App\Application\Sonata\MediaBundle\Entity\Media;
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Locale\LocaleTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MenuRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\SliderRepository")
  */
-class Menu implements LocaleInterface
+class Slider implements LocaleInterface
 {
-    use LocaleTrait, Timestampable;
-
-    public const LOCATION_MAIN = 0;
-
-    public const LOCATION_FOOTER = 1;
-
-    public const LOCATION_LIST = [
-        self::LOCATION_MAIN => 'Главное',
-        self::LOCATION_FOOTER => 'Подвал'
-    ];
+    use Timestampable, LocaleTrait;
 
     /**
      * @ORM\Id()
@@ -41,19 +33,20 @@ class Menu implements LocaleInterface
     private $sort = 100;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="boolean")
      */
-    private $location = self::LOCATION_MAIN;
+    private $isActive;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var Media
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="App\Application\Sonata\MediaBundle\Entity\Media",
+     *     cascade={"persist"},
+     * )
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
-    private $link;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $columnName;
+    private $picture;
 
     public function getId(): ?int
     {
@@ -84,26 +77,26 @@ class Menu implements LocaleInterface
         return $this;
     }
 
-    public function getLocation(): ?int
+    public function getIsActive(): ?bool
     {
-        return $this->location;
+        return $this->isActive;
     }
 
-    public function setLocation(int $location): self
+    public function setIsActive(bool $isActive): self
     {
-        $this->location = $location;
+        $this->isActive = $isActive;
 
         return $this;
     }
 
-    public function getLink(): ?string
+    public function getPicture(): ?Media
     {
-        return $this->link;
+        return $this->picture;
     }
 
-    public function setLink(string $link): self
+    public function setPicture(?Media $picture): self
     {
-        $this->link = $link;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -111,17 +104,5 @@ class Menu implements LocaleInterface
     public function __toString(): string
     {
         return $this->title;
-    }
-
-    public function getColumnName(): ?string
-    {
-        return $this->columnName;
-    }
-
-    public function setColumnName(?string $columnName): self
-    {
-        $this->columnName = $columnName;
-
-        return $this;
     }
 }

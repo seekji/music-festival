@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Page;
+use App\Service\PartnerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,6 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PageController extends AbstractController
 {
+    private $partnerService;
+
+    public function __construct(PartnerService $partnerService)
+    {
+        $this->partnerService = $partnerService;
+    }
+
     /**
      * @Route("/page-{slug}/", name="app.page")
      *
@@ -28,6 +36,9 @@ class PageController extends AbstractController
 
         $template = Page::TEMPLATES[$page->getTemplate()];
 
-        return $this->render("page/{$template}.html.twig", ['page' => $page]);
+        return $this->render("page/{$template}.html.twig", [
+            'page' => $page,
+            'partners' => $this->partnerService->getSortedPartners()
+        ]);
     }
 }

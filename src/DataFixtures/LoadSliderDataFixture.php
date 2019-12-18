@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Application\Sonata\MediaBundle\Entity\Media;
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Partner;
+use App\Entity\Slider;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -16,10 +17,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Class LoadPartnerDataFixture
+ * Class LoadSliderDataFixture
  * @package App\DataFixtures
  */
-class LoadPartnerDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadSliderDataFixture extends Fixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     private const DATA_COUNT = 7;
 
@@ -50,25 +51,24 @@ class LoadPartnerDataFixture extends Fixture implements FixtureInterface, Contai
      */
     public function load(ObjectManager $manager)
     {
-        $file = new UploadedFile(__DIR__ . '/static/mts.png', basename(__DIR__ . '/static/mts.png'), null, null, null, true);
+        $file = new UploadedFile(__DIR__ . '/static/main_slider.jpg', basename(__DIR__ . '/static/main_slider.jpg'), null, null, null, true);
 
         $media = new Media();
         $media->setBinaryContent($file);
-        $media->setContext('partners');
+        $media->setContext('slider');
         $media->setProviderName('sonata.media.provider.image');
 
         $this->faker = Factory::create();
 
         for($i = 0; $i <= self::DATA_COUNT; $i++) {
-            $partner = new Partner();
+            $slider = new Slider();
 
-            $partner->setName($this->faker->text(10));
-            $partner->setPicture($media);
-            $partner->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
-            $partner->setIsBig($this->faker->boolean(20));
-            $partner->setLink($this->faker->url);
+            $slider->setTitle($this->faker->name);
+            $slider->setPicture($media);
+            $slider->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));
+            $slider->setIsActive(true);
 
-            $manager->persist($partner);
+            $manager->persist($slider);
         }
 
         $manager->flush();
@@ -81,6 +81,6 @@ class LoadPartnerDataFixture extends Fixture implements FixtureInterface, Contai
      */
     public function getOrder()
     {
-        return 20;
+        return 70;
     }
 }

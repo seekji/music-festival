@@ -28,7 +28,18 @@ class SettingsService
     public function __construct(string $rootDir)
     {
         $this->setRootDir($rootDir);
+        $this->loadValues();
+    }
+
+    public function loadValues()
+    {
+        if(!file_exists($this->getRootDir() . self::SETTINGS_YAML_PATH)) {
+            $this->saveValues([]);
+        }
+
         $this->values = Yaml::parseFile($this->getRootDir() . self::SETTINGS_YAML_PATH);
+
+        return $this;
     }
 
     /**
