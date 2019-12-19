@@ -1,4 +1,3 @@
-
 fos_ck_editor:
     default_config: default
     configs:
@@ -14,3 +13,13 @@ fos_ck_editor:
             filebrowserImageUploadRoute: admin_sonata_media_media_upload
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
+            extraPlugins: "templates"
+            templates:    "my_templates"
+        templates:
+            my_templates:
+                imagesPath: "/bundles/mybundle/templates/images"
+                templates:
+                    - title:       "My Template"
+                      image:       "image.jpg"
+                      description: "My awesome template"
+                      html:        "<p>Crazy template :)</p>"
