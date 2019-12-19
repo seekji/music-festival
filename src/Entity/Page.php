@@ -48,6 +48,16 @@ class Page
      */
     private $template = self::TEMPLATE_CONTENT;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subTitle;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -145,5 +155,29 @@ class Page
     public function __toString(): ?string
     {
         return $this->title;
+    }
+
+    public function getSubTitle(): ?string
+    {
+        return $this->subTitle;
+    }
+
+    public function setSubTitle(?string $subTitle): self
+    {
+        $this->subTitle = $subTitle;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }

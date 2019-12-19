@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 /**
  * Class PageAdmin
@@ -69,7 +70,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('template', ChoiceFieldMaskType::class, [
                     'choices' => array_flip(Page::TEMPLATES),
                     'map' => [
-                        Page::TEMPLATE_CONTENT => [],
+                        Page::TEMPLATE_CONTENT => ['description'],
                         Page::TEMPLATE_HISTORY => [],
                         Page::TEMPLATE_INFO => [],
                         Page::TEMPLATE_PLACE => [],
@@ -79,6 +80,8 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ])
                 ->add('title')
                 ->add('slug')
+                ->add('subTitle')
+                ->add('description', CKEditorType::class)
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
             ->end();
