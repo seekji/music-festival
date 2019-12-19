@@ -1,9 +1,14 @@
-.default-page {
+.faq-page {
   position: relative;
   padding-top: 200px;
   padding-bottom: 90px;
+  min-height: 700px;
   background-color: @cod-gray;
   color: @white;
+
+  @media (max-width: @screen-md-max) {
+    min-height: 500px;
+  }
 
   @media (max-width: @screen-xs-max) {
     padding-top: 150px;
@@ -37,12 +42,17 @@
   }
 
   &__content {
-    width: 75%;
+    width: 77%;
     margin: 0 0 0 auto;
+    padding-left: 50px;
+
+    @media (max-width: @screen-lg-max) {
+      padding-left: 0;
+    }
 
     @media (max-width: @screen-xs-max) {
       width: 100%;
-      margin-left: 0;
+      padding-left: 30px;
     }
   }
 
@@ -61,8 +71,8 @@
     }
 
     @media (max-width: @screen-md-max) {
-      margin-bottom: 22px;
       font-size: 18px;
+      margin-bottom: 22px;
     }
 
     @media (max-width: @screen-sm-max) {
@@ -73,7 +83,7 @@
 
   &__title {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 48px;
     font-size: 60px;
     line-height: 1;
     font-weight: 900;
@@ -85,10 +95,12 @@
     }
 
     @media (max-width: @screen-md-max) {
+      margin-bottom: 32px;
       font-size: 32px;
     }
 
     @media (max-width: @screen-sm-max) {
+      margin-bottom: 26px;
       font-size: 24px;
     }
 
@@ -97,42 +109,11 @@
     }
   }
 
-  h2,
-  .default-title {
-    margin-bottom: 22px;
-    font-size: 30px;
-    font-weight: 800;
-
-    &--danger {
-      color: @color-main;
-    }
+  &__accordion {
+    padding-right: 100px;
 
     @media (max-width: @screen-sm-max) {
-      font-size: 22px;
+      padding-right: 0;
     }
-
-    @media (max-width: @screen-xs-max) {
-      font-size: 20px;
-    }
-  }
-
-  h2 {
-    margin-top: 0;
-  }
-
-  ul,
-  ol {
-    font-size: 15px;
-    line-height: 1.66;
-
-    @media (max-width: @screen-xs-max) {
-      font-size: 14px;
-    }
-  }
-
-  ul + h2,
-  ol + h2,
-  p + h2 {
-    margin-top: 52px;
   }
 }
