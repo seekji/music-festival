@@ -14,7 +14,7 @@ class RouteForm extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['required' => true, 'label' => 'Заголовок вкладки'])
-            ->add('description', CKEditorType::class, ['required' => true])
+            ->add('description', CKEditorType::class, ['required' => true, 'config' => ['toolbar' => 'basic']])
         ;
     }
 

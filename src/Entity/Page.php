@@ -92,9 +92,15 @@ class Page
      */
     private $howToRoute = [];
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Zone")
+     */
+    private $zones;
+
     public function __construct()
     {
         $this->history = new ArrayCollection();
+        $this->zones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -302,6 +308,32 @@ class Page
     public function setHowToRoute(?array $howToRoute): self
     {
         $this->howToRoute = $howToRoute;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Zone[]
+     */
+    public function getZones(): Collection
+    {
+        return $this->zones;
+    }
+
+    public function addZone(Zone $zone): self
+    {
+        if (!$this->zones->contains($zone)) {
+            $this->zones[] = $zone;
+        }
+
+        return $this;
+    }
+
+    public function removeZone(Zone $zone): self
+    {
+        if ($this->zones->contains($zone)) {
+            $this->zones->removeElement($zone);
+        }
 
         return $this;
     }

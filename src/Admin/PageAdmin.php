@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
 use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -80,7 +81,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                         Page::TEMPLATE_HISTORY => ['picture', 'history'],
                         Page::TEMPLATE_INFO => [],
                         Page::TEMPLATE_PLACE => ['description', 'coordinates', 'mapLink', 'howToRoute', 'picture'],
-                        Page::TEMPLATE_FAN => [],
+                        Page::TEMPLATE_FAN => ['description', 'picture', 'zones'],
                     ],
                     'required' => true
                 ])
@@ -111,6 +112,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                     'edit' => 'inline',
                     'sortable' => 'position',
                 ])
+                ->add('zones', ModelType::class, ['multiple' => true])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
             ->end();
