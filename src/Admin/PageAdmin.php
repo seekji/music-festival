@@ -4,15 +4,20 @@ namespace App\Admin;
 
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Page;
+use App\Form\Type\HistoryItemForm;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+//use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Sonata\Form\Type\CollectionType;
 
 /**
  * Class PageAdmin
@@ -71,7 +76,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                     'choices' => array_flip(Page::TEMPLATES),
                     'map' => [
                         Page::TEMPLATE_CONTENT => ['description'],
-                        Page::TEMPLATE_HISTORY => [],
+                        Page::TEMPLATE_HISTORY => ['history', 'picture'],
                         Page::TEMPLATE_INFO => [],
                         Page::TEMPLATE_PLACE => [],
                         Page::TEMPLATE_FAN => [],
@@ -81,7 +86,15 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('title')
                 ->add('slug')
                 ->add('subTitle')
+                ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'static_pages']])
                 ->add('description', CKEditorType::class)
+                ->add('history', CollectionType::class, [
+                    'type' => AdminType::class,
+                    'by_reference' => false,
+                ], [
+                    'edit' => 'inline',
+                    'sortable' => 'position',
+                ])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
             ->end();
