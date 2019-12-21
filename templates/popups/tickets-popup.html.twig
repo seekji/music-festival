@@ -6,30 +6,19 @@
   </button>
   <div class="popup__inner">
     <div class="popup__header">
-      <a href="#" class="popup__banner-wrap">
+      <a href="{{ getSiteSettingByKey('tickets_link') ? : '#' }}" class="popup__banner-wrap">
         <img
           src="{{ asset('build/assets/images/popup-banner.svg') }}"
           alt="Banner"
           class="popup__banner">
       </a>
       <div class="popup__title">
-        <div class="popup__first-title">Электронные билеты</div>
-        <div class="popup__second-title">без сервисного сбора</div>
+        <div class="popup__first-title">{{ getLocalSiteSettingByKey(app.request.locale, 'popup_title') }}</div>
+        <div class="popup__second-title">{{ getLocalSiteSettingByKey(app.request.locale, 'popup_sub_title') }}</div>
       </div>
     </div>
     <div class="popup__content">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, soluta.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam consequatur cum debitis deserunt
-        doloribus, exercitationem laborum libero nulla quibusdam quos repellat similique tempora voluptatum.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid aspernatur blanditiis consequuntur
-        deserunt dolorum eos expedita fuga, iusto labore laborum magnam minima nisi officia omnis provident qui quis quo
-        quos ratione reiciendis repellat, saepe sunt, vel vitae. Deserunt, iste?
-      </p>
+      {{ getLocalSiteSettingByKey(app.request.locale, 'popup_description')|raw }}
     </div>
   </div>
 </div>

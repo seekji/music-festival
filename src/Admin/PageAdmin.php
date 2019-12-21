@@ -4,6 +4,7 @@ namespace App\Admin;
 
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Page;
+use App\Form\Type\FaqForm;
 use App\Form\Type\LinksForm;
 use App\Form\Type\RouteForm;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
@@ -102,6 +103,13 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                     'prototype' => true,
                     'entry_type' => LinksForm::class,
                 ])
+                ->add('faq', \Symfony\Component\Form\Extension\Core\Type\CollectionType::class, [
+                    'by_reference' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'entry_type' => FaqForm::class,
+                ])
                 ->add('history', CollectionType::class, [
                     'type' => AdminType::class,
                     'by_reference' => false,
@@ -120,6 +128,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                         Page::TEMPLATE_INFO => ['infoLinks'],
                         Page::TEMPLATE_PLACE => ['description', 'coordinates', 'mapLink', 'howToRoute', 'picture', 'subTitle'],
                         Page::TEMPLATE_FAN => ['description', 'picture', 'zones', 'subTitle'],
+                        Page::TEMPLATE_FAQ => ['subTitle', 'faq'],
                     ],
                     'required' => true
                 ])

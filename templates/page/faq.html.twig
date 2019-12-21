@@ -1,57 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-  {{ parent() }}
-  {{ encore_entry_link_tags('index') }}
+    {{ parent() }}
+    {{ encore_entry_link_tags('index') }}
 {% endblock %}
 
 {% block body %}
-  <div class="faq-page">
-    <div class="faq-page__inner">
-      <div class="faq-page__subtitle">Информация</div>
-      <h1 class="faq-page__title">
-        Частые вопросы
-      </h1>
-      <div class="faq-page__accordion faq-accordion">
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__button" type="button">
-            Правила посещения фан-зон
-          </button>
-          <div class="faq-accordion__text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, dignissimos dolore eius eum iusto maiores
-              maxime molestias natus obcaecati officia sunt temporibus velit vitae. Accusantium distinctio doloremque
-              doloribus explicabo inventore ipsum laborum nostrum officiis, quaerat quidem reiciendis repudiandae
-              tenetur vel vero voluptates! Asperiores assumenda doloremque eveniet nam quis repudiandae veritatis.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam atque cum labore laboriosam
-              nihil ut voluptatibus? Beatae hic illo natus quae quisquam, quos temporibus.
-            </p>
-          </div>
+    <div class="faq-page">
+        <div class="faq-page__inner">
+            <div class="faq-page__subtitle">{{ page.subTitle }}</div>
+            <h1 class="faq-page__title">
+                {{ page.title }}
+            </h1>
+            {% if page.faq|length > 0 %}
+                <div class="faq-page__accordion faq-accordion">
+                    {% for item in page.faq %}
+                        <div class="faq-accordion__item">
+                            <button class="faq-accordion__button" type="button">
+                                {{ item.question }}
+                            </button>
+                            <div class="faq-accordion__text">
+                                {{ item.answer|raw }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__button" type="button">
-            В чем смысл жизни?
-          </button>
-          <div class="faq-accordion__text">
-            J_J
-          </div>
-        </div>
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__button" type="button">
-            Со мной на фестиваль хочет пойти моя собака, могу ли я взаять еще и жену?
-          </button>
-          <div class="faq-accordion__text">
-            ▓▒░(°◡°)░▒▓
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 {% endblock %}
 
 {% block javascript %}
-  {{ parent() }}
-  {{ encore_entry_script_tags('index') }}
+{{ parent() }}
+{{ encore_entry_script_tags('index') }}
 {% endblock %}
