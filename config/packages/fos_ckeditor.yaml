@@ -1,4 +1,5 @@
 fos_ck_editor:
+    input_sync: true
     default_config: default
     configs:
         default:
