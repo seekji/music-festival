@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use App\Application\Sonata\MediaBundle\Entity\Media;
 use App\Entity\Locale\LocaleTrait;
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Sluggable\Sluggable;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
@@ -57,6 +60,27 @@ class Page
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\History", mappedBy="page", orphanRemoval=true, cascade={"persist"})
+     */
+    private $history;
+
+    /**
+     * @var Media
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="App\Application\Sonata\MediaBundle\Entity\Media",
+     *     cascade={"persist"},
+     * )
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    private $picture;
+
+    public function __construct()
+    {
+        $this->history = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -178,6 +202,56 @@ class Page
     {
         $this->description = $description;
 
+        return $this;
+    }
+
+    /**
+     * @return Collection|History[]
+     */
+    public function getHistory(): Collection
+    {
+        return $this->history;
+    }
+
+    public function addHistory(History $history): self
+    {
+        if (!$this->history->contains($history)) {
+            $this->history[] = $history;
+            $history->setPage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistory(History $history): self
+    {
+        if ($this->history->contains($history)) {
+            $this->history->removeElement($history);
+            // set the owning side to null (unless already changed)
+            if ($history->getPage() === $this) {
+                $history->setPage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return null|Media
+     */
+    public function getPicture(): ?Media
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param Media $picture
+     *
+     * @return $this
+     */
+    public function setPicture(?Media $picture): self
+    {
+        $this->picture = $picture;
         return $this;
     }
 }

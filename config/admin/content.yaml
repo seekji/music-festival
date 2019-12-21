@@ -34,3 +34,9 @@ services:
     arguments: [~, App\Entity\Menu, SonataAdminBundle:CRUD]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Меню сайта }
+
+  app.admin.history:
+    class: App\Admin\HistoryAdmin
+    arguments: [~, App\Entity\History, SonataAdminBundle:CRUD]
+    tags:
+      - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: История, show_in_dashboard: false }
