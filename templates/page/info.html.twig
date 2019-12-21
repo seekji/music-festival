@@ -1,40 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-  {{ parent() }}
-  {{ encore_entry_link_tags('index') }}
+    {{ parent() }}
+    {{ encore_entry_link_tags('index') }}
 {% endblock %}
 
 {% block body %}
-  <div class="info-page">
-    <button class="info-page__back-button">
-      Назад
-      <svg class="info-page__close-icon">
-        <use xlink:href="#icon-close"></use>
-      </svg>
-    </button>
-    <div class="info-page__inner">
-      <h1 class="info-page__title">
-        Информация
-      </h1>
-      <ul class="info-page__list">
-        <li class="info-page__list-item">
-          <a href="#" class="info-page__link">Правила поведения</a>
-        </li>
-        <li class="info-page__list-item">
-          <a href="#" class="info-page__link">Пресс-кит</a>
-        <li class="info-page__list-item">
-          <a href="#" class="info-page__link">Аккредитация</a>
-        </li>
-        <li class="info-page__list-item">
-          <a href="#" class="info-page__link">Частые вопросы</a>
-        </li>
-      </ul>
+    <div class="info-page">
+        <button class="info-page__back-button">
+            {{ 'text.info.return'|trans({}, 'site') }}
+            <svg class="info-page__close-icon">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
+        <div class="info-page__inner">
+            <h1 class="info-page__title">
+                {{ page.title }}
+            </h1>
+            {% if page.infoLinks|length > 0 %}
+                <ul class="info-page__list">
+                    {% for item in page.infoLinks %}
+                        <li class="info-page__list-item">
+                            <a href="{{ item.link }}" class="info-page__link">
+                                {{ item.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
     </div>
-  </div>
 {% endblock %}
 
 {% block javascript %}
-  {{ parent() }}
-  {{ encore_entry_script_tags('index') }}
+{{ parent() }}
+{{ encore_entry_script_tags('index') }}
 {% endblock %}

@@ -93,6 +93,11 @@ class Page
     private $howToRoute = [];
 
     /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $infoLinks = [];
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Zone")
      */
     private $zones;
@@ -334,6 +339,18 @@ class Page
         if ($this->zones->contains($zone)) {
             $this->zones->removeElement($zone);
         }
+
+        return $this;
+    }
+
+    public function getInfoLinks(): ?array
+    {
+        return $this->infoLinks;
+    }
+
+    public function setInfoLinks(?array $infoLinks): self
+    {
+        $this->infoLinks = $infoLinks;
 
         return $this;
     }

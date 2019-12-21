@@ -4,6 +4,7 @@ namespace App\Admin;
 
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Page;
+use App\Form\Type\LinksForm;
 use App\Form\Type\RouteForm;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -74,17 +75,6 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('locale', ChoiceType::class, [
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
-                ->add('template', ChoiceFieldMaskType::class, [
-                    'choices' => array_flip(Page::TEMPLATES),
-                    'map' => [
-                        Page::TEMPLATE_CONTENT => ['description'],
-                        Page::TEMPLATE_HISTORY => ['picture', 'history'],
-                        Page::TEMPLATE_INFO => [],
-                        Page::TEMPLATE_PLACE => ['description', 'coordinates', 'mapLink', 'howToRoute', 'picture'],
-                        Page::TEMPLATE_FAN => ['description', 'picture', 'zones'],
-                    ],
-                    'required' => true
-                ])
                 ->add('title')
                 ->add('slug')
                 ->add('subTitle')
@@ -105,6 +95,13 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                     'prototype' => true,
                     'entry_type' => RouteForm::class,
                 ])
+                ->add('infoLinks', \Symfony\Component\Form\Extension\Core\Type\CollectionType::class, [
+                    'by_reference' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'entry_type' => LinksForm::class,
+                ])
                 ->add('history', CollectionType::class, [
                     'type' => AdminType::class,
                     'by_reference' => false,
@@ -115,6 +112,17 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('zones', ModelType::class, ['multiple' => true])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
+                ->add('template', ChoiceFieldMaskType::class, [
+                    'choices' => array_flip(Page::TEMPLATES),
+                    'map' => [
+                        Page::TEMPLATE_CONTENT => ['description', 'subTitle'],
+                        Page::TEMPLATE_HISTORY => ['picture', 'history', 'subTitle'],
+                        Page::TEMPLATE_INFO => ['infoLinks'],
+                        Page::TEMPLATE_PLACE => ['description', 'coordinates', 'mapLink', 'howToRoute', 'picture', 'subTitle'],
+                        Page::TEMPLATE_FAN => ['description', 'picture', 'zones', 'subTitle'],
+                    ],
+                    'required' => true
+                ])
             ->end();
     }
 
