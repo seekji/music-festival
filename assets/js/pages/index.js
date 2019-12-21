@@ -12,6 +12,7 @@ import tabs from '../components/tabs.js';
 import routeTabs from '../components/route_tabs.js';
 import infoPage from '../components/info_page.js';
 import ticketsPopup from '../components/tickets_popup.js';
+import faqAccordion from '../components/faq_accordion.js';
 
 $(document).ready(function() {
     Splitting();
