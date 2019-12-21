@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('index') }}
+{% endblock %}
+
+{% block body %}
+    <div class="faq-page">
+        <div class="faq-page__inner">
+            <div class="faq-page__content">
+                <div class="faq-page__subtitle">{{ page.subTitle }}</div>
+                <h1 class="faq-page__title">
+                  {{ page.title }}
+                </h1>
+              {% if page.faq|length > 0 %}
+                  <div class="faq-page__accordion faq-accordion">
+                    {% for item in page.faq %}
+                        <div class="faq-accordion__item">
+                            <button class="faq-accordion__button" type="button">
+                              {{ item.question }}
+                            </button>
+                            <div class="faq-accordion__text">
+                              {{ item.answer|raw }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                  </div>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+{{ encore_entry_script_tags('index') }}
+{% endblock %}

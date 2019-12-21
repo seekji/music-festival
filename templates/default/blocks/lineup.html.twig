@@ -69,7 +69,13 @@
   </div>
 
   <div class="buy-tickets">
-    <a href="{{ getSiteSettingByKey('tickets_link') ? : '#' }}" class="buy-tickets__link">
+    {#<a href="{{ getSiteSettingByKey('tickets_link') ? : '#' }}" class="buy-tickets__link">#}
+      {#<div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>#}
+      {#<svg class="buy-tickets__icon">#}
+        {#<use xlink:href="#arrow-right"></use>#}
+      {#</svg>#}
+    {#</a>#}
+    <a href="#tickets-popup" class="buy-tickets__link">
       <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
       <svg class="buy-tickets__icon">
         <use xlink:href="#arrow-right"></use>
