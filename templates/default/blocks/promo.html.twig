@@ -50,13 +50,15 @@
       </a>
     </div>
 
-    <div class="promo__start-timer start-timer">
-      {% set today = "now"|date('d-m-Y') %}
-      {% set difference = date(today).diff(date(getSiteSettingByKey('event_start_date')))%}
-      {% set leftDays = difference.days %}
-      <div class="start-timer__text">{{ 'text.days.left'|trans({'%count%': leftDays}, 'site') }}</div>
-      <div class="start-timer__date">{{ leftDays }}</div>
-      <div class="start-timer__postfix">{{ 'text.days.plural'|trans({'%count%': leftDays}, 'site') }}</div>
-    </div>
+    {% if getSiteSettingByKey('event_start_date') %}
+      <div class="promo__start-timer start-timer">
+        {% set today = "now"|date('d-m-Y') %}
+        {% set difference = date(today).diff(date(getSiteSettingByKey('event_start_date')))%}
+        {% set leftDays = difference.days %}
+        <div class="start-timer__text">{{ 'text.days.left'|trans({'%count%': leftDays}, 'site') }}</div>
+        <div class="start-timer__date">{{ leftDays }}</div>
+        <div class="start-timer__postfix">{{ 'text.days.plural'|trans({'%count%': leftDays}, 'site') }}</div>
+      </div>
+    {% endif %}
   </div>
 </div>
