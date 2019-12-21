@@ -25,6 +25,7 @@ class Page
     public const TEMPLATE_INFO = 3;
     public const TEMPLATE_PLACE = 4;
     public const TEMPLATE_FAN = 5;
+    public const TEMPLATE_FAQ = 6;
 
     const TEMPLATES = [
         self::TEMPLATE_CONTENT => 'static',
@@ -32,6 +33,7 @@ class Page
         self::TEMPLATE_INFO => 'info',
         self::TEMPLATE_PLACE => 'place',
         self::TEMPLATE_FAN => 'fan-zones',
+        self::TEMPLATE_FAQ => 'faq',
     ];
 
     /**
@@ -101,6 +103,11 @@ class Page
      * @ORM\ManyToMany(targetEntity="App\Entity\Zone")
      */
     private $zones;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $faq = [];
 
     public function __construct()
     {
@@ -351,6 +358,18 @@ class Page
     public function setInfoLinks(?array $infoLinks): self
     {
         $this->infoLinks = $infoLinks;
+
+        return $this;
+    }
+
+    public function getFaq(): ?array
+    {
+        return $this->faq;
+    }
+
+    public function setFaq(?array $faq): self
+    {
+        $this->faq = $faq;
 
         return $this;
     }
