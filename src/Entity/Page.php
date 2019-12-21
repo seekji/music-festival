@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use App\Application\Sonata\MediaBundle\Entity\Media;
 use App\Entity\Locale\LocaleTrait;
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Sluggable\Sluggable;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
@@ -47,6 +50,63 @@ class Page
      * @ORM\Column(type="integer")
      */
     private $template = self::TEMPLATE_CONTENT;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subTitle;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\History", mappedBy="page", orphanRemoval=true, cascade={"persist"})
+     */
+    private $history;
+
+    /**
+     * @var Media
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="App\Application\Sonata\MediaBundle\Entity\Media",
+     *     cascade={"persist"},
+     * )
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    private $picture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $coordinates;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $mapLink;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $howToRoute = [];
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $infoLinks = [];
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Zone")
+     */
+    private $zones;
+
+    public function __construct()
+    {
+        $this->history = new ArrayCollection();
+        $this->zones = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -145,5 +205,153 @@ class Page
     public function __toString(): ?string
     {
         return $this->title;
+    }
+
+    public function getSubTitle(): ?string
+    {
+        return $this->subTitle;
+    }
+
+    public function setSubTitle(?string $subTitle): self
+    {
+        $this->subTitle = $subTitle;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|History[]
+     */
+    public function getHistory(): Collection
+    {
+        return $this->history;
+    }
+
+    public function addHistory(History $history): self
+    {
+        if (!$this->history->contains($history)) {
+            $this->history[] = $history;
+            $history->setPage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistory(History $history): self
+    {
+        if ($this->history->contains($history)) {
+            $this->history->removeElement($history);
+            // set the owning side to null (unless already changed)
+            if ($history->getPage() === $this) {
+                $history->setPage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return null|Media
+     */
+    public function getPicture(): ?Media
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param Media $picture
+     *
+     * @return $this
+     */
+    public function setPicture(?Media $picture): self
+    {
+        $this->picture = $picture;
+        return $this;
+    }
+
+    public function getCoordinates(): ?string
+    {
+        return $this->coordinates;
+    }
+
+    public function setCoordinates(?string $coordinates): self
+    {
+        $this->coordinates = $coordinates;
+
+        return $this;
+    }
+
+    public function getMapLink(): ?string
+    {
+        return $this->mapLink;
+    }
+
+    public function setMapLink(?string $mapLink): self
+    {
+        $this->mapLink = $mapLink;
+
+        return $this;
+    }
+
+    public function getHowToRoute(): ?array
+    {
+        return $this->howToRoute;
+    }
+
+    public function setHowToRoute(?array $howToRoute): self
+    {
+        $this->howToRoute = $howToRoute;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Zone[]
+     */
+    public function getZones(): Collection
+    {
+        return $this->zones;
+    }
+
+    public function addZone(Zone $zone): self
+    {
+        if (!$this->zones->contains($zone)) {
+            $this->zones[] = $zone;
+        }
+
+        return $this;
+    }
+
+    public function removeZone(Zone $zone): self
+    {
+        if ($this->zones->contains($zone)) {
+            $this->zones->removeElement($zone);
+        }
+
+        return $this;
+    }
+
+    public function getInfoLinks(): ?array
+    {
+        return $this->infoLinks;
+    }
+
+    public function setInfoLinks(?array $infoLinks): self
+    {
+        $this->infoLinks = $infoLinks;
+
+        return $this;
     }
 }

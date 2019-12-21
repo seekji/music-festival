@@ -1,94 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-  {{ parent() }}
-  {{ encore_entry_link_tags('index') }}
+    {{ parent() }}
+    {{ encore_entry_link_tags('index') }}
 {% endblock %}
 
 {% block body %}
-  <div class="start-screen">
-    <img
-      class="start-screen__img"
-      src="{{ asset('build/assets/images/short_history.jpg') }}"
-      alt="История">
-    <h1 class="start-screen__title"><span class="word">История</span> <span class="word">фестиваля</span></h1>
-  </div>
-  <section class="history">
-    <div class="history__inner">
-      <div class="history__item">
-        <div class="history__column-left">
-          <img
-            class="history__img"
-            src="{{ asset('build/assets/images/history_01.png') }}"
-            alt="History">
-          <div class="history__info">
-            <div class="history__year">2013</div>
-            <ul class="history__lineup">
-              <li class="history__lineup-item">Rammstein</li>
-              <li class="history__lineup-item">Mordor</li>
-              <li class="history__lineup-item">Би-2</li>
-              <li class="history__lineup-item">Смысловые галлюцинации</li>
-              <li class="history__lineup-item">Чиж и СО</li>
-              <li class="history__lineup-item">Пикник</li>
-              <li class="history__lineup-item">Аквариум</li>
-              <li class="history__lineup-item">Кипелов</li>
-              <li class="history__lineup-item">Алиса</li>
-            </ul>
-          </div>
-        </div>
-        <div class="history__column-right">
-          <h2 class="history__title">
-            <span class="history__title-number">692 000</span>
-            <span class="history__title-text">зрителей</span>
-          </h2>
-          <div class="history__description">
-            В 2013 году фестиваль прошёл 8 июня на площадке недалеко от посёлка Петра-Дубрава. В роли ведущих выступили
-            рок-музыкант Сергей Галанин и вокалист группы «АукцЫон» и шоумен Олег Гаркуша. В фестивале приняли участие
-            «Mordor», «Смысловые галлюцинации», «Би-2», «Чиж & Co», «Пикник», «Аквариум», «Кипелов», «Алиса» и
-            хедлайнеры — Rammstein; с небольшими номерами выступили Государственный Волжский русский народный хор им.
-            Петра Милославова и дуэт «Баян Микс»
-          </div>
-        </div>
-      </div>
-      <div class="history__item">
-        <div class="history__column-left">
-          <img
-            class="history__img"
-            src="{{ asset('build/assets/images/history_02.png') }}"
-            alt="History">
-          <div class="history__info">
-            <div class="history__year">2012</div>
-            <ul class="history__lineup">
-              <li class="history__lineup-item">Limp Bizkit</li>
-              <li class="history__lineup-item">Garbage</li>
-              <li class="history__lineup-item">Mordor</li>
-              <li class="history__lineup-item">Би-2</li>
-              <li class="history__lineup-item">Ю-Питер</li>
-              <li class="history__lineup-item">Аквариум</li>
-              <li class="history__lineup-item">Ленинград</li>
-              <li class="history__lineup-item">Король и шут</li>
-            </ul>
-          </div>
-        </div>
-        <div class="history__column-right">
-          <h2 class="history__title">
-            <span class="history__title-number">307 000</span>
-            <span class="history__title-text">зрителей</span>
-          </h2>
-          <div class="history__description">
-            В 2013 году фестиваль прошёл 8 июня на площадке недалеко от посёлка Петра-Дубрава. В роли ведущих выступили
-            рок-музыкант Сергей Галанин и вокалист группы «АукцЫон» и шоумен Олег Гаркуша. В фестивале приняли участие
-            «Mordor», «Смысловые галлюцинации», «Би-2», «Чиж & Co», «Пикник», «Аквариум», «Кипелов», «Алиса» и
-            хедлайнеры — Rammstein; с небольшими номерами выступили Государственный Волжский русский народный хор им.
-            Петра Милославова и дуэт «Баян Микс»
-          </div>
-        </div>
-      </div>
+    <div class="start-screen">
+        <img class="start-screen__img" src="{% path page.picture, 'reference' %}"
+             alt="{{ page.title }}">
+        <h1 class="start-screen__title">
+            <span class="word">{{ page.title }}</span>
+            <span class="word">{{ page.subTitle }}</span>
+        </h1>
     </div>
-  </section>
+    {% if page.history|length > 0 %}
+        <section class="history">
+            <div class="history__inner">
+                {% for item in page.history %}
+                    <div class="history__item">
+                        <div class="history__column-left">
+                            <img class="history__img" src="{% path item.picture, 'reference' %}"
+                                 alt="{{ page.title }} {{ item.year }}">
+                            <div class="history__info">
+                                <div class="history__year">{{ item.year }}</div>
+                                {% if item.lineup|length > 0 %}
+                                    <ul class="history__lineup">
+                                        {% for artist in item.lineup %}
+                                            <li class="history__lineup-item">{{ artist }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="history__column-right">
+                            <h2 class="history__title">
+                                <span class="history__title-number">{{ item.viewers|number_format(0, ' ', '') }}</span>
+                                <span class="history__title-text">{{ item.viewersTitle }}</span>
+                            </h2>
+                            {% if item.description %}
+                                <div class="history__description">
+                                    {{ item.description|raw }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}
 
 {% block javascript %}
-  {{ parent() }}
-  {{ encore_entry_script_tags('index') }}
+    {{ parent() }}
+    {{ encore_entry_script_tags('index') }}
 {% endblock %}

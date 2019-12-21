@@ -1,60 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-  {{ parent() }}
-  {{ encore_entry_link_tags('index') }}
+    {{ parent() }}
+    {{ encore_entry_link_tags('index') }}
 {% endblock %}
 
 {% block body %}
-  <div class="faq-page">
-    <div class="faq-page__inner">
-      <div
-        class="faq-page__content">
-        <div class="faq-page__subtitle">Информация</div>
-        <h1 class="faq-page__title">
-          Частые вопросы
-        </h1>
-        <div class="faq-page__accordion faq-accordion">
-          <div class="faq-accordion__item">
-            <button class="faq-accordion__button" type="button">
-              Правила посещения фан-зон
-            </button>
-            <div class="faq-accordion__text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, dignissimos dolore eius eum iusto maiores
-                maxime molestias natus obcaecati officia sunt temporibus velit vitae. Accusantium distinctio doloremque
-                doloribus explicabo inventore ipsum laborum nostrum officiis, quaerat quidem reiciendis repudiandae
-                tenetur vel vero voluptates! Asperiores assumenda doloremque eveniet nam quis repudiandae veritatis.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam atque cum labore laboriosam
-                nihil ut voluptatibus? Beatae hic illo natus quae quisquam, quos temporibus.
-              </p>
-            </div>
-          </div>
-          <div class="faq-accordion__item">
-            <button class="faq-accordion__button" type="button">
-              В чем смысл жизни?
-            </button>
-            <div class="faq-accordion__text">
-              J_J
-            </div>
-          </div>
-          <div class="faq-accordion__item">
-            <button class="faq-accordion__button" type="button">
-              Со мной на фестиваль хочет пойти моя собака, могу ли я взаять еще и жену?
-            </button>
-            <div class="faq-accordion__text">
-              ▓▒░(°◡°)░▒▓
-            </div>
-          </div>
+    <div class="info-page">
+        <button class="info-page__back-button">
+            {{ 'text.info.return'|trans({}, 'site') }}
+            <svg class="info-page__close-icon">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
+        <div class="info-page__inner">
+            <h1 class="info-page__title">
+                {{ page.title }}
+            </h1>
+            {% if page.infoLinks|length > 0 %}
+                <ul class="info-page__list">
+                    {% for item in page.infoLinks %}
+                        <li class="info-page__list-item">
+                            <a href="{{ item.link }}" class="info-page__link">
+                                {{ item.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
-      </div>
     </div>
-  </div>
 {% endblock %}
 
 {% block javascript %}
-  {{ parent() }}
-  {{ encore_entry_script_tags('index') }}
+{{ parent() }}
+{{ encore_entry_script_tags('index') }}
 {% endblock %}

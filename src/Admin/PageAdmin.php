@@ -4,14 +4,23 @@ namespace App\Admin;
 
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Page;
+use App\Form\Type\LinksForm;
+use App\Form\Type\RouteForm;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Sonata\Form\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * Class PageAdmin
@@ -66,21 +75,54 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('locale', ChoiceType::class, [
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
+                ->add('title')
+                ->add('slug')
+                ->add('subTitle')
+                ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'static_pages']])
+                ->add('description', CKEditorType::class, ['required' => false])
+                ->add('coordinates', TextType::class, [
+                    'required' => false,
+                    'help' => 'Формат: `широта;долгота`, например: <strong>39.1;39.2</strong>',
+                    'constraints' => [
+                        new Regex("/^([-]?)([\d]+)((((\.)(\d+))?(;)))(([-]?)([\d]+)((\.)(\d+))?)$/")
+                    ]
+                ])
+                ->add('mapLink', TextType::class, ['required' => false])
+                ->add('howToRoute', \Symfony\Component\Form\Extension\Core\Type\CollectionType::class, [
+                    'by_reference' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'entry_type' => RouteForm::class,
+                ])
+                ->add('infoLinks', \Symfony\Component\Form\Extension\Core\Type\CollectionType::class, [
+                    'by_reference' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'entry_type' => LinksForm::class,
+                ])
+                ->add('history', CollectionType::class, [
+                    'type' => AdminType::class,
+                    'by_reference' => false,
+                ], [
+                    'edit' => 'inline',
+                    'sortable' => 'position',
+                ])
+                ->add('zones', ModelType::class, ['multiple' => true])
+            ->end()
+            ->with('Состояние', ['class' => 'col-md-3'])
                 ->add('template', ChoiceFieldMaskType::class, [
                     'choices' => array_flip(Page::TEMPLATES),
                     'map' => [
-                        Page::TEMPLATE_CONTENT => [],
-                        Page::TEMPLATE_HISTORY => [],
-                        Page::TEMPLATE_INFO => [],
-                        Page::TEMPLATE_PLACE => [],
-                        Page::TEMPLATE_FAN => [],
+                        Page::TEMPLATE_CONTENT => ['description', 'subTitle'],
+                        Page::TEMPLATE_HISTORY => ['picture', 'history', 'subTitle'],
+                        Page::TEMPLATE_INFO => ['infoLinks'],
+                        Page::TEMPLATE_PLACE => ['description', 'coordinates', 'mapLink', 'howToRoute', 'picture', 'subTitle'],
+                        Page::TEMPLATE_FAN => ['description', 'picture', 'zones', 'subTitle'],
                     ],
                     'required' => true
                 ])
-                ->add('title')
-                ->add('slug')
-            ->end()
-            ->with('Состояние', ['class' => 'col-md-3'])
             ->end();
     }
 

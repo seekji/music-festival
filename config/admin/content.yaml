@@ -34,3 +34,21 @@ services:
     arguments: [~, App\Entity\Menu, SonataAdminBundle:CRUD]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Меню сайта }
+
+  app.admin.history:
+    class: App\Admin\HistoryAdmin
+    arguments: [~, App\Entity\History, SonataAdminBundle:CRUD]
+    tags:
+      - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: История, show_in_dashboard: false }
+
+  app.admin.zone:
+    class: App\Admin\ZoneAdmin
+    arguments: [~, App\Entity\Zone, SonataAdminBundle:CRUD]
+    tags:
+      - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Фан-зоны }
+
+  app.admin.zone_lineup:
+    class: App\Admin\ZoneLineupAdmin
+    arguments: [~, App\Entity\ZoneLineup, SonataAdminBundle:CRUD]
+    tags:
+      - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Расписание, show_in_dashboard: false }
