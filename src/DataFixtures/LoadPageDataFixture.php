@@ -54,6 +54,7 @@ class LoadPageDataFixture extends Fixture implements FixtureInterface, Container
             $page = new Page();
 
             $page->setTitle($this->faker->text(20));
+            $page->setIsActive(true);
             $page->setSubTitle($this->faker->text(10));
             $page->setSlug($page->getTitle());
             $page->setLocale($this->faker->randomKey(LocaleInterface::LOCALE_LIST));

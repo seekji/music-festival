@@ -58,6 +58,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
             ->add('template', 'choice', ['choices' => Page::TEMPLATES])
             ->add('createdAt')
             ->add('updatedAt')
+            ->add('isActive')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -124,6 +125,7 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('zones', ModelType::class, ['multiple' => true])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
+                ->add('isActive')
                 ->add('template', ChoiceFieldMaskType::class, [
                     'choices' => array_flip(Page::TEMPLATES),
                     'map' => [

@@ -109,6 +109,11 @@ class Page
      */
     private $faq = [];
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive = true;
+
     public function __construct()
     {
         $this->history = new ArrayCollection();
@@ -370,6 +375,18 @@ class Page
     public function setFaq(?array $faq): self
     {
         $this->faq = $faq;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
