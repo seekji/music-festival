@@ -4,7 +4,7 @@ namespace App\Admin;
 
 use App\Entity\Locale\LocaleInterface;
 use App\Entity\Page;
-use App\Form\Type\HistoryItemForm;
+use App\Form\Type\RouteForm;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -16,8 +16,9 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-//use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Sonata\Form\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * Class PageAdmin
@@ -76,9 +77,9 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                     'choices' => array_flip(Page::TEMPLATES),
                     'map' => [
                         Page::TEMPLATE_CONTENT => ['description'],
-                        Page::TEMPLATE_HISTORY => ['history', 'picture'],
+                        Page::TEMPLATE_HISTORY => ['picture', 'history'],
                         Page::TEMPLATE_INFO => [],
-                        Page::TEMPLATE_PLACE => [],
+                        Page::TEMPLATE_PLACE => ['description', 'coordinates', 'mapLink', 'howToRoute', 'picture'],
                         Page::TEMPLATE_FAN => [],
                     ],
                     'required' => true
@@ -87,7 +88,22 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 ->add('slug')
                 ->add('subTitle')
                 ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'static_pages']])
-                ->add('description', CKEditorType::class)
+                ->add('description', CKEditorType::class, ['required' => false])
+                ->add('coordinates', TextType::class, [
+                    'required' => false,
+                    'help' => 'Формат: `широта;долгота`, например: <strong>39.1;39.2</strong>',
+                    'constraints' => [
+                        new Regex("/^([-]?)([\d]+)((((\.)(\d+))?(;)))(([-]?)([\d]+)((\.)(\d+))?)$/")
+                    ]
+                ])
+                ->add('mapLink', TextType::class, ['required' => false])
+                ->add('howToRoute', \Symfony\Component\Form\Extension\Core\Type\CollectionType::class, [
+                    'by_reference' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'entry_type' => RouteForm::class,
+                ])
                 ->add('history', CollectionType::class, [
                     'type' => AdminType::class,
                     'by_reference' => false,
