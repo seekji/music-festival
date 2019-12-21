@@ -39,3 +39,9 @@ en_place_count: null
 en_place_link: null
 event_hours: 8
 youtube: null
+ru_popup_title: test
+ru_popup_sub_title: test
+ru_popup_description: "<p>dfasfasdfasdfasdf</p>\r\n\r\n<p>sdfasdfasf</p>\r\n\r\n<p>sf</p>"
+en_popup_title: test
+en_popup_sub_title: test
+en_popup_description: "<p>sdfasdf</p>\r\n\r\n<p>asdf</p>\r\n\r\n<p>asf</p>\r\n\r\n<p>asdf</p>"

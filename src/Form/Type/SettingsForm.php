@@ -2,6 +2,7 @@
 
 namespace App\Form\Type;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\Form\Type\DatePickerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
@@ -37,7 +38,11 @@ class SettingsForm extends AbstractType
             ->add('ru_address', TextType::class, ['label' => 'Адрес', 'required' => false])
             ->add('ru_phone', TextType::class, ['label' => 'Телефон', 'required' => false])
             ->add('ru_email', EmailType::class, ['label' => 'Email', 'required' => false])
-            ->add('ru_email', EmailType::class, ['label' => 'Email', 'required' => false]);
+            ->add('ru_email', EmailType::class, ['label' => 'Email', 'required' => false])
+            ->add('ru_popup_title', TextType::class, ['label' => 'Popup-заголовок', 'required' => false])
+            ->add('ru_popup_sub_title', TextType::class, ['label' => 'Popup-подзаголовок', 'required' => false])
+            ->add('ru_popup_description', CKEditorType::class, ['label' => 'Popup-описание', 'config' => ['toolbar' => 'basic'], 'required' => false])
+        ;
 
         $builder
             ->add('en_lineup_description', TextareaType::class, ['label' => 'Лайнап, описание', 'required' => false])
@@ -54,7 +59,10 @@ class SettingsForm extends AbstractType
             ->add('en_address', TextType::class, ['label' => 'Адрес', 'required' => false])
             ->add('en_phone', TextType::class, ['label' => 'Телефон', 'required' => false])
             ->add('en_email', EmailType::class, ['label' => 'Email', 'required' => false])
-            ->add('en_email', EmailType::class, ['label' => 'Email', 'required' => false]);
+            ->add('en_popup_title', TextType::class, ['label' => 'Popup-заголовок', 'required' => false])
+            ->add('en_popup_sub_title', TextType::class, ['label' => 'Popup-подзаголовок', 'required' => false])
+            ->add('en_popup_description', CKEditorType::class, ['label' => 'Popup-описание', 'config' => ['toolbar' => 'basic'], 'required' => false])
+        ;
 
         $builder
             ->add('event_start_date', DatePickerType::class, ['label' => 'Дата начала мероприятия', 'required' => false])
