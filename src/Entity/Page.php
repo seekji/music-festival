@@ -77,6 +77,21 @@ class Page
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $coordinates;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $mapLink;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $howToRoute = [];
+
     public function __construct()
     {
         $this->history = new ArrayCollection();
@@ -252,6 +267,42 @@ class Page
     public function setPicture(?Media $picture): self
     {
         $this->picture = $picture;
+        return $this;
+    }
+
+    public function getCoordinates(): ?string
+    {
+        return $this->coordinates;
+    }
+
+    public function setCoordinates(?string $coordinates): self
+    {
+        $this->coordinates = $coordinates;
+
+        return $this;
+    }
+
+    public function getMapLink(): ?string
+    {
+        return $this->mapLink;
+    }
+
+    public function setMapLink(?string $mapLink): self
+    {
+        $this->mapLink = $mapLink;
+
+        return $this;
+    }
+
+    public function getHowToRoute(): ?array
+    {
+        return $this->howToRoute;
+    }
+
+    public function setHowToRoute(?array $howToRoute): self
+    {
+        $this->howToRoute = $howToRoute;
+
         return $this;
     }
 }
