@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PageRepository")
- * @UniqueEntity("slug", message="slug.not_unique")
+ * @UniqueEntity(fields={"slug", "locale"}, message="slug.not_unique")
  */
 class Page
 {
