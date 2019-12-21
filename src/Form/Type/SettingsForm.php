@@ -65,7 +65,7 @@ class SettingsForm extends AbstractType
         ;
 
         $builder
-            ->add('event_start_date', DatePickerType::class, ['label' => 'Дата начала мероприятия', 'required' => false])
+            ->add('event_start_date', DatePickerType::class, ['label' => 'Дата начала мероприятия', 'required' => true])
             ->add('event_hours', IntegerType::class, ['label' => 'Длительность мероприятия (часы)', 'required' => false])
             ->add('tickets_link', TextType::class, ['label' => 'Ссылка на билеты', 'required' => false])
             ->add('vk', TextType::class, ['label' => 'VK', 'required' => false, 'help' => 'Ссылка на группу.'])
