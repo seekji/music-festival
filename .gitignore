@@ -9,6 +9,8 @@
 
 .idea/
 
+config/settings.yaml
+
 docker-compose.override.yml
 
 /app/config/parameters.yml

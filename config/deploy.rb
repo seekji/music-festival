@@ -17,10 +17,10 @@ set :keep_releases, 3
 set :app_config_path, "config"
 
 # Dirs that need to remain the same between deploys (shared dirs)
-set :linked_dirs, fetch(:linked_dirs, []).push('uploads', 'var/log')
+set :linked_dirs, fetch(:linked_dirs, []).push('public_html/uploads', 'var/log')
 
 # Files that need to remain the same between deploys
-set :linked_files, fetch(:linked_files, []).push('.env.local')
+set :linked_files, fetch(:linked_files, []).push('.env.local', 'config/settings.yaml')
 
 set :symfony_console_path, "bin/console"
 
