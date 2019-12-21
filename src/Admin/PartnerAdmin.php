@@ -8,19 +8,19 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-/**
- * Class PartnerAdmin
- * @package App\Admin
- */
 class PartnerAdmin extends AbstractAdmin
 {
-    /**
-     * @param DatagridMapper $filter
-     */
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->add('clone', $this->getRouterIdParameter() . '/clone');
+    }
+
     protected function configureDatagridFilters(DatagridMapper $filter)
     {
         $filter
@@ -50,6 +50,9 @@ class PartnerAdmin extends AbstractAdmin
                 'actions' => [
                     'show' => [],
                     'edit' => [],
+                    'clone' => [
+                        'template' => 'admin/CRUD/list__action_clone.html.twig',
+                    ],
                     'delete' => [],
                 ],
             ]);

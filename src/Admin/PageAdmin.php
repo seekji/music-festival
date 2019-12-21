@@ -29,6 +29,7 @@ use Symfony\Component\Validator\Constraints\Regex;
  */
 class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
 {
+
     /**
      * @param DatagridMapper $filter
      */
@@ -61,6 +62,9 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
                 'actions' => [
                     'show' => [],
                     'edit' => [],
+                    'clone' => [
+                        'template' => 'admin/CRUD/list__action_clone.html.twig',
+                    ],
                     'delete' => [],
                 ],
             ]);
@@ -153,7 +157,9 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('preview');
+        $collection
+            ->add('preview')
+            ->add('clone', $this->getRouterIdParameter() . '/clone');
     }
 
     /**
