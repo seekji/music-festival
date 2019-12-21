@@ -1,3 +1,4 @@
+import '../vendor-styles/vendor.css';
 import '../styles/app.less';
 import $ from 'jquery';
 

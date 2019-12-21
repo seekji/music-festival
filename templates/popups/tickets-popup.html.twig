@@ -1,0 +1,24 @@
+<div id="tickets-popup" class="popup mfp-hide">
+  <button class="popup__close-btn">
+    <svg class="short-history__icon">
+      <use xlink:href="#icon-close"></use>
+    </svg>
+  </button>
+  <div class="popup__inner">
+    <div class="popup__header">
+      <a href="{{ getSiteSettingByKey('tickets_link') ? : '#' }}" class="popup__banner-wrap">
+        <img
+          src="{{ asset('build/assets/images/popup-banner.svg') }}"
+          alt="Banner"
+          class="popup__banner">
+      </a>
+      <div class="popup__title">
+        <div class="popup__first-title">{{ getLocalSiteSettingByKey(app.request.locale, 'popup_title') }}</div>
+        <div class="popup__second-title">{{ getLocalSiteSettingByKey(app.request.locale, 'popup_sub_title') }}</div>
+      </div>
+    </div>
+    <div class="popup__content">
+      {{ getLocalSiteSettingByKey(app.request.locale, 'popup_description')|raw }}
+    </div>
+  </div>
+</div>
