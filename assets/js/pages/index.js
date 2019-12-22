@@ -1,6 +1,5 @@
 import 'slick-carousel/slick/slick.js';
 import 'slick-carousel/slick/slick.css';
-import Splitting from 'splitting/dist/splitting.min.js';
 // import 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
 // import 'gsap/all.js';
 

@@ -6,12 +6,14 @@
 {% endblock %}
 
 {% block body %}
-  {% include 'default/blocks/promo.html.twig' %}
-  {% include 'default/blocks/lineup.html.twig' %}
-  {% include 'default/blocks/place.html.twig' %}
-  {% include 'default/blocks/news.html.twig' %}
-  {% include 'default/blocks/short-history.html.twig' %}
-  {% include 'popups/tickets-popup.html.twig' %}
+  <div id="index-page">
+    {% include 'default/blocks/promo.html.twig' %}
+    {% include 'default/blocks/lineup.html.twig' %}
+    {% include 'default/blocks/place.html.twig' %}
+    {% include 'default/blocks/news.html.twig' %}
+    {% include 'default/blocks/short-history.html.twig' %}
+    {% include 'popups/tickets-popup.html.twig' %}
+  </div>
 {% endblock %}
 
 {% block javascript %}
