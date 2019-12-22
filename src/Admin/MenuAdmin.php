@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -18,6 +19,12 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
  */
 class MenuAdmin extends AbstractAdmin
 {
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->add('clone', $this->getRouterIdParameter() . '/clone');
+    }
+
     /**
      * @param DatagridMapper $filter
      */
@@ -49,6 +56,9 @@ class MenuAdmin extends AbstractAdmin
                 'actions' => [
                     'show' => [],
                     'edit' => [],
+                    'clone' => [
+                        'template' => 'admin/CRUD/list__action_clone.html.twig',
+                    ],
                     'delete' => [],
                 ],
             ]);

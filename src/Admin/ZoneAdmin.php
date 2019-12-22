@@ -8,9 +8,17 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\AdminType;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class ZoneAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->add('clone', $this->getRouterIdParameter() . '/clone');
+    }
+
     /**
      * @param ListMapper $list
      */
@@ -24,6 +32,9 @@ class ZoneAdmin extends AbstractAdmin
             ->add('_action', null, [
                 'actions' => [
                     'edit' => [],
+                    'clone' => [
+                        'template' => 'admin/CRUD/list__action_clone.html.twig',
+                    ],
                     'delete' => [],
                 ],
             ]);
