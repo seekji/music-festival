@@ -121,7 +121,7 @@
                             {% endif %}
 
                             {% if admin.hasRoute('preview') %}
-                                <a href="{{ path(admin.getPreviewRouteName, admin.getPreviewRouteParameters(object)) }}"
+                                <a href="{{ path(admin.getPreviewRouteName, admin.getPreviewRouteParameters(object)|merge({'_locale': object.getLocale()})) }}"
                                    target="_blank"
                                    class="btn btn-info"
                                    name="btn_preview">
