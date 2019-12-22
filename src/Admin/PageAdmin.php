@@ -186,12 +186,4 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
 
         return ['slug' => $object->getSlug()];
     }
-
-    /**
-     * @return string
-     */
-    public function getLocale(): string
-    {
-        return $this->getSubject()->getLocale();
-    }
 }
