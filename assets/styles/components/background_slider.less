@@ -40,16 +40,16 @@
   }
 
   &__name {
-    .textTruncate();
     .slider-text-width(@background-slider-nav-btn-width-default);
     padding: 0 25px;
     font-size: 90px;
     font-weight: 800;
     color: @white;
     text-align: center;
+    min-width: 0;
 
     @media (max-width: @screen-lg-max) {
-      .slider-text-width(@background-slider-nav-btn-width-lg);
+      .slider-text-width(@background-slider-nav-btn-width-default);
       padding: 15px;
       font-size: 52px;
     }
@@ -91,6 +91,12 @@
     height: 26px;
     .button-reset();
     color: @white;
+    transition: all .1s ease-in-out;
+
+    &:hover,
+    &:active {
+      color: @color-main;
+    }
 
     @media (max-width: @screen-lg-max) {
       width: @background-slider-nav-btn-width-lg;
@@ -100,8 +106,20 @@
 
   &__next-btn {
 
+    &:hover,
+    &:active {
+      transform: translate3d(3px, 3px, 0);
+    }
+
     @media (max-width: @screen-xs-max) {
       margin-left: 55px;
+    }
+  }
+
+  &__prev-btn {
+    &:hover,
+    &:active {
+      transform: translate3d(-3px, 3px, 0);
     }
   }
 

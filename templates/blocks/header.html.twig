@@ -1,23 +1,38 @@
-<header class="page-header {{ app.request.requestUri == '/' ? '' : 'page-header--inner-page' }}">
+<header
+  class="page-header {{ app.request.attributes.get('_route') == 'app.homepage' ? '' : 'page-header--inner-page' }}">
   <div class="page-header__inner">
 
     <button class="page-header__menu-toggler menu-toggler"><span></span></button>
 
     {% if app.request.locale == 'en' %}
-      <a href="/" class="page-header__lang">Ru</a>
+      <div class="page-header__lang-wrap">
+        <a href="/" class="page-header__lang">Ru</a>
+      </div>
     {% else %}
-      <a href="/en/" class="page-header__lang">En</a>
+      <div class="page-header__lang-wrap">
+        <a href="/en/" class="page-header__lang">En</a>
+      </div>
     {% endif %}
 
-    {# or a tag on inner pages #}
-    <div class="page-header__logo">
-      <picture>
-        <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo-small.svg') }}">
-        <img
-          src="{{ asset('build/assets/images/logo.svg') }}"
-          alt="logo">
-      </picture>
-    </div>
+    {% if app.request.attributes.get('_route') == 'app.homepage' %}
+      <div class="page-header__logo">
+        <picture>
+          <source media="(max-width: 1023px)" srcset="{{ asset('logo.src.mobile'|trans({}, 'site')) }}">
+          <img
+            src="{{ asset('logo.src'|trans({}, 'site')) }}"
+            alt="{{ 'logo.alt'|trans({}, 'site') }}">
+        </picture>
+      </div>
+    {% else %}
+      <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-header__logo">
+        <picture>
+          <source media="(max-width: 1023px)" srcset="{{ asset('logo.mobile.src'|trans({}, 'site')) }}">
+          <img
+            src="{{ asset('logo.src'|trans({}, 'site')) }}"
+            alt="{{ 'logo.alt'|trans({}, 'site') }}">
+        </picture>
+      </a>
+    {% endif %}
 
     <div class="page-header__main-nav">
       {{ include('blocks/main_nav.html.twig') }}

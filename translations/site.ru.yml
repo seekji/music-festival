@@ -1,3 +1,6 @@
+# menu item
+item.tickets.buy: Билеты
+
 # btns
 btn.tickets.buy: Купить билеты
 
@@ -37,3 +40,7 @@ text.place.how_to_get: Как добраться
 text.info.return: Назад
 
 text.festival.name: рок над Волгой
+
+logo.src: build/assets/images/logo_ru.svg
+logo.mobile.src: build/assets/images/logo_ru_mob.svg
+logo.alt: Логотип фестиваля Рок над Волгой 2020

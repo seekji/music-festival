@@ -197,6 +197,21 @@
     text-decoration: none;
     color: @white;
     z-index: 10;
+    transition: color .1s ease-in-out;
+
+    &:hover,
+    &:active {
+      color: @base-blue;
+
+      .short-history__link-text--large::after {
+        transform: translate3d(3px, 3px, 0);
+        background-image: url("data:image/svg+xml,%3Csvg fill='%2300b4ff' enable-background='new 0 0 217.4 62.4' viewBox='0 0 217.4 62.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m0 26.2h208v10h-208z'/%3E%3Cpath d='m186.2 62.4-7.1-7 24.1-24.2-24.1-24.1 7.1-7.1 31.2 31.2z'/%3E%3C/svg%3E");
+      }
+
+      + .short-history__icon-wrap {
+        transform: translate3d(-20px, -20px, 0);
+      }
+    }
   }
 
   &__link-text {
@@ -238,6 +253,7 @@
         background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMTcuNCA2Mi40IiB2aWV3Qm94PSIwIDAgMjE3LjQgNjIuNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIxMCI+PHBhdGggZD0ibTAgMzEuMmgyMDgiLz48cGF0aCBkPSJtMTgyLjYgMy41IDI3LjcgMjcuNy0yNy43IDI3LjciLz48L2c+PC9zdmc+);
         background-repeat: no-repeat;
         background-size: contain;
+        transition: all .1s ease-in-out;
 
         @media (max-width: @screen-md-max) {
           width: 64px;
@@ -259,6 +275,7 @@
     width: 235px;
     height: 235px;
     transform: rotate(-10deg);
+    transition: all .1s ease-in-out;
 
     @media (max-width: @screen-lg-max) {
       right: 30px;

@@ -1,3 +1,6 @@
+# menu item
+item.tickets.buy: Tickets
+
 # btns
 btn.tickets.buy: Buy tickets
 
@@ -37,3 +40,7 @@ text.info.return: Return back
 text.organiser: Organiser
 text.made.in: Made in
 text.festival.name: rock over the Volga
+
+logo.src: build/assets/images/logo_eng.svg
+logo.mobile.src: build/assets/images/logo_eng_mob.svg
+logo.alt: Rock over the Volga logo 2020

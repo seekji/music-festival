@@ -1,6 +1,5 @@
 import 'slick-carousel/slick/slick.js';
 import 'slick-carousel/slick/slick.css';
-import Splitting from 'splitting/dist/splitting.min.js';
 // import 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
 // import 'gsap/all.js';
 
@@ -13,7 +12,3 @@ import routeTabs from '../components/route_tabs.js';
 import infoPage from '../components/info_page.js';
 import ticketsPopup from '../components/tickets_popup.js';
 import faqAccordion from '../components/faq_accordion.js';
-
-$(document).ready(function() {
-    Splitting();
-});

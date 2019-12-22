@@ -112,9 +112,15 @@
     align-items: center;
     width: 21%;
     max-width: 160px;
+    transition: opacity .1s ease-in-out;
 
     @media (max-width: @screen-sm-max) {
       justify-content: center;
+    }
+
+    &:hover,
+    &:active {
+      opacity: .8;
     }
 
     &:first-child {

@@ -1,7 +1,7 @@
 import 'magnific-popup';
 
 $(document).ready(function() {
-    $('.buy-tickets__link').magnificPopup({
+    $('.tickets-popup-trigger').magnificPopup({
         type: 'inline',
         midClick: true,
         showCloseBtn: false

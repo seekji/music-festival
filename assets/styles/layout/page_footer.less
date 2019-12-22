@@ -36,6 +36,7 @@
     position: absolute;
     top: -121px;
     left: 0;
+    display: block;
 
     @media (max-width: @screen-lg-max) {
       top: -50px;
@@ -197,12 +198,26 @@
     }
   }
 
+  &__dev {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: @white;
+    transition: color .1s ease-in-out;
+
+    &:hover,
+    &:active {
+      color: #ccff00;
+    }
+  }
+
   &__dev-text {
     font-size: 15px;
+    margin-right: 4px;
   }
 
   &__dev-logo {
     width: 55px;
-    height: auto;
+    height: 17px;
   }
 }
