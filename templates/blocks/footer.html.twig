@@ -57,38 +57,21 @@
           </div>
           <div class="page-footer__contacts">
             {% if app.request.attributes.get('_route') == 'app.homepage' %}
-              {% if app.request.locale == 'en' %}
-                <div class="page-footer__logo">
-                  <img
-                    src="{{ asset('build/assets/images/logo_eng.svg') }}"
-                    alt="Rock on Volga logo 2020"
-                    class="page-footer__logo-img">
-                </div>
-              {% else %}
-                <div class="page-footer__logo">
-                  <img
-                    src="{{ asset('build/assets/images/logo_ru.svg') }}"
-                    alt="Логотип фестиваля Рок над Волгой 2020"
-                    class="page-footer__logo-img">
-                </div>
-              {% endif %}
+              <div class="page-footer__logo">
+                <img
+                  src="{{ asset('logo.src'|trans({}, 'site')) }}"
+                  alt="'logo.alt'|trans({}, 'site')"
+                  class="page-footer__logo-img">
+              </div>
             {% else %}
-              {% if app.request.locale == 'en' %}
-                <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-footer__logo">
-                  <img
-                    src="{{ asset('build/assets/images/logo_eng.svg') }}"
-                    alt="Rock on Volga logo 2020"
-                    class="page-footer__logo-img">
-                </a>
-              {% else %}
-                <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-footer__logo">
-                  <img
-                    src="{{ asset('build/assets/images/logo_ru.svg') }}"
-                    alt="Логотип фестиваля Рок над Волгой 2020"
-                    class="page-footer__logo-img">
-                </a>
-              {% endif %}
+              <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-footer__logo">
+                <img
+                  src="{{ asset('logo.src'|trans({}, 'site')) }}"
+                  alt="'logo.alt'|trans({}, 'site')"
+                  class="page-footer__logo-img">
+              </a>
             {% endif %}
+
             <div class="page-footer__contacts-inner">
               <div class="page-footer__socials socials socials--red socials--horizontal">
                 <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}"

@@ -1,4 +1,5 @@
-<header class="page-header {{ app.request.attributes.get('_route') == 'app.homepage' ? '' : 'page-header--inner-page' }}">
+<header
+  class="page-header {{ app.request.attributes.get('_route') == 'app.homepage' ? '' : 'page-header--inner-page' }}">
   <div class="page-header__inner">
 
     <button class="page-header__menu-toggler menu-toggler"><span></span></button>
@@ -14,45 +15,23 @@
     {% endif %}
 
     {% if app.request.attributes.get('_route') == 'app.homepage' %}
-      {% if app.request.locale == 'en' %}
-        <div class="page-header__logo">
-          <picture>
-            <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo_eng_mob.svg') }}">
-            <img
-              src="{{ asset('build/assets/images/logo_eng.svg') }}"
-              alt="Rock on Volga logo 2020">
-          </picture>
-        </div>
-      {% else %}
-        <div class="page-header__logo">
-          <picture>
-            <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo_ru_mob.svg') }}">
-            <img
-              src="{{ asset('build/assets/images/logo_ru.svg') }}"
-              alt="Логотип фестиваля Рок над Волгой 2020">
-          </picture>
-        </div>
-      {% endif %}
+      <div class="page-header__logo">
+        <picture>
+          <source media="(max-width: 1023px)" srcset="{{ asset('logo.src.mobile'|trans({}, 'site')) }}">
+          <img
+            src="{{ asset('logo.src'|trans({}, 'site')) }}"
+            alt="{{ 'logo.alt'|trans({}, 'site') }}">
+        </picture>
+      </div>
     {% else %}
-      {% if app.request.locale == 'en' %}
-        <a href="{{ url('app.homepage', {'_locale' : app.request.locale})}}" class="page-header__logo">
-          <picture>
-            <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo_eng_mob.svg') }}">
-            <img
-              src="{{ asset('build/assets/images/logo_eng.svg') }}"
-              alt="Rock on Volga logo 2020">
-          </picture>
-        </a>
-      {% else %}
-        <a href="{{ url('app.homepage', {'_locale' : app.request.locale})}}" class="page-header__logo">
-          <picture>
-            <source media="(max-width: 1023px)" srcset="{{ asset('build/assets/images/logo_ru_mob.svg') }}">
-            <img
-              src="{{ asset('build/assets/images/logo_ru.svg') }}"
-              alt="Логотип фестиваля Рок над Волгой 2020">
-          </picture>
-        </a>
-      {% endif %}
+      <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-header__logo">
+        <picture>
+          <source media="(max-width: 1023px)" srcset="{{ asset('logo.mobile.src'|trans({}, 'site')) }}">
+          <img
+            src="{{ asset('logo.src'|trans({}, 'site')) }}"
+            alt="{{ 'logo.alt'|trans({}, 'site') }}">
+        </picture>
+      </a>
     {% endif %}
 
     <div class="page-header__main-nav">
