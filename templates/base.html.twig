@@ -30,6 +30,9 @@
     {% include 'blocks/footer.html.twig' %}
 
     {% block javascript %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.min.js"></script>
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </body>

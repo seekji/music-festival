@@ -58,7 +58,7 @@
         </div>
 
         <div class="buy-tickets">
-            <a href="{{ getSiteSettingByKey('tickets_link') ? : '#' }}" class="buy-tickets__link">
+            <a href="#tickets-popup" class="buy-tickets__link">
                 <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
                 <svg class="buy-tickets__icon">
                     <use xlink:href="#arrow-right"></use>
@@ -71,6 +71,8 @@
         {% set coords = page.coordinates|split(';') %}
         <section id="place-map" class="place-map" data-lat="{{ coords.0 }}" data-lng="{{ coords[1] }}"></section>
     {% endif %}
+
+    {% include 'popups/tickets-popup.html.twig' %}
 {% endblock %}
 
 {% block javascript %}

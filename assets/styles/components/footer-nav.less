@@ -61,6 +61,12 @@
     font-size: 15px;
     color: @white;
     text-decoration: none;
+    transition: color .1s ease-in-out;
+
+    &:hover,
+    &:active {
+      color: @color-main;
+    }
 
     @media (max-width: @screen-sm-max) {
       font-size: 14px;

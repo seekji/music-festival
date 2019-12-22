@@ -13,15 +13,15 @@
       </div>
     </div>
 
-    <div class="lineup__column-left">
-      <h2 class="lineup__title lineup__title--hidden-md">
+    <div class="lineup__column-left" id="lineup-animation">
+      <h2 class="lineup__title lineup__title--hidden-md" id="scene-01">
         <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
         <div class="lineup__year">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}
           <div class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</div>
         </div>
       </h2>
       <div class="lineup__text-blocks">
-        <div class="lineup__text-block lineup__text-block--has-link">
+        <div class="lineup__text-block lineup__text-block--has-link" id="scene-02">
           <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'lineup_link') is not null ?  getLocalSiteSettingByKey(app.request.locale, 'lineup_link') : '#' }}" class="lineup__subtitle">
             <div class="lineup__subtitle-wrap">
               <span class="lineup__subtitle-number">{{ 'text.fan.zones.count'|trans({}, 'site') }}</span>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <div class="lineup__text-block">
+        <div class="lineup__text-block" id="scene-03">
           <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'lineup_link') is not null ?  getLocalSiteSettingByKey(app.request.locale, 'lineup_link') : '#' }}" class="lineup__subtitle">
             <span class="lineup__subtitle-number">{{ getSiteSettingByKey('event_hours') }}</span>
             <div class="lineup__subtitle-text">{{ 'text.lineup.hours'|trans({}, 'site') }}</div>
@@ -69,12 +69,6 @@
   </div>
 
   <div class="buy-tickets">
-    {#<a href="{{ getSiteSettingByKey('tickets_link') ? : '#' }}" class="buy-tickets__link">#}
-      {#<div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>#}
-      {#<svg class="buy-tickets__icon">#}
-        {#<use xlink:href="#arrow-right"></use>#}
-      {#</svg>#}
-    {#</a>#}
     <a href="#tickets-popup" class="buy-tickets__link">
       <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
       <svg class="buy-tickets__icon">

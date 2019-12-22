@@ -4,9 +4,13 @@
     <button class="page-header__menu-toggler menu-toggler"><span></span></button>
 
     {% if app.request.locale == 'en' %}
-      <a href="/" class="page-header__lang">Ru</a>
+      <div class="page-header__lang-wrap">
+        <a href="/" class="page-header__lang">Ru</a>
+      </div>
     {% else %}
-      <a href="/en/" class="page-header__lang">En</a>
+      <div class="page-header__lang-wrap">
+        <a href="/en/" class="page-header__lang">En</a>
+      </div>
     {% endif %}
 
     {# or a tag on inner pages #}

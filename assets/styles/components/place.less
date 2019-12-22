@@ -163,6 +163,20 @@
     padding-right: 27px;
     color: @white;
     text-decoration: none;
+    transition: all .1s ease-in-out;
+
+    &:hover,
+    &:active {
+
+      .place__number {
+        color: @base-blue;
+      }
+
+      .place__icon {
+        color: @base-blue;
+        transform: translate3d(3px, 3px, 0);
+      }
+    }
   }
 
   &__number {
@@ -224,6 +238,7 @@
     margin-left: 6px;
     width: 94px;
     height: 27px;
+    transition: all .1s ease-in-out;
 
     @media (max-width: @screen-lg-max) {
       width: 76px;

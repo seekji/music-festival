@@ -6,8 +6,8 @@
   &__inner {
     .container-fluid();
     display: flex;
-    //height: 100vh;
-    //min-height: 730px;
+    height: 100vh;
+    min-height: 730px;
     overflow-x: auto;
     padding-bottom: 450px; // TODO: remove after animation will be ready
 
@@ -172,6 +172,16 @@
     margin: 0 0 30px;
     color: @white;
     text-decoration: none;
+    transition: color .1s ease-in-out;
+
+    &:hover,
+    &:active {
+
+      .lineup__subtitle-icon {
+        color: @base-blue;
+        transform: translate3d(3px, 3px, 0);
+      }
+    }
   }
 
   &__subtitle-text {
@@ -218,6 +228,7 @@
     right: -120px;
     width: 170px;
     height: 26px;
+    transition: all .1s ease-in-out;
 
     @media (max-width: @screen-sm) {
       width: 112px;

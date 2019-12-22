@@ -1,6 +1,22 @@
 .socials {
   overflow: hidden; // because of text-indent
 
+  &--blue {
+
+    .socials__link:hover,
+    .socials__link:active {
+      color: @base-blue;
+    }
+  }
+
+  &--red {
+
+    .socials__link:hover,
+    .socials__link:active {
+      color: @color-main;
+    }
+  }
+
   &--has-text {
     display: flex;
   }
@@ -39,6 +55,7 @@
     text-decoration: none;
     cursor: pointer;
     color: @white;
+    transition: color .1s ease-in-out;
 
     + .socials__link {
       margin-top: 35px;

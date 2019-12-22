@@ -15,14 +15,14 @@
     </div>
 
     <div class="short-history__bottom-block">
+      <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'history_link') ? : '#' }}" class="short-history__link">
+        <div class="short-history__link-text">{{ 'text.history.its_alredy'|trans({}, 'site') }}</div>
+        <div class="short-history__link-text short-history__link-text--large">{{ 'text.history'|trans({}, 'site') }}</div>
+      </a>
       <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'history_punk_link') ? : '#' }}" class="short-history__icon-wrap">
         <svg class="short-history__icon">
           <use xlink:href="#icon-punk"></use>
         </svg>
-      </a>
-      <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'history_link') ? : '#' }}" class="short-history__link">
-        <div class="short-history__link-text">{{ 'text.history.its_alredy'|trans({}, 'site') }}</div>
-        <div class="short-history__link-text short-history__link-text--large">{{ 'text.history'|trans({}, 'site') }}</div>
       </a>
     </div>
   </div>
