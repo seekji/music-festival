@@ -3,14 +3,13 @@ $(document).ready(function () {
 
     if ($('.info-page__back-button').length) {
 
-        $('.info-page__back-button').on('click', function () {
-            var referrer =  document.referrer;
-            console.log(referrer);
-            history.back();
+        $('.info-page__back-button').on('click', function (evt) {
+            evt.preventDefault();
 
+            var referrer =  document.referrer;
 
             if (referrer.indexOf(indexUrl) >= 0) {
-                history.back();
+                window.history.back();
             } else {
                 window.location.href = "/";
             }
