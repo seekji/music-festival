@@ -1,0 +1,7 @@
+{% extends '@SonataAdmin/CRUD/base_list_field.html.twig' %}
+
+{% block field %}
+    <a href="{{ path(admin.getPreviewRouteName, admin.getPreviewRouteParameters(object)|merge({'_locale': object.getLocale()})) }}" target="_blank">
+        {{ path(admin.getPreviewRouteName, admin.getPreviewRouteParameters(object)) }}
+    </a>
+{% endblock %}

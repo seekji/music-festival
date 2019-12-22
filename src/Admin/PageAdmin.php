@@ -53,7 +53,9 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
         $list
             ->add('id')
             ->add('title')
-            ->add('slug')
+            ->add('slug', null, [
+                'template' => 'admin/CRUD/list_url_field.html.twig',
+            ])
             ->add('locale', 'choice', ['choices' => LocaleInterface::LOCALE_LIST])
             ->add('template', 'choice', ['choices' => Page::TEMPLATES])
             ->add('createdAt')
@@ -169,10 +171,6 @@ class PageAdmin extends AbstractAdmin implements PreviewableAdminInterface
      */
     public function getPreviewRouteName(): string
     {
-        if($this->getLocale() === LocaleInterface::LAN_EN) {
-            return 'app.page.en';
-        }
-
         return 'app.page';
     }
 
