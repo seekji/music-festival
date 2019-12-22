@@ -10,13 +10,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\Form\Type\DateTimePickerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
-/**
- * Class ArtistAdmin
- * @package App\Admin
- */
 class ArtistAdmin extends AbstractAdmin
 {
 
@@ -77,7 +73,7 @@ class ArtistAdmin extends AbstractAdmin
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
                 ->add('name')
-                ->add('startAt', DateTimePickerType::class)
+                ->add('startAt', TimeType::class)
                 ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'artists']])
                 ->add('description')
             ->end()
