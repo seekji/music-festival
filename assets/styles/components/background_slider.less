@@ -7,6 +7,10 @@
 
 @background-slider-nav-btn-width-lg: 64px;
 
+.slider-text-width(@nav-btn-width) {
+  width: calc(100% - @nav-btn-width * 2)
+}
+
 .background-slider {
   position: relative; // for .background-slider__nav
 
@@ -36,7 +40,7 @@
   }
 
   &__name {
-    .textTruncate();
+    .slider-text-width(@background-slider-nav-btn-width-default);
     padding: 0 25px;
     font-size: 90px;
     font-weight: 800;
@@ -45,6 +49,7 @@
     min-width: 0;
 
     @media (max-width: @screen-lg-max) {
+      .slider-text-width(@background-slider-nav-btn-width-default);
       padding: 15px;
       font-size: 52px;
     }
