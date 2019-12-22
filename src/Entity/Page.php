@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PageRepository")
- * @UniqueEntity("slug", message="slug.not_unique")
+ * @UniqueEntity(fields={"slug", "locale"}, message="slug.not_unique")
  */
 class Page
 {
@@ -108,6 +108,11 @@ class Page
      * @ORM\Column(type="array", nullable=true)
      */
     private $faq = [];
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive = true;
 
     public function __construct()
     {
@@ -370,6 +375,18 @@ class Page
     public function setFaq(?array $faq): self
     {
         $this->faq = $faq;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

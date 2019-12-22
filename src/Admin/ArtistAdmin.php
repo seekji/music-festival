@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\Form\Type\DateTimePickerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -18,6 +19,14 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
  */
 class ArtistAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->add('clone', $this->getRouterIdParameter() . '/clone');
+    }
+
+
     /**
      * @param DatagridMapper $filter
      */
@@ -50,6 +59,9 @@ class ArtistAdmin extends AbstractAdmin
                 'actions' => [
                     'show' => [],
                     'edit' => [],
+                    'clone' => [
+                        'template' => 'admin/CRUD/list__action_clone.html.twig',
+                    ],
                     'delete' => [],
                 ],
             ]);

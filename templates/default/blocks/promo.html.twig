@@ -1,62 +1,66 @@
 <div class="promo">
-  <div class="promo__inner">
+    <div class="promo__inner">
+        {% if slides|length > 0 %}
+            <div class="promo__slider background-slider">
+                <div class="background-slider__nav">
+                    <button type="button" class="background-slider__nav-btn background-slider__prev-btn">
+                        <svg class="background-slider__icon">
+                            <use xlink:href="#arrow-left"></use>
+                        </svg>
+                    </button>
+                    <div class="background-slider__name">{# Set in js #}</div>
+                    <button type="button" class="background-slider__nav-btn background-slider__next-btn">
+                        <svg class="background-slider__icon">
+                            <use xlink:href="#arrow-right"></use>
+                        </svg>
+                    </button>
+                </div>
 
-    {% if slides|length > 0 %}
-      <div class="promo__slider background-slider">
-        <div class="background-slider__nav">
-          <button type="button" class="background-slider__nav-btn background-slider__prev-btn">
-            <svg class="background-slider__icon">
-              <use xlink:href="#arrow-left"></use>
-            </svg>
-          </button>
-          <div class="background-slider__name">{# Set in js #}</div>
-          <button type="button" class="background-slider__nav-btn background-slider__next-btn">
-            <svg class="background-slider__icon">
-              <use xlink:href="#arrow-right"></use>
-            </svg>
-          </button>
-        </div>
-
-        <div class="background-slider__track">
-          {% for slide in slides %}
-            <div data-artist-name="{{ slide.title }}" class="background-slider__slide">
-              <div class="background-slider__container">
-                <img
-                  src="{% path slide.picture, 'reference' %}"
-                  alt="{{ slide.title }}"
-                  class="background-slider__img">
-              </div>
+                <div class="background-slider__track">
+                    {% for slide in slides %}
+                        <div data-artist-name="{{ slide.title }}" class="background-slider__slide">
+                            <div class="background-slider__container">
+                                <img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-          {% endfor %}
+        {% endif %}
+        <div class="promo__socials socials socials--blue">
+            <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}"
+               class="socials__link" title="Vkontakte">
+                <svg class="socials__icon" width="33" height="21">
+                    <use xlink:href="#icon-vk"></use>
+                </svg>
+            </a>
+            <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}"
+               class="socials__link" title="Facebook">
+                <svg class="socials__icon" width="15" height="32">
+                    <use xlink:href="#icon-fb"></use>
+                </svg>
+            </a>
+            <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}"
+               class="socials__link" title="Youtube">
+                <svg class="socials__icon" width="33" height="27">
+                    <use xlink:href="#icon-youtube"></use>
+                </svg>
+            </a>
         </div>
-      </div>
-    {% endif %}
+        {% if getSiteSettingByKey('event_start_date') %}
+            <div class="promo__start-timer start-timer">
+                {% set today = "now"|date('Y-m-d') %}
+                {% set difference = date(today).diff(date(getSiteSettingByKey('event_start_date'))) %}
+                {% set leftDays = difference.days %}
 
-    <div class="promo__socials socials socials--blue">
-      <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
-        <svg class="socials__icon" width="33" height="21">
-          <use xlink:href="#icon-vk"></use>
-        </svg>
-      </a>
-      <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
-        <svg class="socials__icon" width="15" height="32">
-          <use xlink:href="#icon-fb"></use>
-        </svg>
-      </a>
-      <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
-        <svg class="socials__icon" width="33" height="27">
-          <use xlink:href="#icon-youtube"></use>
-        </svg>
-      </a>
+                {% if today == getSiteSettingByKey('event_start_date') %}
+                    {# todo: add output #}
+                {% elseif leftDays > 0 %}
+                    <div class="start-timer__text">{{ 'text.days.left'|trans({'%count%': leftDays}, 'site') }}</div>
+                    <div class="start-timer__date">{{ leftDays }}</div>
+                    <div class="start-timer__postfix">{{ 'text.days.plural'|trans({'%count%': leftDays}, 'site') }}</div>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
-
-    <div class="promo__start-timer start-timer">
-      {% set today = "now"|date('d-m-Y') %}
-      {% set difference = date(today).diff(date(getSiteSettingByKey('event_start_date')))%}
-      {% set leftDays = difference.days %}
-      <div class="start-timer__text">{{ 'text.days.left'|trans({'%count%': leftDays}, 'site') }}</div>
-      <div class="start-timer__date">{{ leftDays }}</div>
-      <div class="start-timer__postfix">{{ 'text.days.plural'|trans({'%count%': leftDays}, 'site') }}</div>
-    </div>
-  </div>
 </div>

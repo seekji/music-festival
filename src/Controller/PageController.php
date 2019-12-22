@@ -30,7 +30,7 @@ class PageController extends AbstractController
      */
     public function show(Request $request, Page $page)
     {
-        if ($page->getLocale() !== $request->getLocale()) {
+        if ($page->getLocale() !== $request->getLocale() || !$page->getIsActive()) {
             throw $this->createNotFoundException();
         }
 

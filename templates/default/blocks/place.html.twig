@@ -1,35 +1,38 @@
 <section class="place">
-  <div class="place__inner">
-    <div class="place__content">
-      <div class="place__description">
-        {{ getLocalSiteSettingByKey(app.request.locale, 'place_description')|raw }}
-      </div>
-      <div class="place__title">
-        {{ getLocalSiteSettingByKey(app.request.locale, 'place_title') }}
-      </div>
-      <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'place_link') ? : '#' }}" class="place__link">
-        <div class="place__number">
-          <span>{{ getLocalSiteSettingByKey(app.request.locale, 'place_count') }}</span>
-          <svg class="place__icon place__icon--md">
-            <use xlink:href="#arrow-right"></use>
-          </svg>
+    <div class="place__inner">
+        <div class="place__content">
+            <div class="place__description">
+                {{ getLocalSiteSettingByKey(app.request.locale, 'place_description')|raw }}
+            </div>
+            <div class="place__title">
+                {{ getLocalSiteSettingByKey(app.request.locale, 'place_title') }}
+            </div>
 
-          <svg class="place__icon place__icon--sm">
-            <use xlink:href="#arrow-right-short"></use>
-          </svg>
+            {% if getLocalSiteSettingByKey(app.request.locale, 'place_link') %}
+                <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'place_link') ? : '#' }}" class="place__link">
+                    <div class="place__number">
+                        <span>{{ getLocalSiteSettingByKey(app.request.locale, 'place_count') }}</span>
+                        <svg class="place__icon place__icon--md">
+                            <use xlink:href="#arrow-right"></use>
+                        </svg>
+
+                        <svg class="place__icon place__icon--sm">
+                            <use xlink:href="#arrow-right-short"></use>
+                        </svg>
+                    </div>
+                    <div class="place__link-text">
+                        {{ 'text.fan.zones.free'|trans({}, 'site')|raw }}
+                    </div>
+                </a>
+            {% endif %}
         </div>
-        <div class="place__link-text">
-          {{ 'text.fan.zones.free'|trans({}, 'site')|raw }}
-        </div>
-      </a>
     </div>
-  </div>
 </section>
 
 <div class="about-place">
-  <div class="about-place__inner">
-    <div class="about-place__description">
-      {{ getLocalSiteSettingByKey(app.request.locale, 'place_description') }}
+    <div class="about-place__inner">
+        <div class="about-place__description">
+            {{ getLocalSiteSettingByKey(app.request.locale, 'place_description') }}
+        </div>
     </div>
-  </div>
 </div>

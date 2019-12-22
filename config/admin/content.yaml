@@ -1,37 +1,37 @@
 services:
   app.admin.event:
     class: App\Admin\PartnerAdmin
-    arguments: [~, App\Entity\Partner, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\Partner, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Список партнеров }
 
   app.admin.artist:
     class: App\Admin\ArtistAdmin
-    arguments: [~, App\Entity\Artist, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\Artist, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Список артистов }
 
   app.admin.page:
     class: App\Admin\PageAdmin
-    arguments: [~, App\Entity\Page, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\Page, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Статичные страницы }
 
   app.admin.news:
     class: App\Admin\NewsAdmin
-    arguments: [~, App\Entity\News, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\News, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Новости }
 
   app.admin.slider:
     class: App\Admin\SliderAdmin
-    arguments: [~, App\Entity\Slider, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\Slider, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Слайды }
 
   app.admin.menu:
     class: App\Admin\MenuAdmin
-    arguments: [~, App\Entity\Menu, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\Menu, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Меню сайта }
 
@@ -43,7 +43,7 @@ services:
 
   app.admin.zone:
     class: App\Admin\ZoneAdmin
-    arguments: [~, App\Entity\Zone, SonataAdminBundle:CRUD]
+    arguments: [~, App\Entity\Zone, App\Controller\Admin\CloneCRUDController]
     tags:
       - { name: sonata.admin, manager_type: orm, audit: false, group: Контент, label: Фан-зоны }
 

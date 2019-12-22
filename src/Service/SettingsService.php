@@ -45,7 +45,7 @@ class SettingsService
     /**
      * @return array
      */
-    public function getValues(): array
+    public function getValues(): ?array
     {
         return $this->values;
     }
