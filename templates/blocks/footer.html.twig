@@ -7,29 +7,30 @@
       </h2>
 
       {% if partners|length > 0 %}
-        <div class="partners__items">
-          <div class="partners__row">
-            {% for partner in partners|slice(0, 2) %}
-              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo {{ partner.isBig ? 'partners__logo--large' : '' }}">
-                <img
-                  src="{% path partner.picture, 'reference' %}"
-                  alt="{{ partner.name }}"
-                  class="partners__logo-img">
-              </a>
-            {% endfor %}
-          </div>
-          <div class="partners__row">
-            {% for partner in partners|slice(2) %}
-              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo">
-                <img
-                  src="{% path partner.picture, 'reference' %}"
-                  alt="{{ partner.name }}"
-                  class="partners__logo-img">
-              </a>
-            {% endfor %}
-          </div>
+      <div class="partners__items">
+        <div class="partners__row">
+          {% for partner in partners|slice(0, 2) %}
+            <a href="{{ partner.link ? : 'javascript:void(0);' }}"
+               class="partners__logo {{ partner.isBig ? 'partners__logo--large' : '' }}">
+              <img
+                src="{% path partner.picture, 'reference' %}"
+                alt="{{ partner.name }}"
+                class="partners__logo-img">
+            </a>
+          {% endfor %}
+        </div>
+        <div class="partners__row">
+          {% for partner in partners|slice(2) %}
+            <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo">
+              <img
+                src="{% path partner.picture, 'reference' %}"
+                alt="{{ partner.name }}"
+                class="partners__logo-img">
+            </a>
+          {% endfor %}
         </div>
       </div>
+    </div>
     {% endif %}
   </div>
 
@@ -55,26 +56,55 @@
             {% endfor %}
           </div>
           <div class="page-footer__contacts">
-            {# or a on inner pages #}
-            <div class="page-footer__logo">
-              <img
-                src="{{ asset('build/assets/images/logo.svg') }}"
-                alt="logo"
-                class="page-footer__logo-img">
-            </div>
+            {% if app.request.attributes.get('_route') == 'app.homepage' %}
+              {% if app.request.locale == 'en' %}
+                <div class="page-footer__logo">
+                  <img
+                    src="{{ asset('build/assets/images/logo_eng.svg') }}"
+                    alt="Rock on Volga logo 2020"
+                    class="page-footer__logo-img">
+                </div>
+              {% else %}
+                <div class="page-footer__logo">
+                  <img
+                    src="{{ asset('build/assets/images/logo_ru.svg') }}"
+                    alt="Логотип фестиваля Рок над Волгой 2020"
+                    class="page-footer__logo-img">
+                </div>
+              {% endif %}
+            {% else %}
+              {% if app.request.locale == 'en' %}
+                <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-footer__logo">
+                  <img
+                    src="{{ asset('build/assets/images/logo_eng.svg') }}"
+                    alt="Rock on Volga logo 2020"
+                    class="page-footer__logo-img">
+                </a>
+              {% else %}
+                <a href="{{ url('app.homepage', {'_locale' : app.request.locale}) }}" class="page-footer__logo">
+                  <img
+                    src="{{ asset('build/assets/images/logo_ru.svg') }}"
+                    alt="Логотип фестиваля Рок над Волгой 2020"
+                    class="page-footer__logo-img">
+                </a>
+              {% endif %}
+            {% endif %}
             <div class="page-footer__contacts-inner">
               <div class="page-footer__socials socials socials--red socials--horizontal">
-                <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}" class="socials__link" title="Vkontakte">
+                <a href="{{ getSiteSettingByKey('vk') is not null ? getSiteSettingByKey('vk') : '#' }}"
+                   class="socials__link" title="Vkontakte">
                   <svg class="socials__icon" width="33" height="21">
                     <use xlink:href="#icon-vk"></use>
                   </svg>
                 </a>
-                <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}" class="socials__link" title="Facebook">
+                <a href="{{ getSiteSettingByKey('facebook') is not null ? getSiteSettingByKey('facebook') : '#' }}"
+                   class="socials__link" title="Facebook">
                   <svg class="socials__icon" width="15" height="27">
                     <use xlink:href="#icon-fb"></use>
                   </svg>
                 </a>
-                <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}" class="socials__link" title="Youtube">
+                <a href="{{ getSiteSettingByKey('youtube') is not null ? getSiteSettingByKey('youtube') : '#' }}"
+                   class="socials__link" title="Youtube">
                   <svg class="socials__icon" width="33" height="27">
                     <use xlink:href="#icon-youtube"></use>
                   </svg>
