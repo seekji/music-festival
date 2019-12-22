@@ -107,13 +107,12 @@
           <div class="page-footer__copyright">
             &copy; 2009 &mdash; 2020 {{ 'text.festival.name'|trans({}, 'site') }}
           </div>
-          <div class="page-footer__dev">
-            <span class="page-footer__dev-text">{{ 'text.made.in'|trans({}, 'site') }}</span>
-            <img
-              src="{{ asset('build/assets/images/logo_03.svg') }}"
-              alt="Logo"
-              class="page-footer__dev-logo">
-          </div>
+          <a href="#" class="page-footer__dev">
+            <div class="page-footer__dev-text">{{ 'text.made.in'|trans({}, 'site') }}</div>
+            <svg class="page-footer__dev-logo">
+              <use xlink:href="#oxyo"></use>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
