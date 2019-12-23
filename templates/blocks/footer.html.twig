@@ -12,7 +12,7 @@
           {% for partner in partners|slice(0, 2) %}
             <div class="partners__logo-wrap {{ partner.isBig ? 'partners__logo-wrap--large' : '' }}">
               <a href="{{ partner.link ? : 'javascript:void(0);' }}"
-                 class="partners__logo">
+                 class="partners__logo" target="_blank">
                 <img
                   src="{% path partner.picture, 'reference' %}"
                   alt="{{ partner.name }}"
@@ -24,7 +24,7 @@
         <div class="partners__row">
           {% for partner in partners|slice(2) %}
             <div class="partners__logo-wrap">
-              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo">
+              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo" target="_blank">
                 <img
                   src="{% path partner.picture, 'reference' %}"
                   alt="{{ partner.name }}"
@@ -111,7 +111,7 @@
           <div class="page-footer__copyright">
             &copy; 2009 &mdash; 2020 {{ 'text.festival.name'|trans({}, 'site') }}
           </div>
-          <a href="#" class="page-footer__dev">
+          <a href="oxyo.space" target="_blank" class="page-footer__dev">
             <div class="page-footer__dev-text">{{ 'text.made.in'|trans({}, 'site') }}</div>
             <svg class="page-footer__dev-logo">
               <use xlink:href="#oxyo"></use>
