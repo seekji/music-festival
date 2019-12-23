@@ -38,7 +38,7 @@ class PageController extends AbstractController
 
         return $this->render("page/{$template}.html.twig", [
             'page' => $page,
-            'partners' => $this->partnerService->getSortedPartners()
+            'partners' => $this->partnerService->getSortedPartners($request->getLocale())
         ]);
     }
 }
