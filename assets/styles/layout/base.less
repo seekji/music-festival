@@ -152,15 +152,10 @@ img {
 a {
   color: #000;
   background-color: transparent;
-  transition: color 0.3s;
+  transition: color .1s ease-in-out;
 
-  //&:hover,
-  //&:focus {
-  //  color: $link-color--hover;
-  //}
-
-  // &:visited {
-  //   color: $link-color--hover;
-  // }
-
+  &:hover,
+  &:active {
+    color: @color-main;
+  }
 }

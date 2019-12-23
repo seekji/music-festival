@@ -1,4 +1,4 @@
-<div class="promo">
+<div id="promo" class="promo">
     <div class="promo__inner">
         {% if slides|length > 0 %}
             <div class="promo__slider background-slider">
@@ -48,7 +48,7 @@
             </a>
         </div>
         {% if getSiteSettingByKey('event_start_date') %}
-            <div class="promo__start-timer start-timer">
+            <div class="promo__start-timer start-timer"">
                 {% set today = "now"|date('Y-m-d') %}
                 {% set difference = date(today).diff(date(getSiteSettingByKey('event_start_date'))) %}
                 {% set leftDays = difference.days %}

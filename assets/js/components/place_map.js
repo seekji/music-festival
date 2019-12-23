@@ -31,7 +31,7 @@ if ($('#place-map').length) {
                 center: coordinates,
                 zoom: 16
             }),
-            placemark = new ymaps.Placemark(placeMap.getCenter(), {
+            placemark = new ymaps.Placemark(placeMap.getCenter(), {}, {
                 iconLayout: 'default#image',
                 iconImageHref: icon,
                 iconImageSize: [47, 65],
