@@ -53,6 +53,12 @@ sonata_media:
             directory:  "%kernel.root_dir%/../public_html/uploads/media" #flex
             #directory:  "%kernel.root_dir%/../public_html/uploads/media" #non-flex
             create:     true
+
+    providers:
+        image:
+            allowed_extensions: ['jpg', 'png', 'jpeg', 'svg']
+            allowed_mime_types: ['image/svg+xml', 'image/svg', 'image/pjpeg', 'image/jpeg', 'image/png', 'image/x-png']
+
     class:
         media: App\Application\Sonata\MediaBundle\Entity\Media
         gallery: App\Application\Sonata\MediaBundle\Entity\Gallery

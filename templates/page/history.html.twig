@@ -35,7 +35,7 @@
                         </div>
                         <div class="history__column-right">
                             <h2 class="history__title">
-                                <span class="history__title-number">{{ item.viewers|number_format(0, ' ', '') }}</span>
+                                <span class="history__title-number">{{ item.viewers|number_format(0, '', ' ') }}</span>
                                 <span class="history__title-text">{{ item.viewersTitle }}</span>
                             </h2>
                             {% if item.description %}

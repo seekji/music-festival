@@ -4,32 +4,18 @@ namespace App\Service;
 
 use App\Repository\PartnerRepository;
 
-/**
- * Class PartnerService
- * @package App\Service
- */
 class PartnerService
 {
-    /**
-     * @var PartnerRepository
-     */
     private $partnerRepository;
 
-    /**
-     * PartnerService constructor.
-     * @param PartnerRepository $partnerRepository
-     */
     public function __construct(PartnerRepository $partnerRepository)
     {
         $this->partnerRepository = $partnerRepository;
     }
 
-    /**
-     * @return \App\Entity\Partner[]
-     */
-    public function getSortedPartners()
+    public function getSortedPartners(string $locale): array
     {
-        return $this->partnerRepository->findBy([], ['sort' => 'ASC', 'isBig' => 'DESC']);
+        return $this->partnerRepository->findBy(['locale' => $locale], ['sort' => 'ASC', 'isBig' => 'DESC']);
     }
 }
 

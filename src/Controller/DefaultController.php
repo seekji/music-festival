@@ -65,7 +65,7 @@ class DefaultController extends AbstractController
     public function indexAction(Request $request)
     {
         return $this->render('default/index.html.twig', [
-            'partners' => $this->partnerService->getSortedPartners(),
+            'partners' => $this->partnerService->getSortedPartners($request->getLocale()),
             'artists' => $this->artistService->getArtistsByLocale($request->getLocale()),
             'news' => $this->newsService->getLastNewsByLocale($request->getLocale()),
             'slides' => $this->sliderService->getSlidesByLocale($request->getLocale())
