@@ -18,13 +18,17 @@
   @media (max-width: @screen-md-max) {
     display: none;
     flex-direction: column;
-    min-width: 200px;
-    max-width: 100%;
-    padding: 74px 20px 30px;
-    background: @cod-gray;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 400px;
+    min-height: 430px;
+    padding: 90px 15px 30px;
+    background-image: url("data:image/svg+xml,%3Csvg enable-background='new 0 0 1336.9 1420.7' viewBox='0 0 1336.9 1420.7' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3CclipPath id='a'%3E%3Cpath d='m0 0h1336.9v1420.7h-1336.9z'/%3E%3C/clipPath%3E%3Cpath clip-path='url(%23a)' d='m0-839.9v834.3 1426.3l1097.8-1097.8h-84l427.9-427.6h-84.1l735.3-735.2z' fill='%23ff001e'/%3E%3Cg fill='%2300001e'%3E%3Cpath clip-path='url(%23a)' d='m1399.7-62.7-42.1-42h84.1z'/%3E%3Cpath clip-path='url(%23a)' d='m1055.8 364.9-42-42h84z'/%3E%3C/g%3E%3C/svg%3E");    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
 
     &--visible {
-      display: block;
+      display: flex;
     }
   }
 
@@ -34,6 +38,10 @@
 
     @media (max-width: @screen-lg-max) {
       font-size: 14px;
+    }
+
+    @media (max-width: @screen-md-max) {
+      font-size: 20px;
     }
 
     + .main-nav__item {
@@ -107,6 +115,10 @@
     text-transform: uppercase;
     color: @main-nav-link-color;
     transition: color .1s ease-in-out;
+
+    @media (max-width: @screen-md-max) {
+      padding: 0;
+    }
 
     &:hover,
     &:active {
