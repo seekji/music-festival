@@ -18,6 +18,13 @@
     z-index: 1000;
   }
 
+  &--mobile-only {
+
+    @media (min-width: @screen-lg) {
+      display: none;
+    }
+  }
+
   &__link {
     position: absolute;
     bottom: 40px;
