@@ -8,11 +8,14 @@
   background-size: contain;
 
   @media (max-width: @screen-md-max) {
+    position: fixed;
+    right: 0;
     width: 100%;
     height: auto;
     padding: 8px 10px 10px;
     background: none;
     background-color: @color-main;
+    z-index: 1000;
   }
 
   &__link {

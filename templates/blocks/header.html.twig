@@ -17,7 +17,7 @@
     {% if app.request.attributes.get('_route') == 'app.homepage' %}
       <div class="page-header__logo">
         <picture>
-          <source media="(max-width: 1023px)" srcset="{{ asset('logo.src.mobile'|trans({}, 'site')) }}">
+          <source media="(max-width: 1023px)" srcset="{{ asset('logo.mobile.src'|trans({}, 'site')) }}">
           <img
             src="{{ asset('logo.src'|trans({}, 'site')) }}"
             alt="{{ 'logo.alt'|trans({}, 'site') }}">
