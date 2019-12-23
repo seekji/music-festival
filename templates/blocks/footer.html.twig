@@ -10,23 +10,27 @@
       <div class="partners__items">
         <div class="partners__row">
           {% for partner in partners|slice(0, 2) %}
-            <a href="{{ partner.link ? : 'javascript:void(0);' }}"
-               class="partners__logo {{ partner.isBig ? 'partners__logo--large' : '' }}">
-              <img
-                src="{% path partner.picture, 'reference' %}"
-                alt="{{ partner.name }}"
-                class="partners__logo-img">
-            </a>
+            <div class="partners__logo-wrap {{ partner.isBig ? 'partners__logo-wrap--large' : '' }}">
+              <a href="{{ partner.link ? : 'javascript:void(0);' }}"
+                 class="partners__logo">
+                <img
+                  src="{% path partner.picture, 'reference' %}"
+                  alt="{{ partner.name }}"
+                  class="partners__logo-img">
+              </a>
+            </div>
           {% endfor %}
         </div>
         <div class="partners__row">
           {% for partner in partners|slice(2) %}
-            <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo">
-              <img
-                src="{% path partner.picture, 'reference' %}"
-                alt="{{ partner.name }}"
-                class="partners__logo-img">
-            </a>
+            <div class="partners__logo-wrap">
+              <a href="{{ partner.link ? : 'javascript:void(0);' }}" class="partners__logo">
+                <img
+                  src="{% path partner.picture, 'reference' %}"
+                  alt="{{ partner.name }}"
+                  class="partners__logo-img">
+              </a>
+            </div>
           {% endfor %}
         </div>
       </div>
