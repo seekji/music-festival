@@ -15,12 +15,22 @@
       </div>
 
       <div class="lineup__column-left" id="lineup-animation">
-        <h2 class="lineup__title lineup__title--hidden-md" id="scene-01">
-          <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
-          <div class="lineup__year">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}
-            <div class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</div>
+        <div class="lineup__sticky">
+          <h2 class="lineup__title lineup__title--hidden-md" id="scene-01">
+            <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
+            <div class="lineup__year">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}
+              <div class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</div>
+            </div>
+          </h2>
+          <div class="lineup__buy-tickets buy-tickets">
+            <a href="#tickets-popup" class="buy-tickets__link tickets-popup-trigger">
+              <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
+              <svg class="buy-tickets__icon">
+                <use xlink:href="#arrow-right"></use>
+              </svg>
+            </a>
           </div>
-        </h2>
+        </div>
         <div class="lineup__text-blocks">
           <div class="lineup__text-block lineup__text-block--has-link" id="scene-02">
             {% if getLocalSiteSettingByKey(app.request.locale, 'place_link') %}
@@ -74,14 +84,5 @@
         {% endif %}
       </div>
     </div>
-  </div>
-
-  <div class="buy-tickets">
-    <a href="#tickets-popup" class="buy-tickets__link tickets-popup-trigger" data-rellax-speed="1">
-      <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
-      <svg class="buy-tickets__icon">
-        <use xlink:href="#arrow-right"></use>
-      </svg>
-    </a>
   </div>
 </section>
