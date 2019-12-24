@@ -68,6 +68,7 @@ class LoadArtistDataFixture extends Fixture implements FixtureInterface, Contain
             $artist->setIsHeadliner($this->faker->boolean(20));
             $artist->setDescription($this->faker->text(100));
             $artist->setStartAt($this->faker->dateTimeBetween('now', '+1 day'));
+            $artist->setIsShowTime(true);
 
             $manager->persist($artist);
         }

@@ -55,7 +55,9 @@
         {% for artist in artists %}
           <div class="artist-card {{ artist.isHeadliner ? 'artist-card--is-headliner' : '' }}">
             <div class="artist-card__wrap">
-              <div class="artist-card__time">{{ artist.startAt|date('H:i') }}</div>
+              {% if artist.isShowTime == true %}
+                <div class="artist-card__time">{{ artist.startAt|date('H:i') }}</div>
+              {% endif %}
               <div class="artist-card__img-wrap">
                 <img class="artist-card__img" src="{% path artist.picture, 'reference' %}" alt="{{ artist.name }}">
               </div>
