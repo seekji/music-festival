@@ -79,6 +79,7 @@ class ArtistAdmin extends AbstractAdmin
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
                 ->add('isHeadliner')
+                ->add('isShowTime')
                 ->add('sort')
             ->end();
     }

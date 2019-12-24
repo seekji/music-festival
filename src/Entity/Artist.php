@@ -59,6 +59,11 @@ class Artist implements LocaleInterface
     private $description;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isShowTime = true;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -185,6 +190,18 @@ class Artist implements LocaleInterface
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIsShowTime(): ?bool
+    {
+        return $this->isShowTime;
+    }
+
+    public function setIsShowTime(bool $isShowTime): self
+    {
+        $this->isShowTime = $isShowTime;
 
         return $this;
     }
