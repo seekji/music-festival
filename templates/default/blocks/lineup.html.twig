@@ -1,79 +1,83 @@
-<section class="lineup">
-  <div class="lineup__inner">
-    <div class="lineup__header">
-      <h2 class="lineup__title">
-        <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
-        <div class="lineup__year">
-          {{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}<span class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</span>
-        </div>
-      </h2>
+<section id="lineup" class="lineup">
+  <div class="lineup__inner-wrap">
+    <div class="lineup__inner">
+      <div class="lineup__header">
+        <h2 class="lineup__title">
+          <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
+          <div class="lineup__year">
+            {{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}<span class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</span>
+          </div>
+        </h2>
 
-      <div class="lineup__date">
-        {{ getSiteSettingByKey('event_start_date')|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM') }}
+        <div class="lineup__date">
+          {{ getSiteSettingByKey('event_start_date')|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM') }}
+        </div>
       </div>
-    </div>
 
-    <div class="lineup__column-left" id="lineup-animation">
-      <h2 class="lineup__title lineup__title--hidden-md" id="scene-01">
-        <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
-        <div class="lineup__year">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}
-          <div class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</div>
-        </div>
-      </h2>
-      <div class="lineup__text-blocks">
-        <div class="lineup__text-block lineup__text-block--has-link" id="scene-02">
-          {% if getLocalSiteSettingByKey(app.request.locale, 'place_link') %}
-            <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'place_link') is not null ?  getLocalSiteSettingByKey(app.request.locale, 'lineup_link') : '#' }}" class="lineup__subtitle">
-              <div class="lineup__subtitle-wrap">
-                <span class="lineup__subtitle-number">{{ 'text.fan.zones.count'|trans({}, 'site') }}</span>
-                <svg class="lineup__subtitle-icon">
-                  <use xlink:href="#arrow-right-long"></use>
-                </svg>
+      <div class="lineup__column-left" id="lineup-animation">
+        <h2 class="lineup__title lineup__title--hidden-md" id="scene-01">
+          <div class="lineup__title-text">{{ 'text.lineup'|trans({}, 'site') }}</div>
+          <div class="lineup__year">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(0, 2) }}
+            <div class="lineup__year-decade">{{ getSiteSettingByKey('event_start_date')|date('Y')|slice(2, 2) }}</div>
+          </div>
+        </h2>
+        <div class="lineup__text-blocks">
+          <div class="lineup__text-block lineup__text-block--has-link" id="scene-02">
+            {% if getLocalSiteSettingByKey(app.request.locale, 'place_link') %}
+              <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'place_link') is not null ?  getLocalSiteSettingByKey(app.request.locale, 'lineup_link') : '#' }}" class="lineup__subtitle">
+                <div class="lineup__subtitle-wrap">
+                  <span class="lineup__subtitle-number">{{ 'text.fan.zones.count'|trans({}, 'site') }}</span>
+                  <svg class="lineup__subtitle-icon">
+                    <use xlink:href="#arrow-right-long"></use>
+                  </svg>
+                </div>
+                <div class="lineup__subtitle-text">{{ 'text.fan.zones'|trans({}, 'site') }}</div>
+              </a>
+            {% endif %}
+            <div class="lineup__description">
+              {{ getLocalSiteSettingByKey(app.request.locale, 'lineup_description')|raw }}
+            </div>
+          </div>
+
+          {% if getLocalSiteSettingByKey(app.request.locale, 'lineup_link') %}
+            <div class="lineup__text-block" id="scene-03">
+              <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'lineup_link') is not null ?  getLocalSiteSettingByKey(app.request.locale, 'lineup_link') : '#' }}" class="lineup__subtitle">
+                <span class="lineup__subtitle-number">{{ getSiteSettingByKey('event_hours') }}</span>
+                <div class="lineup__subtitle-text">{{ 'text.lineup.hours'|trans({}, 'site') }}</div>
+              </a>
+              <div class="lineup__description">
+                {{ getLocalSiteSettingByKey(app.request.locale, 'lineup_hours_description')|raw }}
               </div>
-              <div class="lineup__subtitle-text">{{ 'text.fan.zones'|trans({}, 'site') }}</div>
-            </a>
+            </div>
           {% endif %}
-          <div class="lineup__description">
-            {{ getLocalSiteSettingByKey(app.request.locale, 'lineup_description')|raw }}
-          </div>
-        </div>
-
-        <div class="lineup__text-block" id="scene-03">
-          <a href="{{ getLocalSiteSettingByKey(app.request.locale, 'lineup_link') is not null ?  getLocalSiteSettingByKey(app.request.locale, 'lineup_link') : '#' }}" class="lineup__subtitle">
-            <span class="lineup__subtitle-number">{{ getSiteSettingByKey('event_hours') }}</span>
-            <div class="lineup__subtitle-text">{{ 'text.lineup.hours'|trans({}, 'site') }}</div>
-          </a>
-          <div class="lineup__description">
-            {{ getLocalSiteSettingByKey(app.request.locale, 'lineup_hours_description')|raw }}
-          </div>
         </div>
       </div>
-    </div>
-    <div class="lineup__column-right">
-      <div class="lineup__date lineup__date--hidden-md">{{ getSiteSettingByKey('event_start_date')|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM') }}</div>
-      {% if artists is defined and artists|length > 0 %}
-        {% for artist in artists %}
-          <div class="artist-card {{ artist.isHeadliner ? 'artist-card--is-headliner' : '' }}">
-            <div class="artist-card__wrap">
-              {% if artist.isShowTime == true %}
+      <div class="lineup__column-right">
+        <div class="lineup__date lineup__date--hidden-md">{{ getSiteSettingByKey('event_start_date')|localizeddate('short', 'medium', app.request.locale, null, 'd MMMM') }}</div>
+        {% if artists is defined and artists|length > 0 %}
+          {% for artist in artists %}
+            <div class="artist-card {{ artist.isHeadliner ? 'artist-card--is-headliner' : '' }}">
+              <div class="artist-card__wrap">
+                {% if artist.isShowTime == true %}
                 <div class="artist-card__time">{{ artist.startAt|date('H:i') }}</div>
               {% endif %}
-              <div class="artist-card__img-wrap">
-                <img class="artist-card__img" src="{% path artist.picture, 'reference' %}" alt="{{ artist.name }}">
+                <div class="artist-card__img-wrap">
+                  <img class="artist-card__img" src="{% path artist.picture, 'reference' %}" alt="{{ artist.name }}">
+                </div>
+              </div>
+              <div class="artist-card__info">
+                <div class="artist-card__title">{{ artist.name }}</div>
+                <div class="artist-card__text">{{ artist.description }}</div>
               </div>
             </div>
-            <div class="artist-card__info">
-              <div class="artist-card__title">{{ artist.name }}</div>
-              <div class="artist-card__text">{{ artist.description }}</div>
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
   </div>
 
   <div class="buy-tickets">
-    <a href="#tickets-popup" class="buy-tickets__link tickets-popup-trigger">
+    <a href="#tickets-popup" class="buy-tickets__link tickets-popup-trigger" data-rellax-speed="1">
       <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
       <svg class="buy-tickets__icon">
         <use xlink:href="#arrow-right"></use>

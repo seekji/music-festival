@@ -3,24 +3,23 @@
   background: @cod-gray;
   color: @white;
 
+  &__inner-wrap {
+    height: 100vh;
+    min-height: 730px;
+    overflow-y: auto;
+
+    @media (max-width: @screen-md-max) {
+      height: auto;
+      min-height: 0;
+    }
+  }
+
   &__inner {
     .container-fluid();
     display: flex;
-    height: 100vh;
-    min-height: 730px;
-
-    @media (min-width: @screen-lg) {
-      padding-right: 0; // TODO: remove after animation will be ready
-    }
-
-    @media (min-width: @screen-xl) {
-      padding-right: 0; // TODO: remove after animation will be ready
-    }
 
     @media (max-width: @screen-md-max) {
       flex-wrap: wrap;
-      min-height: 0;
-      overflow-y: auto; // TODO: remove after animation will be ready
     }
   }
 
@@ -61,15 +60,6 @@
 
     // TODO: remove after animation will be ready
     @media (min-width: @screen-lg) {
-      padding-right: @container-padding-lg;
-      overflow-y: auto;
-      padding-bottom: 150px;
-    }
-
-    // TODO: remove after animation will be ready
-    @media (min-width: @screen-xl) {
-      padding-right: @container-padding-default;
-      overflow-y: auto;
       padding-bottom: 150px;
     }
 
@@ -98,6 +88,8 @@
 
     &--hidden-md {
       display: none;
+      position: sticky;
+      top: 115px;
 
       @media (min-width: @screen-lg) {
         display: block;

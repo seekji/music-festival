@@ -106,6 +106,15 @@
                     </div>
                 </div>
             </div>
+
+            <div class="buy-tickets">
+                <a href="#tickets-popup" class="buy-tickets__link tickets-popup-trigger" data-rellax-speed="1">
+                    <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
+                    <svg class="buy-tickets__icon">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
         </section>
     {% endif %}
 {% endblock %}

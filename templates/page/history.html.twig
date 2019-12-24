@@ -10,8 +10,8 @@
         <img class="start-screen__img" src="{% path page.picture, 'reference' %}"
              alt="{{ page.title }}">
         <h1 class="start-screen__title">
-            <span class="word">{{ page.title }}</span>
-            <span class="word">{{ page.subTitle }}</span>
+            <span class="start-screen__title-main">{{ page.title }}</span>
+            <span class="start-screen__title-secondary">{{ page.subTitle }}</span>
         </h1>
     </div>
     {% if page.history|length > 0 %}
@@ -46,6 +46,15 @@
                         </div>
                     </div>
                 {% endfor %}
+            </div>
+
+            <div class="buy-tickets buy-tickets--mobile-only">
+                <a href="#tickets-popup" class="buy-tickets__link tickets-popup-trigger" data-rellax-speed="1">
+                    <div class="buy-tickets__text">{{ 'btn.tickets.buy'|trans({}, 'site') }}</div>
+                    <svg class="buy-tickets__icon">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </a>
             </div>
         </section>
     {% endif %}

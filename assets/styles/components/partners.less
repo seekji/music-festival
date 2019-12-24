@@ -106,21 +106,15 @@
     }
   }
 
-  &__logo {
+  &__logo-wrap {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 21%;
     max-width: 160px;
-    transition: opacity .1s ease-in-out;
 
     @media (max-width: @screen-sm-max) {
       justify-content: center;
-    }
-
-    &:hover,
-    &:active {
-      opacity: .8;
     }
 
     &:first-child {
@@ -137,7 +131,7 @@
       }
     }
 
-    + .partners__logo {
+    + .partners__logo-wrap {
       margin-left: 5.33%;
     }
 
@@ -161,6 +155,16 @@
           max-height: 35px;
         }
       }
+    }
+  }
+
+  &__logo {
+    display: block;
+    transition: opacity .1s ease-in-out;
+
+    &:hover,
+    &:active {
+      opacity: .8;
     }
   }
 

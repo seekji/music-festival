@@ -24,6 +24,7 @@
         "less": "^3.10.3",
         "magnific-popup": "^1.1.0",
         "normalize.css.less": "^3.0.3",
+        "rellax": "1.9.1",
         "scrollmagic": "^2.0.7",
         "slick-carousel": "^1.8.1",
         "splitting": "^1.0.6"
