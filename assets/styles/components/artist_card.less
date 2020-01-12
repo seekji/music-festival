@@ -44,6 +44,8 @@
 
     .artist-card__img-wrap {
       position: relative; // for img
+      display: block;
+      text-decoration: none;
 
       &::before {
         content: '';
@@ -165,10 +167,18 @@
   }
 
   &__title {
+    display: block;
     width: 80%;
     margin-bottom: 20px;
     font-size: 30px;
     font-weight: 800;
+    transition: color 0.2s ease-in-out;
+    color: @white;
+
+    &:hover,
+    &:active {
+      color: @color-main;
+    }
 
     @media (max-width: @screen-lg-max) {
       font-size: 24px;

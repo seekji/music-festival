@@ -61,7 +61,7 @@ $(document).ready(function () {
         historyRellax.refresh();
     };
 
-    if ($(window).width() <= 768 ) {
+    if ($(window).width() <= 1024 ) {
         destroyRellaxEntities();
     } else {
         refreshRellaxEntities()
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     $(window).resize(function() {
 
-        if ($(window).width() <= 768 ) {
+        if ($(window).width() <= 1024 ) {
             destroyRellaxEntities();
         } else {
             refreshRellaxEntities();
