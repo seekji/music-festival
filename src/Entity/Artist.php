@@ -64,6 +64,11 @@ class Artist implements LocaleInterface
     private $isShowTime = true;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -202,6 +207,18 @@ class Artist implements LocaleInterface
     public function setIsShowTime(bool $isShowTime): self
     {
         $this->isShowTime = $isShowTime;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }

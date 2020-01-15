@@ -59,14 +59,14 @@
             <div class="artist-card {{ artist.isHeadliner ? 'artist-card--is-headliner' : '' }}">
               <div class="artist-card__wrap">
                 {% if artist.isShowTime == true %}
-                <div class="artist-card__time">{{ artist.startAt|date('H:i') }}</div>
-              {% endif %}
-                <a href="#" class="artist-card__img-wrap">
+                  <div class="artist-card__time">{{ artist.startAt|date('H:i') }}</div>
+                {% endif %}
+                <a href="{{ artist.link ? : 'javascript:void(0);' }}" rel="nofollow" class="artist-card__img-wrap">
                   <img class="artist-card__img" src="{% path artist.picture, 'reference' %}" alt="{{ artist.name }}">
                 </a>
               </div>
               <div class="artist-card__info">
-                <a href="#" class="artist-card__title">{{ artist.name }}</a>
+                <a href="{{ artist.link ? : 'javascript:void(0);' }}" rel="nofollow" class="artist-card__title">{{ artist.name }}</a>
                 <div class="artist-card__text">{{ artist.description }}</div>
               </div>
             </div>
