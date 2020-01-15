@@ -73,6 +73,7 @@ class ArtistAdmin extends AbstractAdmin
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
                 ->add('name')
+                ->add('link')
                 ->add('startAt', TimeType::class)
                 ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'artists']])
                 ->add('description')
@@ -92,6 +93,7 @@ class ArtistAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('name')
+            ->add('link')
             ->add('sort')
             ->add('isHeadliner')
             ->add('startAt')
