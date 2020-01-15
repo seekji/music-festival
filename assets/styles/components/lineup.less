@@ -3,14 +3,45 @@
   background: @cod-gray;
   color: @white;
 
-  &__inner-wrap {
+  //&__inner-wrap {
+  //  height: 100vh;
+  //  min-height: 730px;
+  //  overflow-y: auto;
+  //
+  //  @media (max-width: @screen-md-max) {
+  //    height: auto;
+  //    min-height: 0;
+  //  }
+  //}
+
+  &__sticky {
+    position: sticky;
+    top: 0;
+    padding-top: 30px;
     height: 100vh;
-    min-height: 730px;
-    overflow-y: auto;
+    min-height: 500px; // magic number
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
     @media (max-width: @screen-md-max) {
-      height: auto;
+      height: 0;
       min-height: 0;
+      padding: 0;
+    }
+  }
+
+  .lineup__buy-tickets { // for specificity
+    position: relative;
+    left: -@container-padding-default;
+
+    @media (max-width: @screen-lg-max) {
+      left: -@container-padding-lg;
+    }
+
+    @media (max-width: @screen-md-max) {
+      position: fixed;
+      left: 0;
     }
   }
 
@@ -40,10 +71,10 @@
   }
 
   &__column-left {
-    padding-top: 115px;
     width: 41.65%;
 
     @media (max-width: @screen-md-max) {
+      padding-top: 115px;
       order: 2;
       width: 100%;
     }
@@ -88,8 +119,7 @@
 
     &--hidden-md {
       display: none;
-      position: sticky;
-      top: 115px;
+      margin-bottom: 50px;
 
       @media (min-width: @screen-lg) {
         display: block;
