@@ -57,31 +57,30 @@ $(document).ready(function () {
         relativeToWrapper: true,
     });
 
-    var destroyRellaxEntities = function () {
-        lineupRellax.destroy();
-        placeRellax.destroy();
-        historyRellax.destroy();
-    };
-
-    var refreshRellaxEntities = function () {
-        lineupRellax.refresh();
-        placeRellax.refresh();
-        historyRellax.refresh();
-    };
-
-    if ($(window).width() <= 1023 ) {
-        destroyRellaxEntities();
-    } else {
-        refreshRellaxEntities()
-    }
-
-    $(window).resize(function() {
-
-        if ($(window).width() <= 1023 ) {
-            destroyRellaxEntities();
-        } else {
-            refreshRellaxEntities();
-        }
-    })
-
+    // var destroyRellaxEntities = function () {
+    //     lineupRellax.destroy();
+    //     placeRellax.destroy();
+    //     historyRellax.destroy();
+    // };
+    //
+    // var refreshRellaxEntities = function () {
+    //     lineupRellax.refresh();
+    //     placeRellax.refresh();
+    //     historyRellax.refresh();
+    // };
+    //
+    // if ($(window).width() <= 1023 ) {
+    //     destroyRellaxEntities();
+    // } else {
+    //     refreshRellaxEntities()
+    // }
+    //
+    // $(window).resize(function() {
+    //
+    //     if ($(window).width() <= 1023 ) {
+    //         destroyRellaxEntities();
+    //     } else {
+    //         refreshRellaxEntities();
+    //     }
+    // })
 });
