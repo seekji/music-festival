@@ -15,4 +15,8 @@ $(document).ready(function () {
             }
         });
     }
+
+    $('.info-page__list-item').each(function(i) {
+        $(this).delay(800 * i).animate({opacity: 1}, 1000);
+    });
 });
