@@ -1,5 +1,3 @@
-@arrow-left: url("data:image/svg+xml,%3Csvg viewBox='0 0 217.4 62.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='m9.4 26.2h208v10h-208z'/%3E%3Cpath d='m31.2 62.4-31.2-31.2 31.2-31.2 7.1 7.1-24.2 24.1 24.2 24.2z'/%3E%3C/g%3E%3C/svg%3E");
-@arrow-right: url("data:image/svg+xml,%3Csvg viewBox='0 0 217.4 62.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='m0 26.2h208v10h-208z'/%3E%3Cpath d='m186.2 62.4-7.1-7 24.1-24.2-24.1-24.1 7.1-7.1 31.2 31.2z'/%3E%3C/g%3E%3C/svg%3E");
 @info-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 1166.4 838.7' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m696 226.5-41.9 41.9v-83.8z' fill='%2300001e'/%3E%3Cpath d='m922.4 0-268.3 268.3v-83.7l-654.1 654.1h1166.4v-838.7z' fill='%23ff001e'/%3E%3C/svg%3E");
 
 .info-page {
@@ -115,6 +113,8 @@
   }
 
   &__list {
+    display: flex;
+    flex-direction: column;
     width: 75%;
     margin: 0 0 0 auto;
     padding: 0 0 0 20px;
@@ -131,13 +131,15 @@
   }
 
   &__list-item {
-
+    opacity: 0;
+    align-self: flex-start;
 
     + .info-page__list-item {
       margin-top: 24px;
     }
 
     &:nth-child(2n) {
+      align-self: flex-end;
 
       .info-page__link {
         justify-content: flex-end;
@@ -147,11 +149,11 @@
           margin-right: 50px;
         }
 
-        &::after {
+        .info-page__icon--right {
           display: none;
         }
 
-        &::before {
+        .info-page__icon--left {
           display: block;
         }
       }
@@ -159,7 +161,6 @@
   }
 
   &__link {
-    position: relative; // for before
     display: flex;
     align-items: center;
     color: @white;
@@ -185,34 +186,33 @@
       font-size: 16px;
     }
 
-    &::before,
-    &::after {
-      content: '';
-      width: 93px;
-      height: 28px;
-      background-repeat: no-repeat;
-      background-size: contain;
-
-      @media (max-width: @screen-md-max) {
-        width: 66px;
-        height: 20px;
-      }
-
-      @media (max-width: @screen-sm-max) {
-        width: 50px;
-        height: 15px;
-      }
+    &:hover,
+    &:active {
+      color: @base-blue;
     }
+  }
 
-    &::before {
+  &__icon {
+    width: 93px;
+    height: 28px;
+
+    &--left {
       display: none;
       margin-right: 10px;
-      background-image: @arrow-left;
     }
 
-    &::after {
+    &--right {
       margin-left: 10px;
-      background-image: @arrow-right;
+    }
+
+    @media (max-width: @screen-md-max) {
+      width: 66px;
+      height: 20px;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      width: 50px;
+      height: 15px;
     }
   }
 }

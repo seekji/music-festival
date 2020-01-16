@@ -22,7 +22,13 @@
                     {% for item in page.infoLinks %}
                         <li class="info-page__list-item">
                             <a href="{{ item.link }}" class="info-page__link">
-                                {{ item.title }}
+                                <svg class="info-page__icon info-page__icon--left">
+                                    <use xlink:href="#arrow-left"></use>
+                                </svg>
+                                <span>{{ item.title }}</span>
+                                <svg class="info-page__icon info-page__icon--right">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
                             </a>
                         </li>
                     {% endfor %}
