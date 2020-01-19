@@ -44,6 +44,11 @@ Encore
     .cleanupOutputBeforeBuild()
     .disableImagesLoader()
 
+    .copyFiles({
+        from: './assets/videos',
+        to: 'assets/videos/[name].[hash:8].[ext]'
+    })
+
     .addLoader({
         test: /\.(png|jpg|jpeg|gif|ico|svg|webp)$/,
         loader: 'file-loader',

@@ -1,8 +1,10 @@
 <div class="short-history">
-  <img
-    class="short-history__img"
-    src="{{ asset('build/assets/images/short_history.jpg') }}"
-    alt="{{ 'text.history.picture.alt'|trans({}, 'site') }}">
+  <video
+    class="short-history__video"
+    poster="{{ asset('build/assets/images/short_history.jpg') }}"
+    autoplay muted loop>
+    <source src="{{ asset('build/assets/videos/history_video.mp4') }}" type="video/mp4">
+  </video>
   <div class="short-history__inner">
     <div class="short-history__top-block">
       <div class="short-history__description">
