@@ -57,30 +57,50 @@ $(document).ready(function () {
         relativeToWrapper: true,
     });
 
-    // var destroyRellaxEntities = function () {
-    //     lineupRellax.destroy();
-    //     placeRellax.destroy();
-    //     historyRellax.destroy();
-    // };
-    //
-    // var refreshRellaxEntities = function () {
-    //     lineupRellax.refresh();
-    //     placeRellax.refresh();
-    //     historyRellax.refresh();
-    // };
-    //
-    // if ($(window).width() <= 1023 ) {
-    //     destroyRellaxEntities();
-    // } else {
-    //     refreshRellaxEntities()
-    // }
-    //
-    // $(window).resize(function() {
-    //
-    //     if ($(window).width() <= 1023 ) {
-    //         destroyRellaxEntities();
-    //     } else {
-    //         refreshRellaxEntities();
-    //     }
-    // })
+    var destroyRellax = function (selector, functionName) {
+        if ($(selector).length) {
+            functionName.destroy();
+        }
+    };
+
+    var refreshRellax = function (selector, functionName) {
+        if ($(selector).length) {
+            functionName.refresh();
+        }
+    };
+
+    var destroyRellaxEntities = function () {
+        destroyRellax('.page-header__logo', headerRellax);
+        destroyRellax('.start-screen__title', startScreenRellax);
+        destroyRellax('.promo__start-timer', promoRellax);
+        destroyRellax('#lineup .buy-tickets__link', lineupRellax);
+        destroyRellax('.partners__title', partnersRellax);
+        destroyRellax('.place__content', placeRellax);
+        destroyRellax('.short-history__top-block', historyRellax);
+    };
+
+    var refreshRellaxEntities = function () {
+        refreshRellax('.page-header__logo', headerRellax);
+        refreshRellax('.start-screen__title', startScreenRellax);
+        refreshRellax('.promo__start-timer', promoRellax);
+        refreshRellax('#lineup .buy-tickets__link', lineupRellax);
+        refreshRellax('.partners__title', partnersRellax);
+        refreshRellax('.place__content', placeRellax);
+        refreshRellax('.short-history__top-block', historyRellax);
+    };
+
+    if ($(window).width() <= 1023 ) {
+        destroyRellaxEntities();
+    } else {
+        refreshRellaxEntities()
+    }
+
+    $(window).resize(function() {
+
+        if ($(window).width() <= 1023 ) {
+            destroyRellaxEntities();
+        } else {
+            refreshRellaxEntities();
+        }
+    })
 });
