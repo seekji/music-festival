@@ -105,10 +105,12 @@
               </div>
               <div class="organizer">
                 <div class="organizer__text">{{ 'text.organiser'|trans({}, 'site') }}</div>
-                <img
-                  src="{{ asset('build/assets/images/organizer_logo.svg') }}"
-                  alt="Logo"
-                  class="organizer__logo">
+                <a href="//www.nca.ru" class="organizer__logo">
+                  <img
+                    src="{{ asset('build/assets/images/organizer_logo.svg') }}"
+                    alt="Logo"
+                    class="organizer__logo">
+                </a>
               </div>
             </div>
           </div>
@@ -117,7 +119,7 @@
           <div class="page-footer__copyright">
             &copy; 2009 &mdash; 2020 {{ 'text.festival.name'|trans({}, 'site') }}
           </div>
-          <a href="oxyo.space" target="_blank" class="page-footer__dev">
+          <a href="//www.oxyo.space" target="_blank" class="page-footer__dev">
             <div class="page-footer__dev-text">{{ 'text.made.in'|trans({}, 'site') }}</div>
             <svg class="page-footer__dev-logo">
               <use xlink:href="#oxyo"></use>
