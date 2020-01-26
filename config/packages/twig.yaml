@@ -2,6 +2,7 @@ twig:
     paths: ['%kernel.project_dir%/templates']
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    exception_controller: App\Controller\CustomExceptionController::showAction
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
         - '@SonataCore/Form/datepicker.html.twig'

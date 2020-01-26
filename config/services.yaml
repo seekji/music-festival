@@ -34,3 +34,8 @@ services:
     App\Service\SettingsService:
         arguments:
             - '%kernel.root_dir%'
+
+    App\Controller\CustomExceptionController:
+        public: true
+        arguments:
+            $debug: '%kernel.debug%'
