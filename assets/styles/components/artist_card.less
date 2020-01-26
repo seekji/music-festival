@@ -15,6 +15,7 @@
     }
 
     @media (max-width: @screen-md-max) {
+      position: static; // for floating panel
       padding-bottom: 0;
     }
 
@@ -34,7 +35,7 @@
       font-size: 40px;
 
       @media (max-width: @screen-lg-max) {
-        font-size: 28px;
+        font-size: 24px;
       }
 
       @media (max-width: @screen-sm-max) {
@@ -46,6 +47,10 @@
       position: relative; // for img
       display: block;
       text-decoration: none;
+
+      @media (max-width: @screen-md-max) {
+        position: static; // for floating panel
+      }
 
       &::before {
         content: '';
@@ -63,10 +68,6 @@
           left: -76px;
           width: 215px;
           height: 269px;
-        }
-
-        @media (max-width: @screen-md-max) {
-          top: -60px;
         }
 
         @media (max-width: @screen-md-max) {
@@ -122,6 +123,7 @@
     font-weight: 800;
 
     @media (max-width: @screen-lg-max) {
+      width: 75px;
       font-size: 24px;
     }
 
@@ -130,6 +132,7 @@
     }
 
     @media (max-width: @screen-sm-max) {
+      width: auto;
       margin-bottom: 18px;
       font-size: 18px;
     }
