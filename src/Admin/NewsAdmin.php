@@ -73,6 +73,7 @@ class NewsAdmin extends AbstractAdmin
                     'choices' => array_flip(LocaleInterface::LOCALE_LIST)
                 ])
                 ->add('title')
+                ->add('link')
                 ->add('description')
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
