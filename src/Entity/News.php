@@ -36,6 +36,11 @@ class News implements LocaleInterface
      */
     private $isActive;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,5 +85,17 @@ class News implements LocaleInterface
     public function __toString(): string
     {
         return $this->title;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
     }
 }
