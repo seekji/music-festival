@@ -61,7 +61,7 @@
                 {% set difference = date(today).diff(date(getSiteSettingByKey('event_start_date'))) %}
                 {% set leftDays = difference.days %}
 
-                {% if today == getSiteSettingByKey('event_start_date') %}
+                {% if date(today) >= date(getSiteSettingByKey('event_start_date')) %}
                     {# todo: add output #}
                 {% elseif leftDays > 0 %}
                     <div class="start-timer__text">{{ 'text.days.left'|trans({'%count%': leftDays}, 'site') }}</div>
