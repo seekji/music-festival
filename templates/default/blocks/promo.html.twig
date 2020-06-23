@@ -8,7 +8,7 @@
                             <use xlink:href="#arrow-left"></use>
                         </svg>
                     </button>
-                    <div class="background-slider__name">{# Set in js #}</div>
+                    <div class="background-slider__name"> Set in js </div>
                     <button type="button" class="background-slider__nav-btn background-slider__next-btn">
                         <svg class="background-slider__icon">
                             <use xlink:href="#arrow-right"></use>
@@ -18,11 +18,18 @@
 
                 <div class="background-slider__track">
                     {% for slide in slides %}
-                        <div data-artist-name="{{ slide.title }}" class="background-slider__slide">
+                      {# if link #}
+                        <a href="#" data-artist-name="{{ slide.title }}" class="background-slider__slide">
                             <div class="background-slider__container">
                                 <img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">
                             </div>
-                        </div>
+                        </a>
+                      {# if no link #}
+                        {#<div data-artist-name="{{ slide.title }}" class="background-slider__slide">#}
+                            {#<div class="background-slider__container">#}
+                                {#<img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">#}
+                            {#</div>#}
+                        {#</div>#}
                     {% endfor %}
                 </div>
             </div>
