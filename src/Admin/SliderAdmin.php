@@ -75,6 +75,8 @@ class SliderAdmin extends AbstractAdmin
                 ])
                 ->add('title')
                 ->add('picture', ModelListType::class, ['required' => true], ['link_parameters' => ['context' => 'slider']])
+                ->add('link', null, ['help' => 'Ссылка на страницу'])
+                ->add('isExternalLink', null, ['help' => 'Ссылка на сторонний ресурс?'])
             ->end()
             ->with('Состояние', ['class' => 'col-md-3'])
                 ->add('isActive')

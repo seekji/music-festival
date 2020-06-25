@@ -48,6 +48,16 @@ class Slider implements LocaleInterface
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isExternalLink = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,6 +107,30 @@ class Slider implements LocaleInterface
     public function setPicture(?Media $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    public function getIsExternalLink(): ?bool
+    {
+        return $this->isExternalLink;
+    }
+
+    public function setIsExternalLink(bool $isExternalLink): self
+    {
+        $this->isExternalLink = $isExternalLink;
 
         return $this;
     }

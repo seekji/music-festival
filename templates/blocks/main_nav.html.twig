@@ -1,12 +1,6 @@
 {% set items = menuLinks(constant('App\\Entity\\Menu::LOCATION_MAIN'), app.request.locale) %}
 {% if items|length > 0 %}
     <ul class="main-nav">
-        <li class="main-nav__item">
-          <a href="#tickets-popup" class="main-nav__link tickets-popup-trigger">
-            {{ 'item.tickets.buy'|trans({}, 'site') }}
-          </a>
-        </li>
-
         {% for item in items %}
             <li class="main-nav__item">
                 <a href="{{ item.link }}" class="main-nav__link">
@@ -14,6 +8,12 @@
                 </a>
             </li>
         {% endfor %}
+
+        <li class="main-nav__item">
+            <a href="#tickets-popup" class="main-nav__link tickets-popup-trigger">
+              {{ 'item.tickets.buy'|trans({}, 'site') }}
+            </a>
+        </li>
     </ul>
     <img
       class="main-nav__img"
