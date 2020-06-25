@@ -18,18 +18,20 @@
 
                 <div class="background-slider__track">
                     {% for slide in slides %}
-                      {# if link #}
-                        <a href="#" data-artist-name="{{ slide.title }}" class="background-slider__slide">
-                            <div class="background-slider__container">
-                                <img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">
+                        {% if slide.link %}
+                            <a data-artist-name="{{ slide.title }}" class="background-slider__slide" href="{{ slide.link }}"
+                                    {{ slide.isExternalLink ? ' target="_blank" rel="nofollow noopener"' : '' }}>
+                                <div class="background-slider__container">
+                                    <img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">
+                                </div>
+                            </a>
+                        {% else %}
+                            <div data-artist-name="{{ slide.title }}" class="background-slider__slide">
+                                <div class="background-slider__container">
+                                    <img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">
+                                </div>
                             </div>
-                        </a>
-                      {# if no link #}
-                        {#<div data-artist-name="{{ slide.title }}" class="background-slider__slide">#}
-                            {#<div class="background-slider__container">#}
-                                {#<img src="{% path slide.picture, 'reference' %}" alt="{{ slide.title }}" class="background-slider__img">#}
-                            {#</div>#}
-                        {#</div>#}
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
